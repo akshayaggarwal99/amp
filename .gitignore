@@ -1,0 +1,42 @@
+
+# Python Core
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+build/
+dist/
+*.egg-info/
+
+# Logs & Databases
+*.log
+*.db
+*.sqlite
+*.sqlite-journal
+*_debug_db/
+*_brain/
+*_benchmark_qs/
+
+# OS / IDE
+.DS_Store
+.vscode/
+.idea/
+.env
+
+# Project Specific Exclusions
+temp_research/
+mem0_*/
+verify_*.py
+debug_*.py
+locomo_*.db
+debug_om.db
+
+# Benchmarks
+benchmarks/
+
+# Examples (Optional, keeping separate if needed, but standard is to keep)
+# examples/ 

@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AMP Control Center</title>
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#f9f506",
+                        "background-dark": "#050505",
+                        "panel-dark": "#141414",
+                        "accent-cyan": "#06b6d4",
+                        "accent-purple": "#8b5cf6",
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"],
+                    },
+                },
+            },
+        }
+    </script>
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .glass-panel {
+            background: rgba(20, 20, 20, 0.75);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .nav-item.active {
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 2px solid #f9f506;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* The "Net" Background Pattern */
+        .bg-grid-pattern {
+            background-color: #020202;
+            background-image:
+                radial-gradient(circle at 50% 50%, rgba(20, 20, 30, 0.2) 0%, rgba(5, 5, 5, 1) 100%),
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        /* Node Animations */
+        circle {
+            transition: fill 0.3s, r 0.3s;
+        }
+
+        circle:hover {
+            stroke: white;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-dark text-white font-display overflow-hidden selection:bg-primary selection:text-black flex h-screen w-full">
+
+    <!-- SIDEBAR -->
+    <aside class="w-64 h-full glass-panel flex flex-col border-r border-white/5 z-50 flex-none shadow-2xl">
+        <div class="p-6 flex items-center gap-3">
+            <div
+                class="size-8 bg-primary rounded-full flex items-center justify-center text-black shadow-[0_0_15px_rgba(249,245,6,0.4)]">
+                <span class="material-symbols-outlined text-lg font-bold">hub</span>
+            </div>
+            <div>
+                <h1 class="font-bold text-sm tracking-wide">AMP OS</h1>
+                <p class="text-[10px] text-gray-500 font-mono">v5.0 GALAXY</p>
+            </div>
+        </div>
+
+        <nav class="flex-1 px-2 space-y-1">
+            <button onclick="nav('dashboard')" id="nav-dashboard"
+                class="nav-item active w-full flex items-center gap-3 px-4 py-3 rounded-r-lg transition-all text-sm">
+                <span class="material-symbols-outlined text-accent-cyan">Donut_large</span>
+                Graph View
+            </button>
+            <button onclick="nav('stm')" id="nav-stm"
+                class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-r-lg transition-all text-sm">
+                <span class="material-symbols-outlined text-primary">bolt</span>
+                Short Term Memory
+                <span id="badge-stm"
+                    class="ml-auto bg-primary text-black text-[9px] px-1.5 rounded font-bold hidden">0</span>
+            </button>
+            <button onclick="nav('ltm')" id="nav-ltm"
+                class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-r-lg transition-all text-sm">
+                <span class="material-symbols-outlined text-accent-purple">database</span>
+                Long Term Memory
+            </button>
+
+            <div
+                class="pt-4 mt-4 border-t border-white/5 px-4 text-[10px] text-gray-500 font-mono uppercase tracking-wider">
+                Tools</div>
+
+            <button onclick="nav('search')" id="nav-search"
+                class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-r-lg transition-all text-sm">
+                <span class="material-symbols-outlined text-white">search</span>
+                Query / Search
+            </button>
+            <button onclick="nav('add')" id="nav-add"
+                class="nav-item w-full flex items-center gap-3 px-4 py-3 rounded-r-lg transition-all text-sm">
+                <span class="material-symbols-outlined text-gray-400">add_circle</span>
+                Add Memory
+            </button>
+        </nav>
+
+        <div class="p-4 border-t border-white/5">
+            <div class="flex items-center gap-2 text-xs text-gray-500">
+                <div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                System Online
+            </div>
+        </div>
+    </aside>
+
+    <!-- CONTENT AREA -->
+    <main class="flex-1 relative overflow-hidden bg-grid-pattern flex flex-col h-full">
+
+        <!-- PAGE: DASHBOARD (Graph) -->
+        <div id="page-dashboard" class="page absolute inset-0 flex flex-col p-4 w-full h-full">
+            <!-- SVG Container -->
+            <div
+                class="flex-1 relative rounded-3xl overflow-hidden glass-panel border border-white/5 w-full h-full shadow-[inset_0_0_50px_rgba(0,0,0,0.5)]">
+                <div class="absolute inset-0 w-full h-full cursor-move z-0" id="graph-viewport"></div>
+
+                <!-- View Toggle -->
+                <div class="absolute top-6 left-6 flex gap-2 pointer-events-auto select-none">
+                    <div class="p-1 rounded-lg glass-panel flex bg-black/20">
+                        <button onclick="setMode('galaxy')" id="btn-galaxy"
+                            class="px-3 py-1.5 rounded text-[10px] font-bold uppercase transition-all flex items-center gap-2 text-white bg-white/10 shadow-sm border border-white/10">
+                            <span class="material-symbols-outlined text-sm">auto_awesome</span> Galaxy
+                        </button>
+                        <button onclick="setMode('force')" id="btn-force"
+                            class="px-3 py-1.5 rounded text-[10px] font-bold uppercase transition-all flex items-center gap-2 text-gray-500 hover:text-white">
+                            <span class="material-symbols-outlined text-sm">hub</span> Force
+                        </button>
+                    </div>
+                    <button onclick="resetZoom()" class="p-2 glass-panel rounded-lg hover:bg-white/10 transition-colors"
+                        title="Fit to Screen">
+                        <span class="material-symbols-outlined text-sm">center_focus_strong</span>
+                    </button>
+                </div>
+
+                <!-- Floating Inspector Card -->
+                <div id="node-inspector"
+                    class="absolute top-6 right-6 w-80 glass-panel p-5 rounded-xl border border-white/10 shadow-2xl transform transition-all duration-300 translate-x-full opacity-0 z-20 flex flex-col pointer-events-none">
+                    <div class="flex justify-between items-start mb-3">
+                        <span id="insp-id" class="font-mono text-[9px] text-gray-500">ID: ...</span>
+                        <button onclick="closeInspector()"
+                            class="text-gray-400 hover:text-white pointer-events-auto"><span
+                                class="material-symbols-outlined text-sm">close</span></button>
+                    </div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div id="insp-type-dot" class="w-2 h-2 rounded-full bg-accent-purple"></div>
+                        <span id="insp-type"
+                            class="text-xs font-bold uppercase tracking-wider text-gray-300">EPISODIC</span>
+                    </div>
+                    <div class="fex-1 overflow-y-auto max-h-60 rounded bg-black/30 p-3 mb-4 border border-white/5">
+                        <p id="insp-content"
+                            class="text-sm text-gray-100 leading-relaxed font-display whitespace-pre-wrap"></p>
+                    </div>
+                    <button onclick="deleteSelectedNode()"
+                        class="w-full py-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/20 rounded-lg text-xs font-bold transition-colors pointer-events-auto flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined text-sm">delete</span> FORGET
+                    </button>
+                </div>
+
+                <div class="absolute bottom-6 left-6 max-w-xs pointer-events-auto select-none">
+                    <div class="glass-panel px-3 py-2 rounded-lg text-[10px] text-gray-400">
+                        <span class="text-accent-cyan font-bold">Pan/Zoom:</span> Enabled<br>
+                        <span class="text-primary font-bold">Select:</span> Click Node
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: STM -->
+        <div id="page-stm" class="page hidden absolute inset-0 flex flex-col p-8 w-full h-full">
+            <div class="flex-none flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+                    Short Term Buffer
+                </h2>
+                <button onclick="consolidate()"
+                    class="bg-primary text-black px-6 py-2 rounded-full font-bold text-sm shadow-glow hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+                    <span class="material-symbols-outlined">auto_fix_high</span> Consolidate
+                </button>
+            </div>
+
+            <div class="flex-1 overflow-y-auto pr-2 pb-10">
+                <div id="stm-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="col-span-full text-center text-gray-600 italic py-20">Buffer is empty.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: SEARCH -->
+        <div id="page-search" class="page hidden absolute inset-0 flex flex-col p-8 w-full h-full">
+            <div class="w-full max-w-4xl mx-auto flex flex-col h-full">
+                <!-- Header -->
+                <div class="flex-none mb-8">
+                    <h2 class="text-2xl font-bold flex items-center gap-3 mb-4">
+                        <span class="material-symbols-outlined text-white text-3xl">search</span>
+                        Semantic Query
+                    </h2>
+                    <div class="relative">
+                        <input id="search-input" type="text" placeholder="Compare apples to oranges..."
+                            onkeyup="handleSearchPageInput(event)"
+                            class="w-full bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-lg focus:ring-1 focus:ring-primary outline-none pl-14 shadow-lg">
+                        <span
+                            class="material-symbols-outlined absolute left-5 top-5 text-gray-500 text-xl">manage_search</span>
+                        <div
+                            class="absolute right-4 top-4 text-xs text-gray-500 font-mono py-1 px-2 border border-white/10 rounded">
+                            Enter</div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="flex-1 overflow-y-auto relative glass-panel rounded-2xl border border-white/5 p-1">
+                    <div id="search-results" class="flex flex-col gap-1 p-2">
+                        <div class="text-center text-gray-600 italic py-20">
+                            Type a query to find semantically relevant memories.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: LTM -->
+        <div id="page-ltm" class="page hidden absolute inset-0 flex flex-col p-8 w-full h-full">
+            <div class="flex-none flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    <span class="material-symbols-outlined text-accent-purple text-3xl">database</span>
+                    Long Term Memory
+                </h2>
+                <!-- Small Search in LTM is filtered list, keeping it for quick lookup -->
+                <div class="relative w-72">
+                    <input type="text" placeholder="Filter ID/Content..." onkeyup="handleLtmSearch(event)"
+                        class="w-full bg-white/5 border border-white/10 rounded-full px-4 py-2 text-sm focus:ring-1 focus:ring-accent-purple outline-none pl-10">
+                    <span
+                        class="material-symbols-outlined absolute left-3 top-2 text-gray-500 text-sm">filter_list</span>
+                </div>
+            </div>
+
+            <div class="flex-1 relative glass-panel rounded-xl border border-white/5 overflow-hidden flex flex-col">
+                <div class="flex-none bg-white/5 border-b border-white/5">
+                    <table class="w-full text-left text-sm">
+                        <thead class="text-gray-400 text-xs uppercase font-mono">
+                            <tr>
+                                <th class="px-6 py-3 w-32">ID</th>
+                                <th class="px-6 py-3 w-32">Type</th>
+                                <th class="px-6 py-3">Content</th>
+                                <th class="px-6 py-3 w-24 text-right">Action</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="flex-1 overflow-y-auto">
+                    <table class="w-full text-left text-sm">
+                        <tbody id="ltm-table-body" class="divide-y divide-white/5"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: ADD -->
+        <div id="page-add" class="page hidden absolute inset-0 flex flex-col p-8 items-center justify-center">
+            <div class="w-full max-w-xl glass-panel p-8 rounded-2xl border border-white/10 shadow-2xl">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-gray-400">add_circle</span>
+                    Manually Add Memory
+                </h2>
+                <textarea id="mem-input" rows="5"
+                    class="w-full bg-black/20 border border-white/10 rounded-lg p-4 text-gray-200 focus:border-primary focus:ring-1 focus:ring-primary outline-none resize-none mb-4"
+                    placeholder="Enter thought, fact, or observation..."></textarea>
+                <div class="flex justify-end gap-3">
+                    <button onclick="nav('dashboard')"
+                        class="text-gray-500 hover:text-white px-4 py-2 text-sm">Cancel</button>
+                    <button onclick="submitMemory()"
+                        class="bg-white text-black px-6 py-2 rounded-lg font-bold text-sm hover:bg-gray-200 transition-colors">Add
+                        to Buffer</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- LOGIC -->
+    <script>
+        const API = '/api';
+
+        // --- NAVIGATION ---
+        function nav(pageId) {
+            document.querySelectorAll('.page').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`page-${pageId}`).classList.remove('hidden');
+            document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+            document.getElementById(`nav-${pageId}`).classList.add('active');
+
+            if (pageId === 'dashboard') requestAnimationFrame(refreshGraph);
+            if (pageId === 'stm') refreshSTM();
+            if (pageId === 'ltm') refreshLTM();
+            if (pageId === 'search') document.getElementById('search-input').focus();
+        }
+
+        // --- GRAPH V5.0 (GALAXY & FORCE) ---
+        let simulation, svg, gMain, link, node;
+        let zoomBehavior;
+        let GRAPH_MODE = 'galaxy'; // Default mode
+        let GRAPH_DATA = null;
+        let WIDTH = 0, HEIGHT = 0;
+
+        function setMode(mode) {
+            GRAPH_MODE = mode;
+            GRAPH_DATA = null; // Force reload to prevent coordinate mutation
+            // Update UI
+            document.getElementById('btn-galaxy').className = mode === 'galaxy'
+                ? "px-3 py-1.5 rounded text-[10px] font-bold uppercase transition-all flex items-center gap-2 text-white bg-white/10 shadow-sm border border-white/10"
+                : "px-3 py-1.5 rounded text-[10px] font-bold uppercase transition-all flex items-center gap-2 text-gray-500 hover:text-white";
+            document.getElementById('btn-force').className = mode === 'force'
+                ? "px-3 py-1.5 rounded text-[10px] font-bold uppercase transition-all flex items-center gap-2 text-white bg-white/10 shadow-sm border border-white/10"
+                : "px-3 py-1.5 rounded text-[10px] font-bold uppercase transition-all flex items-center gap-2 text-gray-500 hover:text-white";
+
+            refreshGraph(); // Re-render
+        }
+
+        async function refreshGraph() {
+            const container = document.getElementById('graph-viewport');
+            if (!container.clientWidth) return;
+
+            // Only fetch if not already cached (or user refreshed)
+            if (!GRAPH_DATA) {
+                const res = await fetch(`${API}/graph`);
+                GRAPH_DATA = await res.json();
+            }
+            const data = GRAPH_DATA;
+
+            container.innerHTML = '';
+            WIDTH = container.clientWidth;
+            HEIGHT = container.clientHeight;
+
+            zoomBehavior = d3.zoom()
+                .scaleExtent([0.1, 8])
+                .on("zoom", (e) => gMain.attr("transform", e.transform));
+
+            svg = d3.select("#graph-viewport").append("svg")
+                .attr("width", "100%")
+                .attr("height", "100%")
+                .attr("viewBox", [0, 0, WIDTH, HEIGHT])
+                .call(zoomBehavior)
+                .on("dblclick.zoom", null)
+                .on("click", (e) => { if (e.target.tagName === 'svg') closeInspector(); });
+
+            gMain = svg.append("g");
+
+            // --- GALAXY MODE ---
+            if (GRAPH_MODE === 'galaxy') {
+                // No simulation force. Static Layout.
+                // Links Hidden by Default (Constellations)
+                const galaxyLinks = gMain.append("g").selectAll("line")
+                    .data(data.edges).enter().append("line")
+                    .attr("stroke", "#ffffff")
+                    .attr("stroke-opacity", 0) // Hidden
+                    .attr("class", "galaxy-link")
+                    .attr("x1", d => getX(d.source, data.nodes))
+                    .attr("y1", d => getY(d.source, data.nodes))
+                    .attr("x2", d => getX(d.target, data.nodes))
+                    .attr("y2", d => getY(d.target, data.nodes));
+
+                const nodeGroup = gMain.append("g").selectAll("g")
+                    .data(data.nodes).enter().append("g")
+                    .attr("class", "cursor-pointer group")
+                    .attr("transform", d => `translate(${mapX(d.x)},${mapY(d.y)})`) // PCA Position
+                    .on("mouseenter", (e, d) => {
+                        // Lit up constellation
+                        galaxyLinks
+                            .filter(l => l.source === d.id || l.target === d.id)
+                            .transition().duration(200).attr("stroke-opacity", 0.5);
+                    })
+                    .on("mouseleave", (e, d) => {
+                        galaxyLinks.transition().duration(200).attr("stroke-opacity", 0);
+                    })
+                    .on("click", (e, d) => { e.stopPropagation(); openInspector(d); });
+
+                nodeGroup.append("circle")
+                    .attr("r", 4) // Smaller stars
+                    .attr("fill", d => d.type === 'episodic' ? '#8b5cf6' : '#06b6d4')
+                    .attr("class", "shadow-[0_0_10px_white]");
+
+                // Titles only on hover in Galaxy to keep it clean
+                nodeGroup.append("text")
+                    .text(d => d.label)
+                    .attr("x", 8).attr("y", 3)
+                    .attr("class", "text-[8px] fill-gray-400 font-mono opacity-0 group-hover:opacity-100 transition-opacity");
+
+                // Center Galaxy on Start
+                const t = d3.zoomIdentity.translate(WIDTH / 2, HEIGHT / 2).scale(1);
+                svg.call(zoomBehavior.transform, t);
+
+            }
+            // --- FORCE MODE (Legacy) ---
+            else {
+                simulation = d3.forceSimulation(data.nodes) // Mutates data.nodes x/y!
+                    .force("link", d3.forceLink(data.edges).id(d => d.id).distance(150))
+                    .force("charge", d3.forceManyBody().strength(-400))
+                    .force("center", d3.forceCenter(WIDTH / 2, HEIGHT / 2))
+                    .force("collide", d3.forceCollide(30));
+
+                link = gMain.append("g").selectAll("line")
+                    .data(data.edges).enter().append("line")
+                    .attr("stroke", d => d.is_rescue ? "#444" : "#ffffff")
+                    .attr("stroke-opacity", d => d.is_rescue ? 0.3 : 0.15)
+                    .attr("stroke-dasharray", d => d.is_rescue ? "4 4" : "0");
+
+                const nodeGroup = gMain.append("g").selectAll("g")
+                    .data(data.nodes).enter().append("g")
+                    .attr("class", "cursor-pointer")
+                    .call(d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended))
+                    .on("click", (e, d) => { e.stopPropagation(); openInspector(d); });
+
+                nodeGroup.append("circle").attr("r", 8).attr("fill", d => d.type === 'episodic' ? '#8b5cf6' : '#06b6d4').attr("stroke", "#000").attr("stroke-width", 1.5);
+                nodeGroup.append("text").text(d => d.label.length > 15 ? d.label.substring(0, 15) + "..." : d.label).attr("x", 12).attr("y", 4).attr("class", "text-[10px] fill-gray-300 font-mono pointer-events-none");
+
+                simulation.on("tick", () => {
+                    link.attr("x1", d => d.source.x).attr("y1", d => d.source.y).attr("x2", d => d.target.x).attr("y2", d => d.target.y);
+                    nodeGroup.attr("transform", d => `translate(${d.x},${d.y})`);
+                });
+            }
+        }
+
+        // Helpers for Galaxy Mapping
+        function mapX(val) { return val * (WIDTH / 2.5); } // Scale out from center
+        function mapY(val) { return val * (HEIGHT / 2.5); }
+        // Helpers for links (need to lookup by ID since D3 doesn't link objects in static mode)
+        function getX(id, nodes) { const n = nodes.find(n => n.id === id); return n ? mapX(n.x) : 0; }
+        function getY(id, nodes) { const n = nodes.find(n => n.id === id); return n ? mapY(n.y) : 0; }
+
+        function dragstarted(event, d) { if (!event.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; }
+        function dragged(event, d) { d.fx = event.x; d.fy = event.y; }
+        function dragended(event, d) { if (!event.active) simulation.alphaTarget(0); d.fx = null; d.fy = null; }
+        function resetZoom() {
+            svg.transition().duration(750).call(zoomBehavior.transform, d3.zoomIdentity.translate(WIDTH / 2, HEIGHT / 2));
+        }
+
+        // --- COMMON LOGIC ---
+        function openInspector(d) {
+            document.getElementById('insp-id').innerText = d.id;
+            document.getElementById('insp-content').innerText = d.label;
+            document.getElementById('insp-type').innerText = d.type.toUpperCase();
+            document.getElementById('node-inspector').classList.remove('translate-x-full', 'opacity-0', 'pointer-events-none');
+            document.getElementById('node-inspector').classList.add('translate-x-0', 'opacity-100');
+        }
+        function closeInspector() {
+            document.getElementById('node-inspector').classList.add('translate-x-full', 'opacity-0', 'pointer-events-none');
+            document.getElementById('node-inspector').classList.remove('translate-x-0', 'opacity-100');
+        }
+        // ... (STM/LTM Logic matches previous) ...
+        async function refreshSTM() { const res = await fetch(`${API}/memories/stm`); const data = await res.json(); document.getElementById('stm-list').innerHTML = data.length ? data.map(item => `<div class="glass-panel p-4 rounded-xl border border-white/5"><p class="text-sm text-gray-300">${item.content}</p></div>`).join('') : '<div class="col-span-full text-center text-gray-600">Buffer empty.</div>'; }
+        async function consolidate() { if (!confirm("Consolidate?")) return; await fetch(`${API}/memories/consolidate`, { method: 'POST' }); refreshSTM(); }
+        async function submitMemory() { const c = document.getElementById('mem-input').value; if (!c) return; await fetch(`${API}/memories/add`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ content: c }) }); nav('stm'); }
+        async function refreshLTM() { const res = await fetch(`${API}/memories/ltm`); renderLTM(await res.json()); }
+        async function handleLtmSearch(e) { if (e.key === 'Enter') { const q = e.target.value; const url = q ? `${API}/memories/search` : `${API}/memories/ltm`; const res = await fetch(url, q ? { method: 'POST', body: JSON.stringify({ query: q }) } : {}); renderLTM(await res.json()); } }
+        function renderLTM(data) { document.getElementById('ltm-table-body').innerHTML = data.map(i => `<tr><td class="px-6 py-3 text-gray-500 text-xs font-mono">${i.id.substring(0, 8)}</td><td class="px-6 py-3"><span class="bg-white/10 px-2 py-1 rounded text-[10px] uppercase">${i.type}</span></td><td class="px-6 py-3 text-sm text-gray-300 max-w-lg truncate">${i.content}</td><td class="px-6 py-3 text-right"><button onclick="deleteMemory('${i.id}')" class="text-red-500 opacity-50 hover:opacity-100">delete</button></td></tr>`).join(''); }
+        async function deleteSelectedNode() { if (!confirm("Delete?")) return; await fetch(`${API}/memories/forget`, { method: 'POST', body: JSON.stringify([document.getElementById('insp-id').innerText]) }); closeInspector(); refreshGraph(); }
+        async function deleteMemory(id) { if (!confirm("Delete?")) return; await fetch(`${API}/memories/forget`, { method: 'POST', body: JSON.stringify([id]) }); refreshLTM(); }
+
+        // --- NEW SEARCH LOGIC ---
+        async function handleSearchPageInput(e) {
+            if (e.key === 'Enter') {
+                const query = e.target.value;
+                if (!query) return;
+
+                const container = document.getElementById('search-results');
+                container.innerHTML = '<div class="text-center text-gray-500 py-10 animate-pulse">Scanning Semantic Space...</div>';
+
+                try {
+                    const res = await fetch(`${API}/memories/search`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ query: query, limit: 10 })
+                    });
+                    const data = await res.json();
+
+                    if (data.length === 0) {
+                        container.innerHTML = '<div class="text-center text-gray-600 italic py-20">No relevant memories found.</div>';
+                    } else {
+                        container.innerHTML = data.map((item, idx) => `
+                            <div class="glass-panel p-4 rounded-xl border border-white/5 hover:bg-white/5 transition-colors group">
+                                <div class="flex justify-between items-start">
+                                    <div class="flex items-center gap-2 mb-2">
+                                        <span class="text-xs font-bold font-mono text-accent-cyan">#${idx + 1}</span>
+                                        <span class="bg-white/10 px-2 py-0.5 rounded text-[10px] uppercase text-gray-400">${item.type}</span>
+                                        <span class="text-[10px] text-gray-600 font-mono">${item.id.substring(0, 8)}</span>
+                                    </div>
+                                    <span class="text-[10px] bg-primary/10 text-primary px-2 py-1 rounded font-bold">${Math.round((item.score || 0) * 100)}% Match</span>
+                                </div>
+                                <p class="text-gray-200 text-sm leading-relaxed">${item.content}</p>
+                            </div>
+                        `).join('');
+                    }
+                } catch (err) {
+                    container.innerHTML = `<div class="text-center text-red-500 py-10">Error: ${err.message}</div>`;
+                }
+            }
+        }
+
+        window.addEventListener('resize', () => { if (!document.getElementById('page-dashboard').classList.contains('hidden')) refreshGraph(); });
+        nav('search'); // Open search by default for testing
+        setInterval(refreshSTM, 10000);
+    </script>
+</body>
+
+</html>
