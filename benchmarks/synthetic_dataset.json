@@ -1,0 +1,48 @@
+[
+  {
+    "conversation": {
+      "speaker_a": "Alice",
+      "speaker_b": "Bob",
+      "session_1": [
+        {"speaker": "Alice", "text": "I just moved to San Francisco!"},
+        {"speaker": "Bob", "text": "Oh nice, for work?"},
+        {"speaker": "Alice", "text": "Yeah, I joined a startup called Anthropic. Working on AI safety."},
+        {"speaker": "Bob", "text": "That sounds intense. How are you liking the city?"},
+        {"speaker": "Alice", "text": "It's foggy but I love the parks. Golden Gate Park is amazing."}
+      ],
+      "session_2": [
+        {"speaker": "Alice", "text": "I adopted a cat yesterday."},
+        {"speaker": "Bob", "text": "No way! What kind?"},
+        {"speaker": "Alice", "text": "A tabby. I named him Kafka because he looks existential."},
+        {"speaker": "Bob", "text": "Haha, classic."}
+      ]
+    },
+    "qa_pairs": [
+      {
+        "question": "Where did Alice move to?",
+        "answer": "San Francisco",
+        "type": "fact"
+      },
+      {
+        "question": "What company is Alice working for?",
+        "answer": "Anthropic",
+        "type": "fact"
+      },
+      {
+        "question": "What is the name of Alice's cat?",
+        "answer": "Kafka",
+        "type": "fact"
+      },
+      {
+        "question": "How does Alice feel about the weather?",
+        "answer": "She thinks it's foggy",
+        "type": "semantic"
+      },
+      {
+        "question": "What specifically does Alice like about the city?",
+        "answer": "Golden Gate Park",
+        "type": "semantic"
+      }
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We presented AMP, a context-first agent memory protocol that preserves turn-level fidelity in a short-term buffer, consolidates strategically into vector-indexed long-term memory, and exposes the entire surface as a Model Context Protocol server. On a stratified subset of LoCoMo, AMP outperforms extraction-first, retrieval-augmented, and full-context baselines under a dual-judge protocol with high inter-judge agreement. The system is open-source, MCP-native, and runs on commodity local hardware.
+
+The broader argument is that the design space of agent memory has been collapsed too eagerly into ``RAG, but for chats.'' Conversations are not documents. The structure that gives a long-running agent its value --- the order of decisions, the dependence of one utterance on its predecessors, the difference between what was said and what was paraphrased --- is the structure that extraction-first systems throw away first. We hope AMP is read both as a system that works and as a position: that long-horizon agents need memory architectures designed for narrative, not just for facts.
+
+\paragraph{Future work.} (1) Extended evaluation on the full LoCoMo dataset and on long-horizon coding-agent and research-agent benchmarks. (2) A richer entity layer with weighted co-occurrence edges and graph-traversal retrieval, ablated against the present node-only design. (3) Multi-agent shared memory with controlled cross-agent visibility, which the MCP layer enables but our current single-tenant deployment does not exercise. (4) Direct head-to-head against MemGPT~\citep{memgpt} and Zep~\citep{zep} under the same harness.
+
+\paragraph{Code and data.} Released at \url{https://github.com/akshayaggarwal99/amp} (MIT license), including all benchmark scripts, raw per-question CSVs, and reproduction instructions.

@@ -1,0 +1,29 @@
+\section{Introduction}
+\label{sec:intro}
+
+LLM-based agents are increasingly deployed in long-horizon settings: coding assistants that carry context across days of work, research agents that span weeks of inquiry, customer-facing systems that learn user preferences over months, and personal assistants whose value compounds with what they remember. In every such setting, the agent must remember --- not just the most recent turn, but the entire trajectory of prior interaction.
+
+The naive approach of fitting all history directly in the model's context window fails on three fronts. First, cost scales linearly with history length, which is prohibitive for any deployment outside a research lab. Second, attention degrades non-uniformly across position: information placed in the middle of long contexts is recovered substantially worse than information at the ends, even for models explicitly designed for long contexts~\citep{liu2024lost}. Third, LLMs trained with relatively short attention windows do not always generalize cleanly to histories of $50{,}000$ tokens or more, regardless of advertised context length. Long-context-as-memory, in other words, is neither cheap nor cognitively realistic.
+
+The standard alternative is retrieval-augmented generation~\citep{lewis2020rag}, which queries a non-parametric vector index at generation time to inject relevant passages. RAG is the dominant pattern for static knowledge but treats every chunk as independent. Applied naively to multi-session dialogue, the chunking step destroys turn-level structure: speaker identity, temporal ordering, and the dependency of each utterance on its predecessors are flattened into a bag of unrelated text fragments. A user who told the agent ``I'm worried about the launch on Thursday because the on-call team is short-staffed'' contains a chain of reasoning that, once chunked, cannot be reconstructed from the embeddings alone.
+
+A third paradigm has emerged in response: \emph{extraction-first} memory systems such as Mem0~\citep{mem0} and MemoryBank~\citep{memorybank}, which summarize conversations into atomic facts before storing them. This compresses aggressively --- often by an order of magnitude --- but the compression is irreversible. Once an utterance is paraphrased into ``user is worried about Thursday launch,'' the surrounding turn-level narrative is gone, along with the reasoning that justified the worry. We argue, and demonstrate empirically in Section~\ref{sec:experiments}, that this loss matters most precisely where long-horizon agents are supposed to shine: multi-hop reasoning and temporal questions.
+
+\paragraph{Our position.} Long-horizon agent memory should be \emph{context-first}: preserve turns at high fidelity, and consolidate strategically rather than eagerly. We instantiate this thesis in \textbf{AMP}, the Agent Memory Protocol --- a memory system with a verbatim short-term buffer, a consolidated long-term store with recency-weighted vector retrieval, and an optional entity layer (nodes only at this stage), all exposed as a Model Context Protocol~\citep{anthropic2024mcp} server. Because AMP is a protocol, not a Python framework, any MCP-compatible client (Claude Desktop, Cursor, IDE integrations) can use it without code-level coupling.
+
+\begin{figure}[t]
+\centering
+\input{figures/architecture_inline}
+\caption{AMP architecture. Each turn is appended verbatim to STM. Periodic consolidation embeds and persists items into vector-indexed LTM and updates the entity layer. Retrieval combines top-$k$ LTM matches, the active STM buffer, and entity-aligned candidates. The entire surface is exposed as a Model Context Protocol server.}
+\label{fig:arch}
+\end{figure}
+
+\paragraph{Contributions.}
+\begin{enumerate}
+    \item \textbf{The AMP architecture} (Section~\ref{sec:method}): a three-layer cognitive-architecture-inspired memory system with explicit STM/LTM separation, recency-weighted retrieval, and threshold-triggered consolidation.
+    \item \textbf{An open protocol surface}: the first Model Context Protocol specification for agent memory operations, enabling drop-in use from any MCP client. Code is released under MIT license.
+    \item \textbf{Empirical evidence on LoCoMo} (Section~\ref{sec:experiments}): on a 3-conversation stratified sample ($N = 150$ questions per system), AMP-Padded2 reaches $72.0\%$ accuracy under a methodology that treats ``I don't know'' refusals as wrong, motivated by an observed leniency bias in local LLM judges. Paired bootstrap tests show AMP-Padded2 outperforms Mem0 by $66.3$\,pp ($95\%$ CI $59.3$--$73.3$, $p < 0.001$), numerically beats RAG by $5.7$\,pp ($95\%$ CI $-0.3$ to $+11.7$, statistically tied), beats anchor-only AMP by $11.3$\,pp ($95\%$ CI $6.3$--$16.7$, ablation significant), and is outperformed by Full Context by $10.0$\,pp ($95\%$ CI $5.0$--$15.0$) at approximately an order of magnitude higher prompt cost. Two independent local judges (Alibaba's Qwen3 and DeepSeek's R1) agree at Cohen's $\kappa = 0.78$ on $N = 750$ paired judgments under the same rule.
+    \item \textbf{Honest accounting}: dual-judge protocol, bootstrap 95\% CIs, an open ablation, and a reproducibility appendix that captures every command, model version, and seed used.
+\end{enumerate}
+
+The remainder of the paper proceeds as follows. Section~\ref{sec:related} situates AMP among prior memory systems. Section~\ref{sec:method} formalizes the architecture, consolidation algorithm, retrieval scoring, and protocol surface. Section~\ref{sec:experiments} reports the empirical evaluation. Section~\ref{sec:discussion} discusses what the results imply and what they do not. Section~\ref{sec:conclusion} concludes.

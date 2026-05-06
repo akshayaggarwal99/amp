@@ -1,0 +1,70 @@
+\section{Method}
+\label{sec:method}
+
+We design AMP around three principles: (i) preserve turn-level fidelity in short-term memory rather than compressing eagerly, (ii) consolidate strategically into vector-indexed long-term insights, and (iii) expose the entire memory surface through a network protocol so any compatible client can use it without language- or framework-level lock-in. This section formalizes the three layers (\Cref{sec:method-arch}), the consolidation algorithm (\Cref{sec:method-consol}), the retrieval scoring (\Cref{sec:method-retrieval}), and the protocol surface (\Cref{sec:method-protocol}).
+
+\subsection{Three-Layer Architecture}
+\label{sec:method-arch}
+
+AMP organizes memory into three layers, mirroring the distinction between working memory and episodic long-term memory in cognitive psychology~\citep{baddeley2003working}.
+
+\paragraph{Short-Term Memory (STM).} Each interaction turn $t = (\text{content}, \text{metadata}, \text{timestamp})$ is appended verbatim to a per-installation buffer. The STM is a high-fidelity log: no summarization, no rewriting. Items remain in STM until explicitly consolidated or until a configurable size threshold $\tau_{\text{stm}}$ triggers automatic consolidation. We keep $\tau_{\text{stm}} = 50$ in our experiments. The motivation for verbatim retention is that subsequent multi-hop questions may depend on phrasing, speaker identity, or pronoun antecedents that an early summarization would erase.
+
+\paragraph{Long-Term Memory (LTM).} On consolidation, each STM item is embedded by $\phi: \mathcal{T} \to \mathbb{R}^{384}$ and persisted with its raw content, creation timestamp, last-accessed timestamp, and metadata. We use \texttt{bge-small-en-v1.5}~\citep{xiao2023cpack} via \texttt{fastembed} as the embedding function. Storage is a SQLite database with the embedding stored as a binary BLOB, which keeps the system single-file and dependency-light. We deliberately preserve the original content alongside the embedding rather than replacing it: the embedding is for retrieval, but reading the LTM still returns the original text.
+
+\paragraph{Entity Layer (deferred).} The implementation includes an entity table that, when consolidation is invoked with an LLM, stores extracted entity names as nodes. In the experiments reported here, consolidation runs without the LLM-based entity extraction step --- it is off by default and our LoCoMo eval does not enable it --- so the entity layer is empty during retrieval and contributes nothing to our reported results. We retain the entity scaffolding because it is the substrate for a richer graph layer with co-occurrence edges that we leave to future work; we do not claim any contribution from it in this paper.
+
+\subsection{Consolidation Algorithm}
+\label{sec:method-consol}
+
+Consolidation moves STM items into LTM (and, when LLM-driven entity extraction is enabled, also updates the entity layer). \Cref{alg:consolidate} gives the procedure. Two consolidation triggers are supported: an explicit \texttt{consolidate} call (e.g., issued by the agent at task end), and an automatic threshold trigger when $|\text{STM}| \geq \tau_{\text{stm}}$. In both cases, consolidation runs in batch over all currently-active STM items. In the experiments reported in Section~\ref{sec:experiments}, the LLM-extraction branch is disabled (\texttt{use\_llm=False}); the entity table is unused.
+
+\begin{algorithm}[t]
+\caption{STM~$\rightarrow$~LTM Consolidation}
+\label{alg:consolidate}
+\begin{algorithmic}[1]
+\Require Active STM buffer $B = \{t_1, \dots, t_n\}$, embedder $\phi$, optional LLM $\pi$
+\State $V \gets \phi(\text{batch}(t_1.\text{content}, \dots, t_n.\text{content}))$ \Comment{Batch embed}
+\For{$i = 1 \dots n$}
+    \State write $(t_i, V_i)$ to LTM with $\text{type}{=}\text{episodic}$ and current timestamp
+    \If{$\pi$ is available}
+        \State $E_i \gets \pi.\text{ExtractEntities}(t_i.\text{content})$
+        \For{each entity $e \in E_i$}
+            \State upsert $e$ into the entity table
+        \EndFor
+    \EndIf
+    \State remove $t_i$ from STM
+\EndFor
+\State \Return $n$
+\end{algorithmic}
+\end{algorithm}
+
+Two design choices are worth noting. First, we do not run an LLM-based summarization step before writing to LTM. The unit stored in LTM is the original turn content, not a paraphrase --- this is the central distinction from extraction-first systems. Second, embedding happens in batch rather than per-item, which amortizes the fastembed startup cost and keeps consolidation latency near-constant under typical $n \leq \tau_{\text{stm}}$.
+
+\subsection{Retrieval}
+\label{sec:method-retrieval}
+
+Given a natural-language query $q$ and budget $k$, AMP returns a ranked list of LTM items. We compute the query embedding $v_q = \phi(q)$ and score each candidate $m_i = (c_i, v_i, \text{ts}_i)$ in LTM as
+\begin{equation}
+    \text{score}(m_i, q) \;=\; \alpha \cdot \cos(v_q, v_i) \;+\; \beta \cdot r(\text{ts}_i)
+    \label{eq:score}
+\end{equation}
+where $\cos(\cdot,\cdot)$ is cosine similarity and $r(\text{ts}_i) = \exp\!\bigl(-\frac{\Delta t_i}{\tau_r}\bigr)$ is an exponential recency score with $\Delta t_i$ the elapsed time since the item was last accessed. We use $\alpha = 1.0, \beta = 0.1, \tau_r = 7$ days as defaults. The cosine term captures semantic relevance; the recency term breaks ties toward fresher information, which is critical for conversational recall where ``last week'' should beat ``six months ago'' even at similar semantic distance.
+
+The final retrieved context combines top-$k$ LTM items (default $k = 10$) with the entire active STM buffer, since STM items have not yet been consolidated and would otherwise be invisible to retrieval. As described in Section~\ref{sec:exp-baselines}, we additionally evaluate \emph{AMP-Padded}, in which each top-$k$ anchor is expanded with the $w$ items immediately preceding and following it in creation order, deduplicated. This pads each retrieved anchor with its local conversational neighborhood --- the speakers and content immediately surrounding it --- and is the version we recommend as the default in deployment. We use naive linear scan over LTM embeddings rather than an approximate nearest-neighbor index; for our scale (LoCoMo conversations have at most $\sim$10\,000 LTM items per conversation), linear scan completes in single-digit milliseconds and avoids the hyperparameter complexity of HNSW or IVF.
+
+\subsection{Protocol Surface}
+\label{sec:method-protocol}
+
+AMP exposes its operations as a Model Context Protocol~\citep{anthropic2024mcp} server, making it usable by any MCP-compatible client (including Claude Desktop, Cursor, and IDE integrations) without code-level coupling. The tool surface is intentionally small:
+
+\begin{itemize}
+    \item \texttt{add\_memory(content, metadata)} --- append an item to STM.
+    \item \texttt{search\_memory(query, limit)} --- retrieve top-$k$ relevant items by \Cref{eq:score}.
+    \item \texttt{consolidate\_memories()} --- explicitly move active STM items into LTM and update the entity layer.
+    \item \texttt{forget\_memory(memory\_ids)} --- hard-delete LTM items by id.
+\end{itemize}
+
+In addition, two MCP resources expose live state for inspection: \texttt{amp://memory/working} returns the current STM, and \texttt{amp://memory/recent} returns the most recent LTM items. The entire server is local-first: all operations run against an embedded SQLite database, and no network calls are made beyond the MCP transport itself.
+
+\paragraph{Implementation.} AMP is implemented in approximately $1{,}400$ lines of Python. The core storage and retrieval logic in \texttt{src/amp/core/storage.py} is $\sim$290 lines (including the \texttt{Storage} class, vector search, recency scoring, and neighbor padding), the MCP server adds a thin tool layer ($\sim$135 lines), and the optional dashboard adds visualization ($\sim$180 lines, not exercised in this paper). The total runtime dependency footprint is \texttt{fastembed}, \texttt{sqlite-utils}, \texttt{numpy}, \texttt{requests}, and \texttt{mcp}; no GPU is required.

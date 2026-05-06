@@ -35,8 +35,13 @@ debug_*.py
 locomo_*.db
 debug_om.db
 
-# Benchmarks
-benchmarks/
+# Benchmarks: track source, ignore artifacts
+benchmarks/results/
+benchmarks/__pycache__/
+benchmarks/**/__pycache__/
+benchmarks/*.log
+benchmarks/*.db
+benchmark_*.db
 
 # Examples (Optional, keeping separate if needed, but standard is to keep)
 # examples/ 
