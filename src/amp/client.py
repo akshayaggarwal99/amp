@@ -31,19 +31,21 @@ class Amp:
         """
         return self.storage.add_to_stm(content=content, metadata=metadata or {})
 
-    def recall(self, query: str, limit: int = 5) -> List[Dict]:
+    def recall(self, query: str, limit: int = 5, neighbor_window: int = 0) -> List[Dict]:
         """
         Searches Long Term Memory (LTM) for relevant items.
-        Uses Hybrid Search (Vector + FTS) if enabled.
-        
+
         Args:
             query: The search query.
-            limit: Max number of results.
-            
+            limit: Max number of anchor results.
+            neighbor_window: If >0, pad each anchor with this many neighbors
+                on each side (in creation order), preserving local
+                conversational structure.
+
         Returns:
             List of memory items with scores.
         """
-        return self.storage.search(query=query, limit=limit)
+        return self.storage.search(query=query, limit=limit, neighbor_window=neighbor_window)
     
     def consolidate(self, use_llm: bool = False) -> int:
         """
