@@ -1,0 +1,38 @@
+\section{Reproducibility}
+\label{app:reproduce}
+
+Full reproduction instructions, including exact commands, model versions, and expected outputs, are in \texttt{paper/REPRODUCE.md} of the released repository. All raw per-question results (\texttt{benchmarks/results/locomo\_local/results.csv}) are committed alongside the code, so any reader can re-run the analysis without re-running the eval. The summary CSVs and LaTeX tables consumed by this paper are produced by \texttt{benchmarks/analysis/summarize.py} and committed in \texttt{benchmarks/results/locomo\_local/}.
+
+\paragraph{Hardware.} MacBook Pro M1 Pro, 16\,GB unified memory, macOS 14+. No discrete GPU.
+
+\paragraph{Software.} Python 3.10+, Ollama for local model serving (gemma4:latest, qwen3:8b, deepseek-r1:8b, nomic-embed-text), \texttt{fastembed} for \texttt{bge-small-en-v1.5} embeddings, \texttt{sqlite-utils} for storage, \texttt{mem0ai} version $1.0.1$ for the Mem0 baseline, \texttt{matplotlib} for figures.
+
+\paragraph{Generator.} Google Generative Language API, \texttt{models/gemini-2.5-flash}, temperature 0.2, max 256 output tokens. Used identically across all four systems.
+
+\paragraph{Judges.} Ollama-served \texttt{qwen3:8b} and \texttt{deepseek-r1:8b}, temperature 0, thinking modes disabled, max 2048 output tokens, \texttt{<think>...</think>} blocks stripped before parsing. Verdict parsing uses the last \texttt{CORRECT}/\texttt{WRONG} token in the response.
+
+\paragraph{Sampling.} Stratified random sample of 50 questions per conversation, balanced across LoCoMo categories present in the conversation, fixed seed 42.
+
+\section{Hyperparameters}
+\label{app:hyperparams}
+
+\begin{itemize}
+    \item Embedding model: \texttt{bge-small-en-v1.5} (384-dim) via \texttt{fastembed}
+    \item STM consolidation threshold: $\tau_{\text{stm}} = 50$ items
+    \item Retrieval scoring: $\alpha = 1.0$ (cosine), $\beta = 0.1$ (recency)
+    \item Recency half-life: $\tau_r = 7$ days
+    \item Top-$k$ retrieval: $k = 10$
+    \item Bootstrap resamples: $10{,}000$ at $\alpha = 0.05$
+    \item RAG chunk size: 200 words
+    \item Full-Context cap: $50{,}000$ tokens (truncated tail)
+\end{itemize}
+
+\section{Disagreement Cases}
+\label{app:disagreement}
+
+A representative subset of questions on which the two judges disagreed is included in \texttt{benchmarks/results/locomo\_local/results.csv} of the release (filter on rows where the two judge columns differ). Without the strict-IDK rule, aggregate disagreement is $14.9\%$ ($112$ disagreements out of $N = 750$). Under the strict-IDK rule, the disagreement rate falls to $10.7\%$ ($80$ disagreements out of $N = 750$), with the remaining disagreements concentrated on non-refusal predictions whose alignment with the ground truth is genuinely ambiguous.
+
+\section{Failure Analysis}
+\label{app:failures}
+
+We sampled $20$ AMP-Padded2 failures (mean judge score $< 0.5$) at random from the released raw results. Two failure modes dominate. The first is \emph{temporal arithmetic across distant references}: questions of the form ``how long after X did Y happen?'' where both X and Y are mentioned in well-separated sessions. AMP retrieves both turns but the generator does not always perform the date subtraction reliably from raw turn text; an explicit timestamp normalization step at retrieval (akin to MemoryBank~\citep{memorybank}'s structured fact storage) would likely address this category. The second is \emph{implicit pronoun resolution}: questions whose answer is the antecedent of a pronoun in a turn that was not retrieved. Padding partially mitigates this --- the antecedent often sits in the immediately preceding turn --- but a window of $w = 2$ is not always enough. Larger windows trade context cost for recall, an axis we did not exhaustively explore.
