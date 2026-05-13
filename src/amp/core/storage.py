@@ -1,10 +1,12 @@
 import sqlite_utils
 import json
+import hashlib
 import numpy as np
+from collections import OrderedDict
 from fastembed import TextEmbedding
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Tuple
 from pydantic import BaseModel, Field
 import uuid
 
@@ -16,6 +18,64 @@ class MemoryItem(BaseModel):
     metadata: Dict[str, Any] = Field(default_factory=dict)
     score: float = 1.0
     embedding: Optional[List[float]] = None
+
+
+# --- Helpers · module-level so they're cheap to call from anywhere. ---
+
+def _content_hash(text: str) -> str:
+    """Stable hash for dedup. SHA-256 is overkill but cheap and unambiguous."""
+    return hashlib.sha256((text or "").strip().encode("utf-8")).hexdigest()
+
+
+def _to_epoch(ts: Optional[str]) -> float:
+    """Parse an ISO timestamp string into a unix epoch float; 0.0 on failure."""
+    if not ts:
+        return 0.0
+    try:
+        d = datetime.fromisoformat(ts)
+        if d.tzinfo is None:
+            d = d.replace(tzinfo=timezone.utc)
+        return d.timestamp()
+    except Exception:
+        return 0.0
+
+
+def _safe_parse_metadata(raw: Any) -> Dict[str, Any]:
+    """Read metadata that may be JSON (new rows) or `str(dict)` (legacy rows
+    from before the metadata-storage bug fix). Best-effort, never raises.
+    """
+    if raw is None or raw == "":
+        return {}
+    if isinstance(raw, dict):
+        return raw
+    if isinstance(raw, str):
+        # Try JSON first · what new rows look like.
+        try:
+            v = json.loads(raw)
+            return v if isinstance(v, dict) else {}
+        except Exception:
+            pass
+        # Try ast.literal_eval for legacy `str(dict)` rows.
+        try:
+            import ast
+            v = ast.literal_eval(raw)
+            return v if isinstance(v, dict) else {}
+        except Exception:
+            return {}
+    return {}
+
+
+def _stringify_metadata(value: Any) -> str:
+    """Inverse of _safe_parse_metadata · write JSON. Handles legacy `str(dict)`
+    payloads that may still be sitting in working_memory rows."""
+    if isinstance(value, dict):
+        return json.dumps(value)
+    if isinstance(value, str):
+        # Already serialised by add_to_stm · pass through if it parses.
+        parsed = _safe_parse_metadata(value)
+        return json.dumps(parsed)
+    return json.dumps({})
+
 
 class Storage:
     DEFAULT_STM_THRESHOLD = 50
@@ -45,6 +105,22 @@ class Storage:
         self.stm_threshold = stm_threshold
         self.recency_weight = recency_weight
         self.recency_half_life_days = recency_half_life_days
+
+        # ── Vector cache · daemon-mode win #1 ──────────────────────────────
+        # Search() previously did O(n) cosine in a Python loop, reading every
+        # row from sqlite each time. Daemon mode means we can keep the
+        # embedding matrix in RAM: at 384 dims float32, 10k memories = 15 MB.
+        # Lazy-load on first search; rebuild incrementally on add/forget.
+        self._vec_matrix: Optional[np.ndarray] = None       # shape (N, D)
+        self._vec_ids: Optional[List[str]] = None           # ordered, parallel to matrix rows
+        self._vec_meta: Optional[List[Dict[str, Any]]] = None  # parallel · created_at etc · avoids re-reading rows
+        self._vec_dirty = True
+
+        # ── Embedding LRU · win #2 ─────────────────────────────────────────
+        # Content hash → vector. Cheap and effective when fixtures / batch
+        # imports repeat the same line. Bounded at 4096 entries.
+        self._embed_cache: "OrderedDict[str, np.ndarray]" = OrderedDict()
+        self._embed_cache_cap = 4096
 
     def _initialize_schema(self):
         # 1. Long Term Memory (memories)
@@ -99,7 +175,10 @@ class Storage:
             "content": item.content,
             "created_at": item.created_at.isoformat(),
             "active": 1,
-            "metadata":  str(item.metadata) # Simple stringify for now
+            # JSON · `str(dict)` was producing single-quoted python reprs that
+            # don't survive json.loads on read. Fix is backwards-compatible:
+            # readers can `_safe_parse_metadata` which tries both.
+            "metadata": json.dumps(item.metadata or {}),
         })
 
         if auto_consolidate and len(self.get_stm()) >= self.stm_threshold:
@@ -114,9 +193,16 @@ class Storage:
     def consolidate(self, use_llm: bool = False):
         """
         Moves STM items to LTM.
-        
+
         Args:
             use_llm: If True, extract entities using local LLM (requires Ollama).
+
+        Wins over the previous version:
+          - Dedup by content-hash · re-saying the same thing doesn't bloat LTM.
+          - Embeddings stored L2-normalised so `search()` matmul gives a true
+            cosine without a per-row norm divide.
+          - Vector cache invalidated at the end so next search rebuilds.
+          - LRU embedding cache hit-path avoids re-embed for repeat content.
         """
         stm_items = self.get_stm()
         if not stm_items:
@@ -131,50 +217,71 @@ class Storage:
             except Exception:
                 pass
 
-        # Batch embed
-        contents = [item["content"] for item in stm_items]
-        embeddings = list(self.embed_model.embed(contents))
-
+        # Dedup against LTM by content hash · don't insert duplicate rows.
+        existing_hashes = self._loaded_content_hashes()
+        to_embed: List[Tuple[int, str, str]] = []  # (index, content_hash, content)
         for i, item in enumerate(stm_items):
-            # Add to LTM
-            vec_bytes = np.array(embeddings[i], dtype=np.float32).tobytes()
-            
-            memory_id = item["id"]
-            
+            h = _content_hash(item["content"])
+            if h in existing_hashes:
+                # Already in LTM · drop STM row without re-embedding.
+                self.db["working_memory"].delete(item["id"])
+                continue
+            to_embed.append((i, h, item["content"]))
+
+        if not to_embed:
+            self._vec_dirty = True
+            return 0
+
+        # Batch embed only what's new · then L2-normalise so search is cheap.
+        new_contents = [c for (_, _, c) in to_embed]
+        new_vecs = np.asarray(list(self.embed_model.embed(new_contents)), dtype=np.float32)
+        norms = np.linalg.norm(new_vecs, axis=1, keepdims=True)
+        norms[norms == 0] = 1.0
+        new_vecs = new_vecs / norms
+
+        now_iso = datetime.now(timezone.utc).isoformat()
+        for (i, h, _content), vec in zip(to_embed, new_vecs):
+            item = stm_items[i]
+            vec_bytes = vec.astype(np.float32, copy=False).tobytes()
             self.db["memories"].insert({
-                "id": memory_id,
+                "id": item["id"],
                 "content": item["content"],
                 "created_at": item["created_at"],
-                "last_accessed": datetime.now(timezone.utc).isoformat(),
+                "last_accessed": now_iso,
                 "score": 1.0,
                 "type": "episodic",
-                "metadata": item["metadata"],
-                "embedding": vec_bytes
+                # Store metadata as JSON · keep parsable on read.
+                "metadata": _stringify_metadata(item.get("metadata")),
+                "embedding": vec_bytes,
             })
-            
-            # Extract entities if LLM is available
+            existing_hashes.add(h)
+
+            # Optional · LLM-extracted entities.
             if llm:
                 entities = llm.extract_entities(item["content"])
                 for entity in entities:
-                    # Upsert entity
-                    existing = list(self.db["entities"].rows_where("name = ?", [entity.name]))
-                    if existing:
-                        # Entity exists, could update relations here
-                        pass
-                    else:
+                    has = list(self.db["entities"].rows_where("name = ?", [entity.name]))
+                    if not has:
                         self.db["entities"].insert({
                             "name": entity.name,
                             "description": entity.type,
-                            "relations": "{}"
+                            "relations": "{}",
                         })
-                    
-                    # Link memory to entity (via metadata for now)
-                    # Future: create memory_entities join table
-            
-            # Mark inactive in STM (or delete)
+
             self.db["working_memory"].delete(item["id"])
-        
-        return len(stm_items)
+
+        # Invalidate vector cache · next search rebuilds with the new rows.
+        self._vec_dirty = True
+        return len(to_embed)
+
+    def _loaded_content_hashes(self) -> set:
+        """Snapshot of content hashes already in LTM · cheap O(N) one-shot."""
+        out = set()
+        for row in self.db.query("SELECT content FROM memories"):
+            c = row.get("content")
+            if c:
+                out.add(_content_hash(c))
+        return out
 
     def search(
         self,
@@ -193,91 +300,88 @@ class Storage:
         immediately before and after it in creation order, so the returned
         context preserves local conversational structure. Padded neighbors
         are inserted in chronological order around their anchor.
-        """
-        # Vector Search
-        query_vec = list(self.embed_model.embed([query]))[0]
 
-        # 1. Fetch all embeddings (Naive Scan for MVP - okay for <10k items)
-        all_memories = list(self.db["memories"].rows)
-        if not all_memories:
+        Implementation · vectorised cosine over a cached (N, D) matrix. The
+        matrix is loaded lazily on first search and kept in RAM for the
+        process lifetime; rebuild is triggered by add / forget. This makes
+        repeated daemon queries sub-100 ms even at 10 k+ rows.
+        """
+        # Lazily build the in-RAM matrix · cached across queries.
+        matrix, ids, meta = self._ensure_vec_cache()
+        if matrix is None or matrix.size == 0:
             return []
 
-        now = datetime.now(timezone.utc)
+        # Query embedding · with content-hash cache (saves a re-embed for the
+        # common case where the eval harness or heartbeat fires the same
+        # recall query repeatedly in a tight loop).
+        q_vec = self._embed_cached(query)
+        q_norm = float(np.linalg.norm(q_vec)) or 1.0
+
+        # Single matmul · (N, D) @ (D,) → (N,)  · vectorised, no Python loop.
+        # Embeddings are pre-normalised at consolidate time (see consolidate)
+        # so cos_sim = (matrix @ q_vec) / q_norm. We keep the per-row norm
+        # safety divisor too in case older rows pre-date normalization.
+        row_norms = np.linalg.norm(matrix, axis=1)
+        row_norms[row_norms == 0] = 1.0
+        cos_sims = (matrix @ q_vec) / (row_norms * q_norm)
+
+        # Optional recency boost · also vectorised.
         beta = self.recency_weight if use_recency else 0.0
-        tau = max(self.recency_half_life_days, 1e-6)
+        if beta > 0.0:
+            now_ts = datetime.now(timezone.utc).timestamp()
+            tau_sec = max(self.recency_half_life_days, 1e-6) * 86400.0
+            ages = np.maximum(now_ts - np.asarray([m["ts"] for m in meta], dtype=np.float64), 0.0)
+            recencies = np.exp(-ages / tau_sec)
+        else:
+            recencies = np.zeros(len(ids), dtype=np.float32)
 
-        # Stable order by created_at (then id) so neighbor lookup is deterministic.
-        all_memories.sort(key=lambda m: (m.get("created_at", ""), m.get("id", "")))
-        idx_by_id = {m["id"]: i for i, m in enumerate(all_memories)}
+        final_scores = cos_sims + beta * recencies
 
-        scores = []
-        for mem in all_memories:
-            if not mem["embedding"]:
-                continue
-            vec = np.frombuffer(mem["embedding"], dtype=np.float32)
-            denom = (np.linalg.norm(query_vec) * np.linalg.norm(vec)) or 1.0
-            cos_sim = float(np.dot(query_vec, vec) / denom)
+        # Top-k via argpartition · O(N) instead of full sort O(N log N).
+        k = max(min(limit, len(ids)), 0)
+        if k == 0:
+            return []
+        if k >= len(ids):
+            order = np.argsort(-final_scores)
+        else:
+            part = np.argpartition(-final_scores, k - 1)[:k]
+            order = part[np.argsort(-final_scores[part])]
 
-            recency = 0.0
-            if beta > 0.0:
-                ts_str = mem.get("last_accessed") or mem.get("created_at")
-                try:
-                    ts = datetime.fromisoformat(ts_str)
-                    if ts.tzinfo is None:
-                        ts = ts.replace(tzinfo=timezone.utc)
-                    dt_days = max((now - ts).total_seconds() / 86400.0, 0.0)
-                    recency = float(np.exp(-dt_days / tau))
-                except Exception:
-                    recency = 0.0
-
-            score = cos_sim + beta * recency
-            scores.append((score, cos_sim, recency, mem))
-
-        scores.sort(key=lambda x: x[0], reverse=True)
-        top_anchors = scores[:limit]
+        top_anchors: List[Tuple[float, float, float, int]] = [
+            (float(final_scores[i]), float(cos_sims[i]), float(recencies[i]), int(i))
+            for i in order
+        ]
 
         if neighbor_window <= 0:
-            return [
-                {**m, "score": float(s), "cos_sim": float(c), "recency": float(r)}
-                for s, c, r, m in top_anchors
-            ]
+            return [self._row_from_index(idx, s, c, r) for s, c, r, idx in top_anchors]
 
-        # Expand each anchor with surrounding neighbors, preserving order and
-        # de-duplicating by id. Anchors keep their score; neighbors get the
-        # anchor's score so downstream consumers can still rank.
+        # Neighbor padding · groups each top hit with its ±N chronological
+        # neighbors so the caller can see local conversational structure.
         seen: dict[str, dict] = {}
         anchor_ids: list[str] = []
-        for s, c, r, mem in top_anchors:
-            anchor_idx = idx_by_id.get(mem["id"], -1)
-            if anchor_idx < 0:
-                continue
+        for s, c, r, anchor_idx in top_anchors:
             lo = max(0, anchor_idx - neighbor_window)
-            hi = min(len(all_memories), anchor_idx + neighbor_window + 1)
+            hi = min(len(ids), anchor_idx + neighbor_window + 1)
             for i in range(lo, hi):
-                neighbor = all_memories[i]
-                nid = neighbor["id"]
+                nid = ids[i]
                 if nid in seen:
                     continue
-                seen[nid] = {
-                    **neighbor,
-                    "score": float(s),
-                    "cos_sim": float(c) if i == anchor_idx else 0.0,
-                    "recency": float(r) if i == anchor_idx else 0.0,
-                }
+                seen[nid] = self._row_from_index(
+                    i, s, c if i == anchor_idx else 0.0, r if i == anchor_idx else 0.0
+                )
                 if i == anchor_idx:
                     anchor_ids.append(nid)
 
-        # Return anchors first by score, with their neighborhoods grouped.
         result: list[dict] = []
         emitted: set[str] = set()
         for aid in anchor_ids:
             if aid not in seen:
                 continue
-            anchor_idx = idx_by_id[aid]
+            anchor_idx = ids.index(aid)
             lo = max(0, anchor_idx - neighbor_window)
-            hi = min(len(all_memories), anchor_idx + neighbor_window + 1)
+            hi = min(len(ids), anchor_idx + neighbor_window + 1)
             for i in range(lo, hi):
-                nid = all_memories[i]["id"]
+                nid = ids[i]
                 if nid in emitted:
                     continue
                 if nid in seen:
@@ -286,9 +390,87 @@ class Storage:
         return result
 
     def forget(self, memory_ids: List[str]):
-        """Hard delete items."""
+        """Hard delete items · invalidates the vector cache so next search
+        rebuilds from sqlite."""
         for mid in memory_ids:
             try:
                 self.db["memories"].delete(mid)
-            except:
-                pass 
+            except Exception:
+                pass
+        self._vec_dirty = True
+
+    # ── Vector cache internals ──────────────────────────────────────────
+
+    def _ensure_vec_cache(self) -> Tuple[Optional[np.ndarray], List[str], List[Dict[str, Any]]]:
+        """Load the (N, D) embedding matrix from sqlite once, keep in RAM.
+
+        Returns (matrix, ids_in_order, parallel_meta) · meta carries only the
+        cheap fields (ts, content, type, metadata json) so search() doesn't
+        re-read full rows. Heavy embedding BLOBs are loaded once here.
+        """
+        if not self._vec_dirty and self._vec_matrix is not None:
+            return self._vec_matrix, self._vec_ids or [], self._vec_meta or []
+
+        # Order by (created_at, id) for deterministic neighbor lookups.
+        rows = list(self.db.query(
+            "SELECT id, content, created_at, last_accessed, score, type, metadata, embedding "
+            "FROM memories ORDER BY created_at ASC, id ASC"
+        ))
+        if not rows:
+            self._vec_matrix = np.zeros((0, 0), dtype=np.float32)
+            self._vec_ids = []
+            self._vec_meta = []
+            self._vec_dirty = False
+            return self._vec_matrix, self._vec_ids, self._vec_meta
+
+        vectors: List[np.ndarray] = []
+        ids: List[str] = []
+        meta: List[Dict[str, Any]] = []
+        for r in rows:
+            blob = r.get("embedding")
+            if not blob:
+                continue
+            vec = np.frombuffer(blob, dtype=np.float32)
+            vectors.append(vec)
+            ids.append(r["id"])
+            ts = _to_epoch(r.get("last_accessed") or r.get("created_at"))
+            meta.append({
+                "id": r["id"],
+                "content": r.get("content"),
+                "created_at": r.get("created_at"),
+                "last_accessed": r.get("last_accessed"),
+                "score": r.get("score"),
+                "type": r.get("type"),
+                "metadata": _safe_parse_metadata(r.get("metadata")),
+                "ts": ts,
+            })
+
+        self._vec_matrix = np.stack(vectors).astype(np.float32, copy=False)
+        self._vec_ids = ids
+        self._vec_meta = meta
+        self._vec_dirty = False
+        return self._vec_matrix, ids, meta
+
+    def _row_from_index(self, idx: int, score: float, cos_sim: float, recency: float) -> Dict[str, Any]:
+        """Reconstruct a search result row from cached meta · avoids hitting sqlite."""
+        m = (self._vec_meta or [{}])[idx]
+        return {
+            **m,
+            "score": float(score),
+            "cos_sim": float(cos_sim),
+            "recency": float(recency),
+        }
+
+    def _embed_cached(self, text: str) -> np.ndarray:
+        """Hash-keyed embedding LRU · saves the FastEmbed call when the same
+        query is fired repeatedly (eval harness, heartbeat retries)."""
+        key = hashlib.sha256(text.encode("utf-8")).hexdigest()
+        cached = self._embed_cache.get(key)
+        if cached is not None:
+            self._embed_cache.move_to_end(key)
+            return cached
+        vec = np.asarray(list(self.embed_model.embed([text]))[0], dtype=np.float32)
+        self._embed_cache[key] = vec
+        if len(self._embed_cache) > self._embed_cache_cap:
+            self._embed_cache.popitem(last=False)
+        return vec

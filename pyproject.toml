@@ -1,6 +1,6 @@
 [project]
 name = "amp-memory"
-version = "0.2.0"
+version = "0.3.0"
 description = "AMP: The Agent Memory Protocol - A local-first, MCP-native memory server."
 authors = [
     {name = "Akshay Kumar", email = "akumar8@mt.iitr.ac.in"},

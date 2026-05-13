@@ -43,5 +43,10 @@ benchmarks/*.log
 benchmarks/*.db
 benchmark_*.db
 
+# Local scratch / agent state
+.claude/
+test_amp_pypi/
+docs/JARVIS_INTEGRATION.md
+
 # Examples (Optional, keeping separate if needed, but standard is to keep)
 # examples/ 
