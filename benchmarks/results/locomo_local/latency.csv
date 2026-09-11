@@ -1,0 +1,6 @@
+system,ingest_median,query_median,query_p95
+AMP,22.016,5.223,12.167
+RAG,27.3,4.202,9.675
+FullContext,0.046,4.134,7.678
+AMP-Padded2,18.495,5.565,15.728
+Mem0,371.033,4.463,1456.629

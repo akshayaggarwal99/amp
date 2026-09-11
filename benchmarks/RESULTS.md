@@ -1,70 +1,61 @@
-# AMP Benchmark Results
+# ⚠️ Superseded — do not cite this file
 
-## Summary
-**Date:** 2025-12-10
-**Version:** 0.1.1 (Vector Search Implemented)
-**Recall Score:** 80% (Synthetic LoCoMo)
-**Throughput:** >1000 ops/sec (Write),  >6000 ops/sec (Read)
+**The previous contents of this file have been withdrawn.** They reported a December 2025
+benchmark run whose numbers are **not** the numbers in the paper and must not be quoted as
+AMP results.
 
-## Methodology
-- **Machine:** MacBook Pro M3 Max
-- **Embedding Model:** `bge-small-en-v1.5` (via `fastembed`)
-- **Vector Store:** NumPy-based cosine similarity (in-memory scan), persisted to SQLite BLOB.
-- **Dataset:** Synthetic dataset mimicking LoCoMo structure (Multi-session chat).
+That run is unsound and is retracted for three reasons:
 
-## 1. Quality Evaluation (Recall)
-**Test:** `run_quality_eval.py` using `benchmarks/synthetic_dataset.json`
+1.  **A single generous judge.** The judge prompt read, verbatim, *"Be GENEROUS. If the
+    prediction touches on the same topic, mark CORRECT."*
+2.  **Refusals were scored as correct.** The harness emits the literal string `I don't know.`
+    when it retrieves no context, and the generous judge marked those CORRECT. Every accuracy
+    in that run was inflated by exactly the artifact the paper was later written to eliminate.
+3.  **A different, smaller setup.** 1 conversation instead of 3, and one cloud model used for
+    both generation and judging — the self-judging bias the paper's dual-judge protocol exists
+    to avoid.
 
-| Metric | Score | Notes |
-| :--- | :--- | :--- |
-| **Simple Recall** | **80.0%** | Massive improvement over 0% with FTS. |
-
-**Failure Analysis:**
-- **Question:** "How does Alice feel about the weather?"
-- **Target Answer:** "She thinks it's foggy"
-- **Retrieved:** "Alice: It's foggy but I love the parks..."
-- **Result:** FAIL (Strict String Match)
-- **Conclusion:** The system *did* retrieve the correct information ("It's foggy"). The failure is due to the evaluation script checking for the exact phrase "She thinks it's foggy". An LLM-based judge would likely mark this as PASS.
-
-## 2. Performance Evaluation (IO)
-**Test:** `run_benchmarks.py`
-
-| Metric | Result |
-| :--- | :--- |
-| **Write Speed (STM)** | ~1,200 ops/sec |
-| **Consolidation** | ~100 ms (Batch of 50 items with embedding) |
-| **Read Speed (Vector)** | ~0.05 ms per query (Small dataset) |
-| **Read Speed (FTS)** | ~0.02 ms per query |
-
-## 3. Scientific Benchmark Results (LoCoMo)
-**Date:** 2025-12-10
-**Dataset:** LoCoMo (1 Example = 19 Sessions, 152 Questions)
-**LLM:** Gemini 2.5 Flash Lite (for generation + judging)
-**Metrics:** BLEU-1, Token F1, LLM-as-Judge (CORRECT/WRONG)
-
-### Comparison Table
-| System | BLEU-1 | F1 | **LLM Score** | Notes |
-| :--- | :---: | :---: | :---: | :--- |
-| **AMP (Ollama)** | 0.286 | 0.275 | **82.9%** ✅ | Local-first, fast, no API costs |
-| AMP (Gemini) | 0.156 | 0.187 | 44.1% | Same system, cloud LLM |
-| **Mem0 (Competitor)** | 0.000 | 0.000 | 13.2% | API breaking changes, retrieval failed |
-| RAG Baseline | 0.133 | 0.165 | 36.8% | Naive chunking |
-| Full Context | 0.087 | 0.105 | 23.7% | Context overflow |
-
-### Key Findings
-1.  **AMP dominates** (82.9% vs 13.2% for Mem0 in head-to-head).
-2.  **Mem0 is fragile**: API changes broke retrieval mid-benchmark. Search returned strings instead of dicts.
-3.  **Full Context fails** because the entire conversation (>50k tokens) overwhelms the generation model.
-4.  **AMP's per-turn memory + consolidation** preserves structure better than naive chunking.
-5.  **Local Ollama** outperforms cloud Gemini on LLM-as-Judge (82.9% vs 44.1%) due to more generous grading.
-
-### Methodology
-- Each system ingests the same conversation sessions.
-- For each question, the system retrieves relevant context.
-- Gemini generates an answer from retrieved context.
-- LLM-as-Judge grades the answer as CORRECT (1) or WRONG (0) vs ground truth.
-- Generous grading: "Last week" matching "The Tuesday before Oct 15" = CORRECT.
+The withdrawn text also attributed a Mem0 failure to "API breaking changes" on Mem0's side.
+That attribution was wrong and has been removed. The prior contents remain in this
+repository's git history for anyone auditing how the numbers changed.
 
 ---
-**Conclusion:**
-AMP outperforms both baselines on the LoCoMo benchmark. Future work: Graph/Entity memory to improve temporal reasoning.
+
+## The current results
+
+`paper/` is the only authoritative source. Headline table, reproduced from
+[`paper/tables/main_results.tex`](../paper/tables/main_results.tex), which is generated
+directly from [`results/locomo_local/main_summary.csv`](results/locomo_local/main_summary.csv):
+
+LoCoMo, 3 conversations, **N = 150** stratified questions per system, seed 42. Accuracy is
+the mean of two independent local judges (`qwen3:8b`, `deepseek-r1:8b`) under the
+**strict-IDK rule** — any prediction opening with a refusal phrase is scored WRONG before the
+judges are consulted. Intervals are 95% bootstrap CIs, 10,000 resamples.
+
+| System | Accuracy | 95% CI |
+| :--- | :---: | :---: |
+| Full Context | **82.0%** | (76.3, 87.3) |
+| **AMP-Padded2** (recommended default, `w = 2`) | **72.0%** | (65.3, 78.3) |
+| Naive RAG (200-word chunks, top-10) | 66.3% | (59.0, 73.3) |
+| AMP anchor-only (ablation, `w = 0`) | 60.7% | (53.3, 68.0) |
+
+Paired bootstrap on the per-question differences:
+
+| Comparison | Δ | 95% CI | Reading |
+| :--- | :---: | :---: | :--- |
+| AMP-Padded2 − Full Context | −10.0 pp | (−15.0, −5.0) | Full Context is **better**; the gap is real |
+| AMP-Padded2 − RAG | +5.7 pp | (−0.3, +11.7) | **Not separated** by this sample |
+| AMP-Padded2 − AMP anchor-only | +11.3 pp | (+6.3, +16.7) | Neighbor padding helps |
+
+AMP's advantage over Full Context is prompt cost, not accuracy: measured **8.9–16.4×** fewer
+input tokens per query.
+
+## Raw data and reproduction
+
+*   Per-question verdicts, both judges, all systems: [`results/locomo_local/results.csv`](results/locomo_local/results.csv)
+*   Per-system summary: [`results/locomo_local/main_summary.csv`](results/locomo_local/main_summary.csv)
+*   Per-category breakdown: [`results/locomo_local/per_category.csv`](results/locomo_local/per_category.csv)
+*   Ingest and query latency: [`results/locomo_local/latency.csv`](results/locomo_local/latency.csv)
+*   Step-by-step re-run instructions: [`../paper/REPRODUCE.md`](../paper/REPRODUCE.md)
+
+Full method, per-category analysis, latency table, ablations and limitations: [`../paper/`](../paper/).

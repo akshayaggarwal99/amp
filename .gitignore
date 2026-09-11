@@ -35,8 +35,17 @@ debug_*.py
 locomo_*.db
 debug_om.db
 
-# Benchmarks: track source, ignore artifacts
-benchmarks/results/
+# Benchmarks: track source, ignore artifacts.
+# Exception: the paper's own results are committed on purpose. 07_appendix.tex
+# promises readers the raw per-question CSVs and the summary CSVs and LaTeX
+# tables in locomo_local/ are committed, so any reader can re-run the analysis
+# without re-running the eval. Keep these tracked.
+benchmarks/results/*
+!benchmarks/results/locomo_local/
+benchmarks/results/locomo_local/*
+!benchmarks/results/locomo_local/*.csv
+!benchmarks/results/locomo_local/*.tex
+!benchmarks/results/locomo_local/*.txt
 benchmarks/__pycache__/
 benchmarks/**/__pycache__/
 benchmarks/*.log
@@ -48,5 +57,14 @@ benchmark_*.db
 test_amp_pypi/
 docs/JARVIS_INTEGRATION.md
 
+# Working drafts -- kept locally, never published. These predate the results and
+# contradict the finished paper; they were published by accident once already.
+docs/superpowers/
+paper/OUTLINE.md
+
 # Examples (Optional, keeping separate if needed, but standard is to keep)
 # examples/ 
+
+# The judge paper source, its supplementary zip and OpenReview correspondence.
+# Never publish from this repo: the follow-up paper is under double-blind review.
+paper-judge/

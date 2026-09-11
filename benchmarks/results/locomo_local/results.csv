@@ -1,0 +1,751 @@
+system,conversation_id,qa_idx,category,question,ground_truth,prediction,ingest_seconds,query_seconds,judge_qwen3_8b,judge_deepseek-r1_8b
+AMP,conv-26,0,temporal_reasoning,"When did Caroline meet up with her friends, family, and mentors?",The week before 9 June 2023,"Caroline met up with her friends, family, and mentors last week.",22.016,10.262,1,1
+AMP,conv-26,1,temporal_reasoning,When did Caroline join a new activist group?,The Tuesday before 20 July 2023,Caroline joined a new LGBTQ activist group last Tuesday.,22.016,23.846,1,1
+AMP,conv-26,2,temporal_reasoning,When did Caroline go to the LGBTQ conference?,10 July 2023,Caroline went to an LGBTQ conference two days ago.,22.016,4.681,1,1
+AMP,conv-26,3,temporal_reasoning,When is Caroline going to the transgender conference?,July 2023,Caroline is going to a transgender conference this month.,22.016,7.368,1,1
+AMP,conv-26,4,temporal_reasoning,When did Caroline attend a pride parade in August?,The Friday before 14 August 2023,I don't know.,22.016,7.036,1,1
+AMP,conv-26,5,temporal_reasoning,When did Caroline encounter people on a hike and have a negative experience?,The week before 25 August 2023,Caroline encountered people on a hike and had a,22.016,5.293,0,1
+AMP,conv-26,6,temporal_reasoning,When did Melanie make a plate in pottery class?,24 August 2023,Melanie made the plate in pottery class yesterday.,22.016,3.768,1,1
+AMP,conv-26,7,temporal_reasoning,When did Caroline give a speech at a school?,The week before 9 June 2023,Caroline gave a speech at a school last week.,22.016,3.581,1,1
+AMP,conv-26,8,temporal_reasoning,When did Caroline apply to adoption agencies?,The week of 23 August 2023,I don't know.,22.016,3.87,1,1
+AMP,conv-26,9,temporal_reasoning,When is Caroline's youth center putting on a talent show?,September 2023,Caroline's youth center is putting on a talent show,22.016,6.784,0,1
+AMP,conv-26,10,open_domain,Would Melanie go on another roadtrip soon?,Likely no; since this one went badly,I don't know.,22.016,5.151,1,1
+AMP,conv-26,11,open_domain,Would Caroline be considered religious?,"Somewhat, but not extremely religious",I don't know.,22.016,8.4,1,1
+AMP,conv-26,12,open_domain,What would Caroline's political leaning likely be?,Liberal,I don't know.,22.016,7.812,1,1
+AMP,conv-26,13,open_domain,Would Melanie be considered a member of the LGBTQ community?,"Likely no, she does not refer to herself as part of it",I don't know.,22.016,11.663,1,1
+AMP,conv-26,14,open_domain,What personality traits might Melanie say Caroline has?,"Thoughtful, authentic, driven","Melanie might say Caroline is a positive, enjoyable,",22.016,5.472,0,1
+AMP,conv-26,15,open_domain,Would Caroline want to move back to her home country soon?,No; she's in the process of adopting children.,I don't know.,22.016,4.675,1,1
+AMP,conv-26,16,open_domain,What fields would Caroline be likely to pursue in her educaton?,"Psychology, counseling certification",Caroline would likely pursue education in counseling and mental health.,22.016,4.182,1,1
+AMP,conv-26,17,open_domain,Would Melanie be considered an ally to the transgender community?,"Yes, she is supportive","Yes, Melanie would be considered an ally to the",22.016,3.846,1,1
+AMP,conv-26,18,open_domain,"Would Melanie likely enjoy the song ""The Four Seasons"" by Vivaldi?",Yes; it's classical music,I don't know.,22.016,5.157,0,1
+AMP,conv-26,19,open_domain,Would Caroline still want to pursue counseling as a career if she hadn't received support growing up?,Likely no,I don't know.,22.016,3.145,1,1
+AMP,conv-26,20,multi_hop,What LGBTQ+ events has Caroline participated in?,"Pride parade, school speech, support group","Caroline has participated in an LGBTQ+ pride parade, an LGBTQ art show, and an LGBTQ support group.",22.016,8.02,1,1
+AMP,conv-26,21,multi_hop,Where did Caroline move from 4 years ago?,Sweden,Caroline moved from her home country 4 years ago.,22.016,3.969,1,1
+AMP,conv-26,22,multi_hop,What instruments does Melanie play?,clarinet and violin,Melanie plays the clarinet.,22.016,4.135,1,1
+AMP,conv-26,23,multi_hop,What did Caroline research?,Adoption agencies,I don't know.,22.016,3.495,1,1
+AMP,conv-26,24,multi_hop,When did Melanie go on a hike after the roadtrip?,19 October 2023,Melanie went on a hike yesterday after the road,22.016,5.607,0,1
+AMP,conv-26,25,multi_hop,In what ways is Caroline participating in the LGBTQ community?,"Joining activist group, going to pride parades, participating in an art show, mentoring program",Caroline is participating in the LGBTQ community by having her,22.016,4.84,0,1
+AMP,conv-26,26,multi_hop,What books has Melanie read?,"""Nothing is Impossible"", ""Charlotte's Web""","Melanie has read ""Charlotte's Web,"" a book Caroline recommended, and another book last year that reminds her to pursue her dreams.",22.016,5.778,0,1
+AMP,conv-26,27,multi_hop,What transgender-specific events has Caroline attended?,"Poetry reading, conference",Caroline has attended a transgender poetry reading and,22.016,5.223,1,1
+AMP,conv-26,28,multi_hop,What kind of art does Caroline make?,abstract art,"Caroline makes paintings, including self-portraits, to express her trans experience.",22.016,2.906,0,1
+AMP,conv-26,29,multi_hop,What activities does Melanie partake in?,"pottery, camping, painting, swimming","Melanie plays games, eats good food,",22.016,3.212,0,1
+AMP,conv-26,30,single_hop,What book did Caroline recommend to Melanie?,"""Becoming Nicole""",I don't know.,22.016,4.212,0,1
+AMP,conv-26,31,single_hop,What kind of place does Caroline want to create for people?,a safe and inviting place for people to grow,Caroline wants to create a community where people are,22.016,7.107,1,1
+AMP,conv-26,32,single_hop,What country is Caroline's grandma from?,Sweden,Caroline's grandma is from Sweden.,22.016,4.017,1,1
+AMP,conv-26,33,single_hop,"What kind of painting did Caroline share with Melanie on October 13, 2023?",An abstract painting with blue streaks on a wall.,I don't know.,22.016,4.232,1,1
+AMP,conv-26,34,single_hop,How long has Melanie been creating art?,7 years,Melanie has been creating art for seven years.,22.016,6.649,1,1
+AMP,conv-26,35,single_hop,Did Melanie make the black and white bowl in the photo?,Yes,"Yes, Melanie made the black and white bowl in her class.",22.016,11.477,1,1
+AMP,conv-26,36,single_hop,What is Caroline excited about in the adoption process?,creating a family for kids who need one,Caroline is excited about turning her dream of giving,22.016,5.863,1,1
+AMP,conv-26,37,single_hop,What did Mel and her kids paint in their latest project in July 2023?,a sunset with a palm tree,I don't know.,22.016,6.393,1,1
+AMP,conv-26,38,single_hop,"What did Caroline take away from the book ""Becoming Nicole""?",Lessons on self-acceptance and finding support,"The book ""Becoming Nicole"" made Caroline feel connected and gave her a lot of hope for her own path.",22.016,6.362,1,1
+AMP,conv-26,39,single_hop,What did the charity race raise awareness for?,mental health,The charity race raised awareness for mental health.,22.016,11.198,1,1
+AMP,conv-26,40,adversarial,Is Oscar Melanie's pet?,No,"No, Oscar is Caroline's pet.",22.016,6.383,1,1
+AMP,conv-26,41,adversarial,Did Caroline make the black and white bowl in the photo?,No,I don't know.,22.016,4.911,1,1
+AMP,conv-26,42,single_hop,What did Melanie and her family see during their camping trip last year?,Perseid meteor shower,Melanie and her family saw the Perseid meteor shower during their camping trip last year.,22.016,11.164,1,1
+AMP,conv-26,43,single_hop,Where did Oliver hide his bone once?,In Melanie's slipper,Oliver hid his bone in Melanie's slipper once.,22.016,5.596,1,1
+AMP,conv-26,44,single_hop,Why did Melanie choose to use colors and patterns in her pottery project?,She wanted to catch the eye and make people smile.,I don't know.,22.016,6.901,0,0
+AMP,conv-26,45,temporal_reasoning,How long has Caroline had her current group of friends for?,4 years,Caroline has known her current group of friends for 4 years.,22.016,4.117,1,1
+AMP,conv-26,46,single_hop,Whose birthday did Melanie celebrate recently?,Melanie's daughter,Melanie celebrated her daughter's birthday.,22.016,4.605,1,1
+AMP,conv-26,47,multi_hop,What are Melanie's pets' names?,"Oliver, Luna, Bailey","Melanie's pets are named Luna, Oliver, and Bailey.",22.016,13.436,1,1
+AMP,conv-26,48,temporal_reasoning,When did Caroline join a mentorship program?,The weekend before 17 July 2023,Caroline joined a mentorship program last weekend.,22.016,10.724,1,1
+AMP,conv-26,49,single_hop,How did Melanie feel about her family after the accident?,They are important and mean the world to her,"After the accident, Melanie felt that her",22.016,6.463,1,1
+RAG,conv-26,0,temporal_reasoning,"When did Caroline meet up with her friends, family, and mentors?",The week before 9 June 2023,Caroline met up with her friends last year at,22.436,7.482,0,1
+RAG,conv-26,1,temporal_reasoning,When did Caroline join a new activist group?,The Tuesday before 20 July 2023,Caroline joined a new LGBTQ activist group last Tues.,22.436,11.642,1,1
+RAG,conv-26,2,temporal_reasoning,When did Caroline go to the LGBTQ conference?,10 July 2023,Caroline went to an LGBTQ conference two days ago.,22.436,15.274,1,1
+RAG,conv-26,3,temporal_reasoning,When is Caroline going to the transgender conference?,July 2023,Caroline is going to a transgender conference this month.,22.436,4.01,1,1
+RAG,conv-26,4,temporal_reasoning,When did Caroline attend a pride parade in August?,The Friday before 14 August 2023,I don't know.,22.436,5.191,1,1
+RAG,conv-26,5,temporal_reasoning,When did Caroline encounter people on a hike and have a negative experience?,The week before 25 August 2023,I don't know.,22.436,6.153,1,1
+RAG,conv-26,6,temporal_reasoning,When did Melanie make a plate in pottery class?,24 August 2023,Melanie made a plate in pottery class yesterday.,22.436,3.995,1,1
+RAG,conv-26,7,temporal_reasoning,When did Caroline give a speech at a school?,The week before 9 June 2023,I don't know.,22.436,4.133,1,1
+RAG,conv-26,8,temporal_reasoning,When did Caroline apply to adoption agencies?,The week of 23 August 2023,Caroline applied to adoption agencies this week.,22.436,3.755,1,1
+RAG,conv-26,9,temporal_reasoning,When is Caroline's youth center putting on a talent show?,September 2023,Caroline's youth center is putting together a talent show for the kids next month.,22.436,4.019,1,1
+RAG,conv-26,10,open_domain,Would Melanie go on another roadtrip soon?,Likely no; since this one went badly,I don't know.,22.436,3.955,1,1
+RAG,conv-26,11,open_domain,Would Caroline be considered religious?,"Somewhat, but not extremely religious",I don't know.,22.436,3.748,1,1
+RAG,conv-26,12,open_domain,What would Caroline's political leaning likely be?,Liberal,"Caroline's political leaning would likely be progressive, given",22.436,4.615,1,1
+RAG,conv-26,13,open_domain,Would Melanie be considered a member of the LGBTQ community?,"Likely no, she does not refer to herself as part of it",I don't know.,22.436,4.035,1,1
+RAG,conv-26,14,open_domain,What personality traits might Melanie say Caroline has?,"Thoughtful, authentic, driven","Melanie might say Caroline has guts, empathy",22.436,10.701,0,1
+RAG,conv-26,15,open_domain,Would Caroline want to move back to her home country soon?,No; she's in the process of adopting children.,I don't know.,22.436,5.256,1,1
+RAG,conv-26,16,open_domain,What fields would Caroline be likely to pursue in her educaton?,"Psychology, counseling certification",Caroline is keen on pursuing education in counseling or mental health.,22.436,3.992,1,1
+RAG,conv-26,17,open_domain,Would Melanie be considered an ally to the transgender community?,"Yes, she is supportive","Yes, Melanie would be considered an ally to",22.436,4.448,1,1
+RAG,conv-26,18,open_domain,"Would Melanie likely enjoy the song ""The Four Seasons"" by Vivaldi?",Yes; it's classical music,"Yes, Melanie is a fan of classical music",22.436,4.097,1,1
+RAG,conv-26,19,open_domain,Would Caroline still want to pursue counseling as a career if she hadn't received support growing up?,Likely no,I don't know.,22.436,7.552,1,1
+RAG,conv-26,20,multi_hop,What LGBTQ+ events has Caroline participated in?,"Pride parade, school speech, support group","Caroline has participated in an LGBT pride event, an",22.436,5.068,1,1
+RAG,conv-26,21,multi_hop,Where did Caroline move from 4 years ago?,Sweden,I don't know.,22.436,3.36,1,1
+RAG,conv-26,22,multi_hop,What instruments does Melanie play?,clarinet and violin,Melanie plays the clarinet and violin.,22.436,2.982,1,1
+RAG,conv-26,23,multi_hop,What did Caroline research?,Adoption agencies,Caroline researched adoption agencies.,22.436,2.483,1,1
+RAG,conv-26,24,multi_hop,When did Melanie go on a hike after the roadtrip?,19 October 2023,I don't know.,22.436,3.961,1,1
+RAG,conv-26,25,multi_hop,In what ways is Caroline participating in the LGBTQ community?,"Joining activist group, going to pride parades, participating in an art show, mentoring program",Caroline is participating in the LGBTQ community by attending pride,22.436,3.453,1,1
+RAG,conv-26,26,multi_hop,What books has Melanie read?,"""Nothing is Impossible"", ""Charlotte's Web""","Melanie has read ""Charlotte's Web"" and another unnamed book last year that reminded her to pursue her dreams.",22.436,7.584,1,1
+RAG,conv-26,27,multi_hop,What transgender-specific events has Caroline attended?,"Poetry reading, conference",Caroline has attended a transgender conference and an LGBTQ+,22.436,4.202,1,1
+RAG,conv-26,28,multi_hop,What kind of art does Caroline make?,abstract art,Caroline makes paintings and drawings.,22.436,4.71,0,1
+RAG,conv-26,29,multi_hop,What activities does Melanie partake in?,"pottery, camping, painting, swimming","Melanie enjoys roasting marshmallows, sharing stories around a campfire, painting, pottery, playing clarinet, camping, hiking, exploring forests, swimming, running, reading, playing violin, taking her kids to the park, and attending concerts.",22.436,4.761,1,1
+RAG,conv-26,30,single_hop,What book did Caroline recommend to Melanie?,"""Becoming Nicole""","Caroline recommended ""Becoming Nicole"" by Amy Ellis Nutt to Melanie.",22.436,3.653,1,1
+RAG,conv-26,31,single_hop,What kind of place does Caroline want to create for people?,a safe and inviting place for people to grow,"Caroline wants to create a more loving, inclusive",22.436,5.34,0,1
+RAG,conv-26,32,single_hop,What country is Caroline's grandma from?,Sweden,Caroline's grandma is from Sweden.,22.436,4.008,1,1
+RAG,conv-26,33,single_hop,"What kind of painting did Caroline share with Melanie on October 13, 2023?",An abstract painting with blue streaks on a wall.,I don't know.,22.436,7.455,1,1
+RAG,conv-26,34,single_hop,How long has Melanie been creating art?,7 years,Melanie has been creating art for seven years.,22.436,9.933,1,1
+RAG,conv-26,35,single_hop,Did Melanie make the black and white bowl in the photo?,Yes,"Yes, Melanie made the bowls in the photo",22.436,4.724,1,1
+RAG,conv-26,36,single_hop,What is Caroline excited about in the adoption process?,creating a family for kids who need one,Caroline is thrilled to make a family for kids who need one.,22.436,3.5,1,1
+RAG,conv-26,37,single_hop,What did Mel and her kids paint in their latest project in July 2023?,a sunset with a palm tree,I don't know.,22.436,4.174,1,1
+RAG,conv-26,38,single_hop,"What did Caroline take away from the book ""Becoming Nicole""?",Lessons on self-acceptance and finding support,"From ""Becoming Nicole,"" Caroline learned self-acceptance, how to find support, and that tough times don't last because hope and love exist.",22.436,3.999,1,1
+RAG,conv-26,39,single_hop,What did the charity race raise awareness for?,mental health,The charity race raised awareness for mental health.,22.436,2.532,1,1
+RAG,conv-26,40,adversarial,Is Oscar Melanie's pet?,No,"No, Oscar is Caroline's pet.",22.436,4.934,1,1
+RAG,conv-26,41,adversarial,Did Caroline make the black and white bowl in the photo?,No,I don't know.,22.436,13.049,1,1
+RAG,conv-26,42,single_hop,What did Melanie and her family see during their camping trip last year?,Perseid meteor shower,Melanie and her family saw the Perseid meteor shower during their camping trip last year.,22.436,3.688,1,1
+RAG,conv-26,43,single_hop,Where did Oliver hide his bone once?,In Melanie's slipper,Oliver hid his bone in Melanie's slipper once.,22.436,2.89,1,1
+RAG,conv-26,44,single_hop,Why did Melanie choose to use colors and patterns in her pottery project?,She wanted to catch the eye and make people smile.,Melanie chose to use colors and patterns,22.436,7.574,0,1
+RAG,conv-26,45,temporal_reasoning,How long has Caroline had her current group of friends for?,4 years,I don't know.,22.436,4.782,1,1
+RAG,conv-26,46,single_hop,Whose birthday did Melanie celebrate recently?,Melanie's daughter,Melanie celebrated her daughter's birthday recently.,22.436,3.098,1,1
+RAG,conv-26,47,multi_hop,What are Melanie's pets' names?,"Oliver, Luna, Bailey",Melanie's pets are named Luna and Oliver.,22.436,2.682,1,1
+RAG,conv-26,48,temporal_reasoning,When did Caroline join a mentorship program?,The weekend before 17 July 2023,Caroline joined a mentorship program for LGBTQ youth last weekend.,22.436,2.857,1,1
+RAG,conv-26,49,single_hop,How did Melanie feel about her family after the accident?,They are important and mean the world to her,"After the accident, Melanie realized how much she needed her family, stating they were super important to her, meant the world to her, and she was thankful to have them.",22.436,3.086,1,1
+FullContext,conv-26,0,temporal_reasoning,"When did Caroline meet up with her friends, family, and mentors?",The week before 9 June 2023,"Caroline met up with her friends, family, and mentors last week.",0.042,4.19,1,1
+FullContext,conv-26,1,temporal_reasoning,When did Caroline join a new activist group?,The Tuesday before 20 July 2023,Caroline joined a new LGBTQ activist group last Tuesday.,0.042,8.727,1,1
+FullContext,conv-26,2,temporal_reasoning,When did Caroline go to the LGBTQ conference?,10 July 2023,Caroline went to an LGBTQ conference two days ago.,0.042,3.856,1,1
+FullContext,conv-26,3,temporal_reasoning,When is Caroline going to the transgender conference?,July 2023,Caroline is going to a transgender conference this month.,0.042,3.578,1,1
+FullContext,conv-26,4,temporal_reasoning,When did Caroline attend a pride parade in August?,The Friday before 14 August 2023,I don't know.,0.042,3.468,1,1
+FullContext,conv-26,5,temporal_reasoning,When did Caroline encounter people on a hike and have a negative experience?,The week before 25 August 2023,Caroline encountered people on a hike and had a negative experience last week.,0.042,8.866,1,1
+FullContext,conv-26,6,temporal_reasoning,When did Melanie make a plate in pottery class?,24 August 2023,Melanie made a plate in pottery class yesterday.,0.042,3.636,1,1
+FullContext,conv-26,7,temporal_reasoning,When did Caroline give a speech at a school?,The week before 9 June 2023,Caroline gave a speech at a school last week.,0.042,3.174,1,1
+FullContext,conv-26,8,temporal_reasoning,When did Caroline apply to adoption agencies?,The week of 23 August 2023,Caroline applied to adoption agencies this week.,0.042,3.565,1,1
+FullContext,conv-26,9,temporal_reasoning,When is Caroline's youth center putting on a talent show?,September 2023,Caroline's youth center is putting together a talent show for the kids next month.,0.042,2.977,1,1
+FullContext,conv-26,10,open_domain,Would Melanie go on another roadtrip soon?,Likely no; since this one went badly,I don't know.,0.042,3.855,1,1
+FullContext,conv-26,11,open_domain,Would Caroline be considered religious?,"Somewhat, but not extremely religious",I don't know.,0.042,4.356,1,1
+FullContext,conv-26,12,open_domain,What would Caroline's political leaning likely be?,Liberal,Based on her active involvement and passion for LGBTQ+,0.042,8.79,1,1
+FullContext,conv-26,13,open_domain,Would Melanie be considered a member of the LGBTQ community?,"Likely no, she does not refer to herself as part of it",I don't know.,0.042,4.111,1,1
+FullContext,conv-26,14,open_domain,What personality traits might Melanie say Caroline has?,"Thoughtful, authentic, driven","Melanie might say Caroline has guts, empathy,",0.042,7.568,1,1
+FullContext,conv-26,15,open_domain,Would Caroline want to move back to her home country soon?,No; she's in the process of adopting children.,I don't know.,0.042,4.726,1,1
+FullContext,conv-26,16,open_domain,What fields would Caroline be likely to pursue in her educaton?,"Psychology, counseling certification","Caroline would likely pursue education in counseling or mental health, with a focus on supporting transgender people.",0.042,7.678,1,1
+FullContext,conv-26,17,open_domain,Would Melanie be considered an ally to the transgender community?,"Yes, she is supportive","Yes, Melanie would be considered an ally to",0.042,4.608,1,1
+FullContext,conv-26,18,open_domain,"Would Melanie likely enjoy the song ""The Four Seasons"" by Vivaldi?",Yes; it's classical music,"Yes, Melanie would likely enjoy ""The Four",0.042,4.199,1,1
+FullContext,conv-26,19,open_domain,Would Caroline still want to pursue counseling as a career if she hadn't received support growing up?,Likely no,I don't know.,0.042,4.004,1,1
+FullContext,conv-26,20,multi_hop,What LGBTQ+ events has Caroline participated in?,"Pride parade, school speech, support group",Caroline has participated in an LGBTQ support group,0.042,3.397,1,1
+FullContext,conv-26,21,multi_hop,Where did Caroline move from 4 years ago?,Sweden,Caroline moved from Sweden 4 years ago.,0.042,4.123,1,1
+FullContext,conv-26,22,multi_hop,What instruments does Melanie play?,clarinet and violin,Melanie plays the clarinet.,0.042,3.039,1,1
+FullContext,conv-26,23,multi_hop,What did Caroline research?,Adoption agencies,Caroline researched adoption agencies and counseling and mental health as a career.,0.042,3.276,1,1
+FullContext,conv-26,24,multi_hop,When did Melanie go on a hike after the roadtrip?,19 October 2023,I don't know.,0.042,4.096,1,1
+FullContext,conv-26,25,multi_hop,In what ways is Caroline participating in the LGBTQ community?,"Joining activist group, going to pride parades, participating in an art show, mentoring program",Caroline is participating in the LGBTQ community by,0.042,4.896,1,1
+FullContext,conv-26,26,multi_hop,What books has Melanie read?,"""Nothing is Impossible"", ""Charlotte's Web""","Melanie has read ""Charlotte's Web"" and ""Becoming Nicole"".",0.042,7.738,0,1
+FullContext,conv-26,27,multi_hop,What transgender-specific events has Caroline attended?,"Poetry reading, conference","Caroline has attended a transgender conference, a school event where she spoke about",0.042,5.752,1,1
+FullContext,conv-26,28,multi_hop,What kind of art does Caroline make?,abstract art,"Caroline makes paintings, drawings, and stained glass art",0.042,5.308,1,1
+FullContext,conv-26,29,multi_hop,What activities does Melanie partake in?,"pottery, camping, painting, swimming","Melanie partakes in activities such as working, taking",0.042,4.941,0,1
+FullContext,conv-26,30,single_hop,What book did Caroline recommend to Melanie?,"""Becoming Nicole""","Caroline recommended ""Becoming Nicole"" by Amy Ellis Nutt.",0.042,3.726,1,1
+FullContext,conv-26,31,single_hop,What kind of place does Caroline want to create for people?,a safe and inviting place for people to grow,"Caroline wants to create a safe, inviting place for people to grow.",0.042,6.475,1,1
+FullContext,conv-26,32,single_hop,What country is Caroline's grandma from?,Sweden,Caroline's grandma is from Sweden.,0.042,3.075,1,1
+FullContext,conv-26,33,single_hop,"What kind of painting did Caroline share with Melanie on October 13, 2023?",An abstract painting with blue streaks on a wall.,I don't know.,0.042,4.813,1,1
+FullContext,conv-26,34,single_hop,How long has Melanie been creating art?,7 years,Melanie has been creating art for seven years.,0.042,5.036,1,1
+FullContext,conv-26,35,single_hop,Did Melanie make the black and white bowl in the photo?,Yes,"Yes, Melanie made the black and white bowl in her pottery class.",0.042,6.239,1,1
+FullContext,conv-26,36,single_hop,What is Caroline excited about in the adoption process?,creating a family for kids who need one,Caroline is thrilled to make a family for kids who need one.,0.042,3.246,1,1
+FullContext,conv-26,37,single_hop,What did Mel and her kids paint in their latest project in July 2023?,a sunset with a palm tree,Melanie and her kids painted a nature-inspired piece,0.042,4.062,1,1
+FullContext,conv-26,38,single_hop,"What did Caroline take away from the book ""Becoming Nicole""?",Lessons on self-acceptance and finding support,"From the book ""Becoming Nicole"", Caroline learned self-acceptance, how to find support, and that tough times don't last because hope and love exist.",0.042,3.314,1,1
+FullContext,conv-26,39,single_hop,What did the charity race raise awareness for?,mental health,The charity race raised awareness for mental health.,0.042,2.488,1,1
+FullContext,conv-26,40,adversarial,Is Oscar Melanie's pet?,No,"No, Oscar is Caroline's guinea pig.",0.042,3.338,1,1
+FullContext,conv-26,41,adversarial,Did Caroline make the black and white bowl in the photo?,No,"No, Melanie made the black and white bowl.",0.042,3.868,1,1
+FullContext,conv-26,42,single_hop,What did Melanie and her family see during their camping trip last year?,Perseid meteor shower,Melanie and her family saw the Perseid meteor shower during their camping trip last year.,0.042,3.058,1,1
+FullContext,conv-26,43,single_hop,Where did Oliver hide his bone once?,In Melanie's slipper,Oliver hid his bone in Melanie's slipper once.,0.042,3.071,1,1
+FullContext,conv-26,44,single_hop,Why did Melanie choose to use colors and patterns in her pottery project?,She wanted to catch the eye and make people smile.,"Melanie chose to use colors and patterns in her pottery project because she is obsessed with them, wanted to catch the eye and make people smile, and it helps her express her feelings and be creative.",0.042,3.878,1,1
+FullContext,conv-26,45,temporal_reasoning,How long has Caroline had her current group of friends for?,4 years,"Caroline has known her current group of friends for 4 years, since she moved from her home country.",0.042,2.925,1,1
+FullContext,conv-26,46,single_hop,Whose birthday did Melanie celebrate recently?,Melanie's daughter,Melanie recently celebrated her daughter's birthday.,0.042,3.458,1,1
+FullContext,conv-26,47,multi_hop,What are Melanie's pets' names?,"Oliver, Luna, Bailey","Melanie's pets are named Luna, Oliver, and Bailey.",0.042,4.894,1,1
+FullContext,conv-26,48,temporal_reasoning,When did Caroline join a mentorship program?,The weekend before 17 July 2023,Caroline joined a mentorship program last weekend.,0.042,4.474,1,1
+FullContext,conv-26,49,single_hop,How did Melanie feel about her family after the accident?,They are important and mean the world to her,"After the accident, Melanie was reminded that life is precious and felt that her family was super important to her, meaning the world to her, and she was very thankful for them.",0.042,4.036,1,1
+AMP,conv-30,0,temporal_reasoning,When did Jon receive mentorship to promote his venture?,"15 June, 2023",I don't know.,21.487,5.693,1,1
+AMP,conv-30,1,temporal_reasoning,When did Gina interview for a design internship?,"10 May, 2023",Gina interviewed for a design internship yesterday.,21.487,4.529,1,1
+AMP,conv-30,2,temporal_reasoning,When did Jon start expanding his studio's social media presence?,"April, 2023",Jon started expanding his studio's social media,21.487,4.853,0,1
+AMP,conv-30,3,temporal_reasoning,When did Gina go to a dance class with a group of friends?,21 July 2023,I don't know.,21.487,3.696,1,1
+AMP,conv-30,4,temporal_reasoning,When did Gina design a limited collection of hoodies?,June 2023,Gina designed a limited edition line of hoodies last week.,21.487,4.492,1,1
+AMP,conv-30,5,temporal_reasoning,When did Gina get her tattoo?,A few years ago,Gina got her tattoo a few years ago.,21.487,5.009,1,1
+AMP,conv-30,6,temporal_reasoning,When did Gina team up with a local artist for some cool designs?,"February, 2023",I don't know.,21.487,6.715,1,1
+AMP,conv-30,7,temporal_reasoning,When did Jon host a dance competition?,"May, 2023",I don't know.,21.487,8.963,1,1
+AMP,conv-30,8,temporal_reasoning,When did Gina develop a video presentation to teach how to style her fashion pieces? ,"June, 2023",I don't know.,21.487,15.122,1,1
+AMP,conv-30,9,temporal_reasoning,When did Jon start learning marketing and analytics tools?,"July, 2023",Jon started learning marketing and analytics tools after losing his,21.487,13.6,0,1
+AMP,conv-30,10,temporal_reasoning,When did Jon go to a fair to get more exposure for his dance studio?,"24 April, 2023",I don't know.,21.487,13.251,1,1
+AMP,conv-30,11,temporal_reasoning,When Jon is planning to open his dance studio?,"20 June, 2023",I don't know.,21.487,14.138,1,1
+AMP,conv-30,12,temporal_reasoning,When Gina has lost her job at Door Dash?,"January, 2023",Gina lost her job at Door Dash this month.,21.487,5.564,1,1
+AMP,conv-30,13,temporal_reasoning,"When did Jon start reading ""The Lean Startup""?","May, 2023",I don't know.,21.487,5.298,1,1
+AMP,conv-30,14,temporal_reasoning,When did Jon and Gina decide to collaborate to create dance content?,21 July 2023,I don't know.,21.487,5.129,1,1
+AMP,conv-30,15,temporal_reasoning,When did Gina get accepted for the design internship?,"27 May, 2023",I don't know.,21.487,4.691,1,1
+AMP,conv-30,16,single_hop,How does Gina stay confident in her business?,"By reminding herself of her successes and progress, having a support system, and focusing on why she started",I don't know.,21.487,10.195,0,1
+AMP,conv-30,17,single_hop,What does Gina's tattoo symbolize?,Freedom and expressing herself through dance,"Gina's tattoo symbolizes freedom, dancing without worrying what people think, and serves as a reminder to follow her passions and express herself.",21.487,12.167,1,1
+AMP,conv-30,18,single_hop,What did Jon take a trip to Rome for?,To clear his mind,Jon took a trip to Rome to clear his mind a little.,21.487,6.118,1,1
+AMP,conv-30,19,single_hop,Why did Gina combine her clothing business with dance?,she is passionate about dance and fashion,Gina combined her clothing business with dance because she,21.487,4.709,1,1
+AMP,conv-30,20,single_hop,What did Gina make a limited edition line of?,Hoodies,Gina made a limited edition line of hoodies.,21.487,2.808,1,1
+AMP,conv-30,21,single_hop,What does Gina say about the dancers in the photo?,They look graceful,I don't know.,21.487,3.185,0,1
+AMP,conv-30,22,single_hop,What is Jon working on opening?,a dance studio,Jon is working on opening a studio.,21.487,2.333,1,1
+AMP,conv-30,23,single_hop,"What kind of professional experience did Gina get accepted for on May 23, 2023?",fashion internship,I don't know.,21.487,3.653,1,1
+AMP,conv-30,24,single_hop,What was Gina's favorite dancing memory?,Winning first place at a regionals dance competition,Gina's favorite dancing memory was when her team won first place at a regionals at age fifteen.,21.487,2.833,1,1
+AMP,conv-30,25,single_hop,How does Jon feel about the opening night of his dance studio?,excited,Jon must be excited about the opening night of his,21.487,4.533,1,1
+AMP,conv-30,26,single_hop,"According to Gina, what makes Jon a perfect mentor and guide?",His positivity and determination,"According to Gina, Jon is the perfect mentor and guide",21.487,4.159,0,1
+AMP,conv-30,27,single_hop,What does Jon tell Gina he won't do?,quit,Jon tells Gina he won't give up,21.487,3.529,1,1
+AMP,conv-30,28,single_hop,What did Jon say about creating a special experience for customers?,It's the key to making them feel welcome and coming back,Jon said that creating a special experience for customers is the key to making them feel welcome and coming back.,21.487,3.484,1,1
+AMP,conv-30,29,single_hop,What advice does Gina give to Jon about running a successful business?,"build relationships with customers, create a strong brand image, stay positive",Gina advises Jon that staying resilient and focused is key for,21.487,3.874,0,1
+AMP,conv-30,30,single_hop,What did Gina say about creating an experience for her customers?,making them want to come back,"Gina said that creating an experience that will make her customers want to come back is key, and she aims to make a special shopping experience for them.",21.487,3.215,1,1
+AMP,conv-30,31,single_hop,What book is Jon currently reading?,The Lean Startup,"Jon is currently reading ""The Lean Startup.""",21.487,3.175,1,1
+AMP,conv-30,32,multi_hop,What does Jon's dance studio offer?,"one-on-one metoring and training to dancers,  workshops and classes to local schools and centers","Jon's dance studio offers dance classes, workshops, and one-on-one mentoring and training.",21.487,2.55,1,1
+AMP,conv-30,33,multi_hop,Why did Gina decide to start her own clothing store?,She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.,Gina decided to start her own clothing store because she lost her job.,21.487,3.143,1,1
+AMP,conv-30,34,multi_hop,Do Jon and Gina start businesses out of what they love?,Yes,"Yes, Jon started a dance studio out",21.487,3.278,1,1
+AMP,conv-30,35,multi_hop,What do Jon and Gina both have in common?,They lost their jobs and decided to start their own businesses.,Jon and Gina both express thanks to each,21.487,3.413,0,1
+AMP,conv-30,36,multi_hop,Which events has Jon participated in to promote his business venture?,"fair, networking events, dance competition",Jon has participated in networking events to promote his business venture,21.487,7.085,1,1
+AMP,conv-30,37,multi_hop,What Jon thinks the ideal dance studio should look like?,"By the water, with natural light and Marley flooring",Jon thinks the ideal dance studio should be by the water and have great natural light.,21.487,4.233,1,1
+AMP,conv-30,38,multi_hop,Did Jon and Gina both participate in dance competitions?,Yes,I don't know.,21.487,3.287,0,1
+AMP,conv-30,39,multi_hop,Which cities has Jon visited?,"Paris, Rome",Jon has visited Rome.,21.487,3.696,1,1
+AMP,conv-30,40,multi_hop,Which city have both Jean and John visited?,Rome,I don't know.,21.487,4.286,1,1
+AMP,conv-30,41,multi_hop,How did Gina promote her clothes store?,"worked with an artist to make unique fashion pieces, made limited-edition sweatshirts, got some new offers and promotions for online store, developed a video presentation showing how to style her pieces",Gina promoted her clothes store by working with fashion bloggers and influencers and by doing more ads.,21.487,4.589,0,1
+AMP,conv-30,42,multi_hop,How long did it take for Jon to open his studio?,six months,I don't know.,21.487,3.399,1,0
+AMP,conv-30,43,temporal_reasoning,When did Jon visit networking events for his store?,"20 June, 2023",Jon visited networking events yesterday.,21.487,3.891,1,1
+AMP,conv-30,44,temporal_reasoning,When is Jon's group performing at a festival?,"February, 2023",I don't know.,21.487,6.79,1,1
+AMP,conv-30,45,single_hop,What did Gina design for her store?,"the space, furniture, and decor","Gina designed the space for her store, making",21.487,7.4,1,1
+AMP,conv-30,46,single_hop,What plans does Jon have after receiving advice at the networking event?,"Sprucing up his business plan, tweaking his pitch to investors, and working on an online platform.","After receiving advice, Jon is sprucing up his",21.487,7.005,1,1
+AMP,conv-30,47,single_hop,What did Jon and Gina compare their entrepreneurial journeys to?,dancing together and supporting each other,I don't know.,21.487,5.75,0,1
+AMP,conv-30,48,single_hop,What kind of flooring is Jon looking for in his dance studio?,Marley flooring,Jon is looking for Marley flooring for his dance studio.,21.487,9.538,1,1
+AMP,conv-30,49,temporal_reasoning,When did Jon start to go to the gym?,"March, 2023",Jon started going to the gym last week.,21.487,9.411,1,1
+RAG,conv-30,0,temporal_reasoning,When did Jon receive mentorship to promote his venture?,"15 June, 2023",Jon received mentorship to promote his venture when he,27.3,9.207,0,1
+RAG,conv-30,1,temporal_reasoning,When did Gina interview for a design internship?,"10 May, 2023",Gina interviewed for a design internship yesterday.,27.3,7.674,1,1
+RAG,conv-30,2,temporal_reasoning,When did Jon start expanding his studio's social media presence?,"April, 2023",Jon started expanding his studio's social media presence,27.3,6.345,0,1
+RAG,conv-30,3,temporal_reasoning,When did Gina go to a dance class with a group of friends?,21 July 2023,Gina went to a dance class with a group of friends last Friday.,27.3,5.257,1,1
+RAG,conv-30,4,temporal_reasoning,When did Gina design a limited collection of hoodies?,June 2023,Gina designed a limited edition line of hoodies last week.,27.3,4.406,1,1
+RAG,conv-30,5,temporal_reasoning,When did Gina get her tattoo?,A few years ago,Gina got her tattoo a few years ago.,27.3,3.917,1,1
+RAG,conv-30,6,temporal_reasoning,When did Gina team up with a local artist for some cool designs?,"February, 2023",Gina just teamed up with a local artist for some cool designs.,27.3,4.589,1,1
+RAG,conv-30,7,temporal_reasoning,When did Jon host a dance competition?,"May, 2023",Jon is hosting a dance competition next month.,27.3,9.666,1,1
+RAG,conv-30,8,temporal_reasoning,When did Gina develop a video presentation to teach how to style her fashion pieces? ,"June, 2023",I don't know.,27.3,5.159,1,1
+RAG,conv-30,9,temporal_reasoning,When did Jon start learning marketing and analytics tools?,"July, 2023",I don't know.,27.3,4.07,1,1
+RAG,conv-30,10,temporal_reasoning,When did Jon go to a fair to get more exposure for his dance studio?,"24 April, 2023",I don't know.,27.3,6.871,1,1
+RAG,conv-30,11,temporal_reasoning,When Jon is planning to open his dance studio?,"20 June, 2023",I don't know.,27.3,4.478,1,1
+RAG,conv-30,12,temporal_reasoning,When Gina has lost her job at Door Dash?,"January, 2023",Gina lost her job at Door Dash this month.,27.3,2.782,1,1
+RAG,conv-30,13,temporal_reasoning,"When did Jon start reading ""The Lean Startup""?","May, 2023",I don't know.,27.3,2.736,1,1
+RAG,conv-30,14,temporal_reasoning,When did Jon and Gina decide to collaborate to create dance content?,21 July 2023,Jon and Gina decided to collaborate on creating dance content after,27.3,4.324,0,1
+RAG,conv-30,15,temporal_reasoning,When did Gina get accepted for the design internship?,"27 May, 2023",I don't know.,27.3,4.796,1,1
+RAG,conv-30,16,single_hop,How does Gina stay confident in her business?,"By reminding herself of her successes and progress, having a support system, and focusing on why she started","Gina stays confident in her business by reminding herself of her successes and progress, having a good support system, and focusing on why she started the business.",27.3,3.808,1,1
+RAG,conv-30,17,single_hop,What does Gina's tattoo symbolize?,Freedom and expressing herself through dance,"Gina's tattoo symbolizes freedom, dancing without worrying what people think, and is a reminder to follow her passions and express herself.",27.3,3.031,1,1
+RAG,conv-30,18,single_hop,What did Jon take a trip to Rome for?,To clear his mind,Jon took a short trip to Rome to clear his mind.,27.3,2.767,1,1
+RAG,conv-30,19,single_hop,Why did Gina combine her clothing business with dance?,she is passionate about dance and fashion,"Gina combined her clothing business with dance because she is passionate about both and it allows her to show her creativity, share her love for them with others, and add dance-inspired items to her store.",27.3,3.235,1,1
+RAG,conv-30,20,single_hop,What did Gina make a limited edition line of?,Hoodies,Gina made a limited edition line of hoodies.,27.3,3.736,1,1
+RAG,conv-30,21,single_hop,What does Gina say about the dancers in the photo?,They look graceful,I don't know.,27.3,3.123,0,1
+RAG,conv-30,22,single_hop,What is Jon working on opening?,a dance studio,Jon is working on opening his own dance studio.,27.3,3.522,1,1
+RAG,conv-30,23,single_hop,"What kind of professional experience did Gina get accepted for on May 23, 2023?",fashion internship,I don't know.,27.3,5.364,1,1
+RAG,conv-30,24,single_hop,What was Gina's favorite dancing memory?,Winning first place at a regionals dance competition,Gina's favorite dancing memory was when her team won first place at a regionals competition at age fifteen.,27.3,4.203,1,1
+RAG,conv-30,25,single_hop,How does Jon feel about the opening night of his dance studio?,excited,"Jon is excited and looking forward to the grand opening of his dance studio, hoping it will be fun and unforgettable.",27.3,6.902,1,1
+RAG,conv-30,26,single_hop,"According to Gina, what makes Jon a perfect mentor and guide?",His positivity and determination,"According to Gina, Jon is the perfect mentor and guide because he loves what he does, brings joy to others, and his positivity and determination will make his dance studio a hit.",27.3,9.778,1,1
+RAG,conv-30,27,single_hop,What does Jon tell Gina he won't do?,quit,Jon tells Gina he won't quit on his dreams,27.3,4.782,1,1
+RAG,conv-30,28,single_hop,What did Jon say about creating a special experience for customers?,It's the key to making them feel welcome and coming back,Creating a special experience for customers is the key to making them feel welcome and coming back.,27.3,5.185,1,1
+RAG,conv-30,29,single_hop,What advice does Gina give to Jon about running a successful business?,"build relationships with customers, create a strong brand image, stay positive",Gina advises Jon to use social media channels,27.3,8.509,0,0
+RAG,conv-30,30,single_hop,What did Gina say about creating an experience for her customers?,making them want to come back,"Gina said that making her spot comfortable and inviting for her customers is key, and she wants to create an experience that will make them want to come back.",27.3,3.044,1,1
+RAG,conv-30,31,single_hop,What book is Jon currently reading?,The Lean Startup,I don't know.,27.3,2.314,1,1
+RAG,conv-30,32,multi_hop,What does Jon's dance studio offer?,"one-on-one metoring and training to dancers,  workshops and classes to local schools and centers","Jon's dance studio offers workshops, classes, one-on-one mentoring, and training, and also hosts a dance competition.",27.3,3.424,1,1
+RAG,conv-30,33,multi_hop,Why did Gina decide to start her own clothing store?,She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.,Gina decided to start her online clothing store because,27.3,6.404,1,1
+RAG,conv-30,34,multi_hop,Do Jon and Gina start businesses out of what they love?,Yes,"Yes, Jon started a dance studio because he",27.3,5.445,1,1
+RAG,conv-30,35,multi_hop,What do Jon and Gina both have in common?,They lost their jobs and decided to start their own businesses.,"Jon and Gina both lost their jobs, are starting their own businesses, are passionate about dancing, and find contemporary dance expressive.",27.3,3.454,1,1
+RAG,conv-30,36,multi_hop,Which events has Jon participated in to promote his business venture?,"fair, networking events, dance competition",Jon has participated in a networking event and,27.3,3.951,1,1
+RAG,conv-30,37,multi_hop,What Jon thinks the ideal dance studio should look like?,"By the water, with natural light and Marley flooring","Jon's ideal dance studio should be downtown for easy access, have great natural light, a",27.3,3.488,1,1
+RAG,conv-30,38,multi_hop,Did Jon and Gina both participate in dance competitions?,Yes,"Yes, both Jon and Gina participated in dance",27.3,3.268,1,1
+RAG,conv-30,39,multi_hop,Which cities has Jon visited?,"Paris, Rome",Jon has visited Paris and Rome.,27.3,3.06,1,1
+RAG,conv-30,40,multi_hop,Which city have both Jean and John visited?,Rome,I don't know.,27.3,4.066,1,1
+RAG,conv-30,41,multi_hop,How did Gina promote her clothes store?,"worked with an artist to make unique fashion pieces, made limited-edition sweatshirts, got some new offers and promotions for online store, developed a video presentation showing how to style her pieces","Gina promoted her clothes store by launching ad campaigns, working with fashion bloggers and influencers, and developing a video presentation to teach how to style her fashion pieces.",27.3,9.441,1,1
+RAG,conv-30,42,multi_hop,How long did it take for Jon to open his studio?,six months,I don't know.,27.3,5.85,1,0
+RAG,conv-30,43,temporal_reasoning,When did Jon visit networking events for his store?,"20 June, 2023",I don't know.,27.3,5.459,1,1
+RAG,conv-30,44,temporal_reasoning,When is Jon's group performing at a festival?,"February, 2023",Jon's group is performing at a nearby festival next month.,27.3,4.311,1,1
+RAG,conv-30,45,single_hop,What did Gina design for her store?,"the space, furniture, and decor","Gina designed the space for her store, making it cozy and inviting, and chose the furniture and decor, including a chandelier.",27.3,3.802,1,1
+RAG,conv-30,46,single_hop,What plans does Jon have after receiving advice at the networking event?,"Sprucing up his business plan, tweaking his pitch to investors, and working on an online platform.","After receiving advice from investors, Jon plans to",27.3,4.815,0,1
+RAG,conv-30,47,single_hop,What did Jon and Gina compare their entrepreneurial journeys to?,dancing together and supporting each other,"Jon and Gina compared their entrepreneurial journeys to a ""roller",27.3,4.87,0,1
+RAG,conv-30,48,single_hop,What kind of flooring is Jon looking for in his dance studio?,Marley flooring,Jon is looking for Marley flooring for his dance studio.,27.3,3.978,1,1
+RAG,conv-30,49,temporal_reasoning,When did Jon start to go to the gym?,"March, 2023",I don't know.,27.3,3.092,1,1
+FullContext,conv-30,0,temporal_reasoning,When did Jon receive mentorship to promote his venture?,"15 June, 2023",Jon received mentorship yesterday.,0.055,3.69,1,1
+FullContext,conv-30,1,temporal_reasoning,When did Gina interview for a design internship?,"10 May, 2023",Gina interviewed for a design internship yesterday.,0.055,3.865,1,1
+FullContext,conv-30,2,temporal_reasoning,When did Jon start expanding his studio's social media presence?,"April, 2023",Jon is currently expanding his dance studio's social media,0.055,14.963,1,1
+FullContext,conv-30,3,temporal_reasoning,When did Gina go to a dance class with a group of friends?,21 July 2023,Gina went to a dance class with a group of friends last Friday.,0.055,5.255,1,1
+FullContext,conv-30,4,temporal_reasoning,When did Gina design a limited collection of hoodies?,June 2023,Gina designed a limited edition line of hoodies last week.,0.055,4.648,1,1
+FullContext,conv-30,5,temporal_reasoning,When did Gina get her tattoo?,A few years ago,Gina got her tattoo a few years ago.,0.055,3.799,1,1
+FullContext,conv-30,6,temporal_reasoning,When did Gina team up with a local artist for some cool designs?,"February, 2023",Gina just teamed up with a local artist for some cool designs for her online store.,0.055,4.02,1,1
+FullContext,conv-30,7,temporal_reasoning,When did Jon host a dance competition?,"May, 2023",Jon is hosting a dance competition next month.,0.055,4.377,1,1
+FullContext,conv-30,8,temporal_reasoning,When did Gina develop a video presentation to teach how to style her fashion pieces? ,"June, 2023",The context does not specify when Gina developed,0.055,4.83,0,1
+FullContext,conv-30,9,temporal_reasoning,When did Jon start learning marketing and analytics tools?,"July, 2023","Jon started learning marketing and analytics tools today, relative to that conversation turn.",0.055,4.113,1,1
+FullContext,conv-30,10,temporal_reasoning,When did Jon go to a fair to get more exposure for his dance studio?,"24 April, 2023",Jon went to a fair yesterday to show off his studio.,0.055,5.709,1,1
+FullContext,conv-30,11,temporal_reasoning,When Jon is planning to open his dance studio?,"20 June, 2023",Jon is planning to open his dance studio tomorrow.,0.055,5.272,1,1
+FullContext,conv-30,12,temporal_reasoning,When Gina has lost her job at Door Dash?,"January, 2023",Gina lost her job at Door Dash this month.,0.055,3.273,1,1
+FullContext,conv-30,13,temporal_reasoning,"When did Jon start reading ""The Lean Startup""?","May, 2023",I don't know.,0.055,3.934,1,1
+FullContext,conv-30,14,temporal_reasoning,When did Jon and Gina decide to collaborate to create dance content?,21 July 2023,Jon and Gina decided to collaborate on creating dance content,0.055,4.144,0,1
+FullContext,conv-30,15,temporal_reasoning,When did Gina get accepted for the design internship?,"27 May, 2023","Gina ""just got accepted"" for a",0.055,4.862,0,1
+FullContext,conv-30,16,single_hop,How does Gina stay confident in her business?,"By reminding herself of her successes and progress, having a support system, and focusing on why she started","Gina stays confident in her business by reminding herself of her successes and progress, having a good support system, and focusing on why she started the business.",0.055,7.953,1,1
+FullContext,conv-30,17,single_hop,What does Gina's tattoo symbolize?,Freedom and expressing herself through dance,"Gina's tattoo symbolizes freedom, specifically dancing without worrying what people think, and serves as a reminder to follow her passions and express herself.",0.055,3.608,1,1
+FullContext,conv-30,18,single_hop,What did Jon take a trip to Rome for?,To clear his mind,Jon took a short trip to Rome to clear his mind a little.,0.055,3.677,1,1
+FullContext,conv-30,19,single_hop,Why did Gina combine her clothing business with dance?,she is passionate about dance and fashion,"Gina combined her clothing business with dance because she is passionate about both fashion trends and dance, and wanted to blend her love for the two.",0.055,3.687,1,1
+FullContext,conv-30,20,single_hop,What did Gina make a limited edition line of?,Hoodies,Gina made a limited edition line of hoodies.,0.055,2.846,1,1
+FullContext,conv-30,21,single_hop,What does Gina say about the dancers in the photo?,They look graceful,"Gina says, ""Wow, it looks awesome!",0.055,5.027,0,1
+FullContext,conv-30,22,single_hop,What is Jon working on opening?,a dance studio,Jon is working on opening his own dance studio.,0.055,7.824,1,1
+FullContext,conv-30,23,single_hop,"What kind of professional experience did Gina get accepted for on May 23, 2023?",fashion internship,I don't know.,0.055,4.628,1,1
+FullContext,conv-30,24,single_hop,What was Gina's favorite dancing memory?,Winning first place at a regionals dance competition,Gina's favorite dancing memory was when her team won first place at a regionals at age fifteen.,0.055,5.324,1,1
+FullContext,conv-30,25,single_hop,How does Jon feel about the opening night of his dance studio?,excited,"Jon is excited, feeling good, and ready to give",0.055,4.502,1,1
+FullContext,conv-30,26,single_hop,"According to Gina, what makes Jon a perfect mentor and guide?",His positivity and determination,"According to Gina, Jon is a perfect mentor and guide",0.055,4.933,0,1
+FullContext,conv-30,27,single_hop,What does Jon tell Gina he won't do?,quit,"Jon tells Gina he won't give up, quit, or let anything stop him from making his dreams happen.",0.055,4.362,1,1
+FullContext,conv-30,28,single_hop,What did Jon say about creating a special experience for customers?,It's the key to making them feel welcome and coming back,Jon said that creating a special experience for customers is the key to making them feel welcome and coming back.,0.055,4.765,1,1
+FullContext,conv-30,29,single_hop,What advice does Gina give to Jon about running a successful business?,"build relationships with customers, create a strong brand image, stay positive","Gina advises Jon to stay passionate, focused, and resilient, to believe in himself through challenges, and to stay open to learning and improving.",0.055,5.753,0,1
+FullContext,conv-30,30,single_hop,What did Gina say about creating an experience for her customers?,making them want to come back,Gina wants to create an experience that will make her customers want to come back by making her spot comfortable and inviting so they feel like they're in a cool oasis.,0.055,7.172,1,1
+FullContext,conv-30,31,single_hop,What book is Jon currently reading?,The Lean Startup,"Jon is currently reading ""The Lean Startup.""",0.055,3.643,1,1
+FullContext,conv-30,32,multi_hop,What does Jon's dance studio offer?,"one-on-one metoring and training to dancers,  workshops and classes to local schools and centers","Jon's dance studio offers dance classes, workshops, one-on-one",0.055,5.757,1,1
+FullContext,conv-30,33,multi_hop,Why did Gina decide to start her own clothing store?,She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.,Gina decided to start her own clothing store after losing,0.055,6.899,1,1
+FullContext,conv-30,34,multi_hop,Do Jon and Gina start businesses out of what they love?,Yes,"Yes, Jon is starting a dance studio because he is passionate about dancing, and Gina is opening an online clothing store because she is passionate about fashion and wanted to blend her love for dance and fashion.",0.055,7.019,1,1
+FullContext,conv-30,35,multi_hop,What do Jon and Gina both have in common?,They lost their jobs and decided to start their own businesses.,"Jon and Gina both lost their jobs, are starting their own businesses, share a passion for dance, and consistently support each other through their entrepreneurial journeys.",0.055,4.425,1,1
+FullContext,conv-30,36,multi_hop,Which events has Jon participated in to promote his business venture?,"fair, networking events, dance competition","Jon has participated in a festival performance, a dance",0.055,5.34,0,1
+FullContext,conv-30,37,multi_hop,What Jon thinks the ideal dance studio should look like?,"By the water, with natural light and Marley flooring",Jon thinks an ideal dance studio should be by the water,0.055,5.482,1,1
+FullContext,conv-30,38,multi_hop,Did Jon and Gina both participate in dance competitions?,Yes,"Yes, both Jon and Gina participated in",0.055,4.316,1,1
+FullContext,conv-30,39,multi_hop,Which cities has Jon visited?,"Paris, Rome",Jon has visited Paris and Rome.,0.055,4.1,1,1
+FullContext,conv-30,40,multi_hop,Which city have both Jean and John visited?,Rome,I don't know.,0.055,4.232,1,1
+FullContext,conv-30,41,multi_hop,How did Gina promote her clothes store?,"worked with an artist to make unique fashion pieces, made limited-edition sweatshirts, got some new offers and promotions for online store, developed a video presentation showing how to style her pieces",Gina promoted her online clothing store by launching ad campaigns,0.055,4.072,0,1
+FullContext,conv-30,42,multi_hop,How long did it take for Jon to open his studio?,six months,The context does not provide a specific timeframe for,0.055,3.633,0,1
+FullContext,conv-30,43,temporal_reasoning,When did Jon visit networking events for his store?,"20 June, 2023",Jon visited networking events yesterday.,0.055,3.474,1,1
+FullContext,conv-30,44,temporal_reasoning,When is Jon's group performing at a festival?,"February, 2023",Jon's group is performing at a nearby festival next month.,0.055,4.432,1,1
+FullContext,conv-30,45,single_hop,What did Gina design for her store?,"the space, furniture, and decor","Gina designed the space of her store, choosing furniture and decor, and adding a chandelier to create a cozy, inviting, and glamorous feel.",0.055,4.741,1,1
+FullContext,conv-30,46,single_hop,What plans does Jon have after receiving advice at the networking event?,"Sprucing up his business plan, tweaking his pitch to investors, and working on an online platform.","After receiving advice at the networking event, Jon plans to spruce up his business plan, tweak his pitch to investors, and work on an online platform to showcase the dance studio's offerings.",0.055,4.062,1,1
+FullContext,conv-30,47,single_hop,What did Jon and Gina compare their entrepreneurial journeys to?,dancing together and supporting each other,Jon and Gina compared their entrepreneurial journeys to a rollercoaster.,0.055,6.915,0,1
+FullContext,conv-30,48,single_hop,What kind of flooring is Jon looking for in his dance studio?,Marley flooring,Jon is looking for Marley flooring for his dance studio.,0.055,4.289,1,1
+FullContext,conv-30,49,temporal_reasoning,When did Jon start to go to the gym?,"March, 2023",Jon started hitting the gym last week.,0.055,3.999,1,1
+AMP,conv-41,0,temporal_reasoning,When did John have his first firefighter call-out?,The sunday before 3` July 2023,I don't know.,33.51,6.344,1,1
+AMP,conv-41,1,temporal_reasoning,When did Maria join a gym?,The week before 16 June 2023,Maria joined a gym last week.,33.51,4.89,1,1
+AMP,conv-41,2,temporal_reasoning,When did John start boot camp with his family?,April.2023,John started going to boot camps with his family last month.,33.51,5.854,1,1
+AMP,conv-41,3,temporal_reasoning,What did John attend with his colleagues in March 2023?,a tech-for-good convention,I don't know.,33.51,4.889,1,1
+AMP,conv-41,4,temporal_reasoning,When did Maria take up community work with her church friends?,"August 4, 2023",Maria took up community work with her friends from church yesterday.,33.51,4.617,1,1
+AMP,conv-41,5,temporal_reasoning,When did John get his degree?,The week before 2 April 2023,John graduated last week.,33.51,8.549,1,1
+AMP,conv-41,6,temporal_reasoning,When did Maria's grandmother pass away?,The week before 6 March 2023,Maria's grandmother passed away last week.,33.51,8.837,1,1
+AMP,conv-41,7,temporal_reasoning,When did John have a party with veterans?,The Friday before 20 May 2023,I don't know.,33.51,9.039,1,1
+AMP,conv-41,8,temporal_reasoning,When did Maria go hiking with her church friends?,The weekend before 22 July 2023,Maria went hiking with her church friends last weekend.,33.51,4.541,1,1
+AMP,conv-41,9,temporal_reasoning,When did Maria get Coco?,Two weeks before 11 August 2023,Maria got Coco two weeks ago.,33.51,5.466,1,1
+AMP,conv-41,10,temporal_reasoning,When did John get his dog Max?,In 2013,I don't know.,33.51,5.735,1,1
+AMP,conv-41,11,temporal_reasoning,When did John help renovate his hometown community center?,2022,John helped renovate his hometown community center last year.,33.51,8.256,1,1
+AMP,conv-41,12,multi_hop,What causes does John feel passionate about supporting?,"Veterans, schools, infrastructure","John feels passionate about serving his country and community, and ensuring veterans are supported and",33.51,7.322,1,1
+AMP,conv-41,13,multi_hop,What area was hit by a flood?,West County,John's old area was hit by a nasty flood.,33.51,8.655,0,1
+AMP,conv-41,14,multi_hop,What events is Maria planning for the homeless shelter funraiser?,"Chili cook-off, ring-toss tournament",Maria is planning a ring-toss tournament for the homeless shelter's fundraiser.,33.51,6.543,1,1
+AMP,conv-41,15,multi_hop,What desserts has Maria made?,"Banana split sundae, Peach cobbler",Maria has made peach cobbler.,33.51,6.068,1,1
+AMP,conv-41,16,multi_hop,What shelters does Maria volunteer at?,"The homeless shelter, the dog shelter",Maria volunteers at a homeless shelter.,33.51,8.627,1,1
+AMP,conv-41,17,multi_hop,What music events has John attended?,"Live music event, violin concert",John has attended a violin concert and a live music event.,33.51,14.929,1,1
+AMP,conv-41,18,multi_hop,What outdoor activities has John done with his colleagues?,"Hiking, mountaineering",I don't know.,33.51,6.491,1,1
+AMP,conv-41,19,multi_hop,What writing classes has Maria taken?,"Poetry, creative writing",Maria has taken a creative writing class and a poetry class.,33.51,5.785,1,1
+AMP,conv-41,20,multi_hop,What food item did Maria drop off at the homeless shelter?,Cakes,Maria dropped off some baked goods at the,33.51,4.603,1,1
+AMP,conv-41,21,multi_hop,What states has Maria vacationed at?,"Oregon, Florida",Maria has vacationed in Florida.,33.51,5.795,1,1
+AMP,conv-41,22,multi_hop,What damages have happened to John's car?,"Broken windshield, Car broke down",John's car broke down.,33.51,7.484,1,1
+AMP,conv-41,23,multi_hop,What European countries has Maria been to?,"Spain, England",Maria has been to Spain and England.,33.51,3.848,1,1
+AMP,conv-41,24,open_domain,What job might Maria pursue in the future?,"Shelter coordinator, Counselor",I don't know.,33.51,3.812,1,1
+AMP,conv-41,25,open_domain,Around which US holiday did Maria get into a car accident?,Independence Day,I don't know.,33.51,3.49,1,1
+AMP,conv-41,26,open_domain,What might John's degree be in?,"Political science, Public administration, Public affairs",I don't know.,33.51,4.211,1,1
+AMP,conv-41,27,open_domain,What attributes describe John?,"Selfless, family-oriented, passionate, rational","John is curious, grateful, appreciative, encouraging, and",33.51,7.62,0,1
+AMP,conv-41,28,open_domain,What might John's financial status be?,Middle-class or wealthy,John's financial status might be strained due to car repairs.,33.51,9.927,0,0
+AMP,conv-41,29,open_domain,Would John be considered a patriotic person?,Yes,"Yes, John would be considered a patriotic person due to his strong respect",33.51,6.768,1,1
+AMP,conv-41,30,open_domain,Does John live close to a beach or the mountains?,beach,I don't know.,33.51,8.018,1,1
+AMP,conv-41,31,open_domain,Would John be open to moving to another country?,"No, he has goals specifically in the U.S. like joining the military and running for office.",I don't know.,33.51,4.116,0,1
+AMP,conv-41,32,single_hop,"What exciting news did Maria share on 16 June, 2023?",joined a gym,I don't know.,33.51,5.594,1,1
+AMP,conv-41,33,single_hop,What did Maria do to feel closer to a community and her faith?,joined a nearby church,Maria joined a nearby church and bought a cross necklace to feel closer to a community and her faith.,33.51,4.207,1,1
+AMP,conv-41,34,single_hop,What important values does John want to teach his kids through adopting a rescue dog?,Responsibility and compassion,"John wants to teach his kids responsibility, compassion,",33.51,4.315,1,1
+AMP,conv-41,35,single_hop,Why did John decide to run for office again?,saw the impact he could make in the community through politics,"After his last run, John saw the impact",33.51,4.476,1,1
+AMP,conv-41,36,single_hop,What areas is John particularly interested in for policymaking?,education and infrastructure,"John is particularly interested in improving education, infrastructure, and supporting veterans in his community for policymaking.",33.51,4.953,1,1
+AMP,conv-41,37,single_hop,What happened to John's job in August 2023?,John lost his job at the mechanical engineering company.,I don't know.,33.51,8.855,0,1
+AMP,conv-41,38,single_hop,What kind of online group did John join?,service-focused online group,John joined a service-focused online group.,33.51,3.794,1,1
+AMP,conv-41,39,single_hop,"What did Maria participate in last weekend before April 10, 2023?",a 5K charity run,"Last weekend, Maria had a picnic with some friends from church.",33.51,4.041,0,1
+AMP,conv-41,40,single_hop,Which activity has John done apart from yoga at the studio?,weight training,John has done weight training at the studio,33.51,3.749,1,1
+AMP,conv-41,41,single_hop,What did John host for the veterans in May 2023 as part of the project?,a small party to share their stories,I don't know.,33.51,5.201,0,1
+AMP,conv-41,42,single_hop,What activities does John's family enjoy doing together?,"going for hikes, hanging out at the park, having picnics, playing board games, having movie nights","John's family enjoys swinging, climbing",33.51,5.321,0,1
+AMP,conv-41,43,single_hop,What is John's main focus in local politics?,Improving education and infrastructure,John's main focus in local politics is improving education and infrastructure in his community.,33.51,8.936,1,1
+AMP,conv-41,44,multi_hop,What are the names of John's children?,"Kyle, Sara",John's one-year-old child is named Kyle.,33.51,4.022,0,1
+AMP,conv-41,45,single_hop,What was the focus of John's recent research and writing on his blog?,education reform and infrastructure development,John's recent research and writing on his blog,33.51,4.586,0,1
+AMP,conv-41,46,single_hop,"What did the donations help John's community acquire on 16 August, 2023?",a brand new fire truck,I don't know.,33.51,11.013,1,1
+AMP,conv-41,47,multi_hop,Where has Maria made friends?,"homeless shelter, gym, church",Maria has made friends among her fellow volunteers.,33.51,11.988,1,1
+AMP,conv-41,48,single_hop,What emotions did John feel during the small party with the veterans?,heartwarming,"John felt that he had a great time, it was awesome, and it was really heartwarming.",33.51,4.189,1,1
+AMP,conv-41,49,single_hop,What kind of activities did John and his mates from the online group do as part of their service efforts?,"gave out food and supplies at a homeless shelter, organized a toy drive for kids in need",I don't know.,33.51,3.897,1,1
+RAG,conv-41,0,temporal_reasoning,When did John have his first firefighter call-out?,The sunday before 3` July 2023,John had his first firefighter call-out last Sunday.,29.363,4.952,1,1
+RAG,conv-41,1,temporal_reasoning,When did Maria join a gym?,The week before 16 June 2023,Maria joined a gym last week.,29.363,9.675,1,1
+RAG,conv-41,2,temporal_reasoning,When did John start boot camp with his family?,April.2023,John started going to boot camps with his family last month.,29.363,5.611,1,1
+RAG,conv-41,3,temporal_reasoning,What did John attend with his colleagues in March 2023?,a tech-for-good convention,I don't know.,29.363,7.911,1,1
+RAG,conv-41,4,temporal_reasoning,When did Maria take up community work with her church friends?,"August 4, 2023",Maria joined a nearby church just yesterday.,29.363,4.312,0,1
+RAG,conv-41,5,temporal_reasoning,When did John get his degree?,The week before 2 April 2023,John graduated last week.,29.363,2.905,1,1
+RAG,conv-41,6,temporal_reasoning,When did Maria's grandmother pass away?,The week before 6 March 2023,I don't know.,29.363,3.311,1,1
+RAG,conv-41,7,temporal_reasoning,When did John have a party with veterans?,The Friday before 20 May 2023,John had a party with veterans last Friday.,29.363,3.199,1,1
+RAG,conv-41,8,temporal_reasoning,When did Maria go hiking with her church friends?,The weekend before 22 July 2023,Maria went hiking with her church friends last weekend.,29.363,2.965,1,1
+RAG,conv-41,9,temporal_reasoning,When did Maria get Coco?,Two weeks before 11 August 2023,Maria got Coco two weeks ago.,29.363,3.216,1,1
+RAG,conv-41,10,temporal_reasoning,When did John get his dog Max?,In 2013,I don't know.,29.363,4.276,1,1
+RAG,conv-41,11,temporal_reasoning,When did John help renovate his hometown community center?,2022,John helped renovate a rundown community center in his hometown last year.,29.363,3.642,1,1
+RAG,conv-41,12,multi_hop,What causes does John feel passionate about supporting?,"Veterans, schools, infrastructure","John feels passionate about supporting education, infrastructure, and serving",29.363,3.803,1,1
+RAG,conv-41,13,multi_hop,What area was hit by a flood?,West County,"John's old area, West County, was hit by a nasty flood.",29.363,3.725,1,1
+RAG,conv-41,14,multi_hop,What events is Maria planning for the homeless shelter funraiser?,"Chili cook-off, ring-toss tournament",Maria is planning a chili cook-off for the homeless shelter fundraiser.,29.363,3.691,1,1
+RAG,conv-41,15,multi_hop,What desserts has Maria made?,"Banana split sundae, Peach cobbler",Maria has made peach cobbler.,29.363,3.085,1,1
+RAG,conv-41,16,multi_hop,What shelters does Maria volunteer at?,"The homeless shelter, the dog shelter",Maria volunteers at a homeless shelter and a local dog shelter.,29.363,3.835,1,1
+RAG,conv-41,17,multi_hop,What music events has John attended?,"Live music event, violin concert",John found a violin concert that he and others enjoyed.,29.363,4.639,1,1
+RAG,conv-41,18,multi_hop,What outdoor activities has John done with his colleagues?,"Hiking, mountaineering",John went on a mountaineering trip with his workmates.,29.363,4.058,1,1
+RAG,conv-41,19,multi_hop,What writing classes has Maria taken?,"Poetry, creative writing",Maria has taken a creative writing class and a poetry class.,29.363,3.752,1,1
+RAG,conv-41,20,multi_hop,What food item did Maria drop off at the homeless shelter?,Cakes,I don't know.,29.363,4.13,0,1
+RAG,conv-41,21,multi_hop,What states has Maria vacationed at?,"Oregon, Florida",Maria has vacationed in Florida and Oregon.,29.363,4.124,1,1
+RAG,conv-41,22,multi_hop,What damages have happened to John's car?,"Broken windshield, Car broke down",John's car broke down.,29.363,3.476,1,1
+RAG,conv-41,23,multi_hop,What European countries has Maria been to?,"Spain, England",Maria has been to England.,29.363,2.995,1,1
+RAG,conv-41,24,open_domain,What job might Maria pursue in the future?,"Shelter coordinator, Counselor",I don't know.,29.363,4.64,1,1
+RAG,conv-41,25,open_domain,Around which US holiday did Maria get into a car accident?,Independence Day,I don't know.,29.363,8.392,1,1
+RAG,conv-41,26,open_domain,What might John's degree be in?,"Political science, Public administration, Public affairs",I don't know.,29.363,4.543,1,1
+RAG,conv-41,27,open_domain,What attributes describe John?,"Selfless, family-oriented, passionate, rational","John is described as someone who values teamwork, community safety",29.363,9.972,1,1
+RAG,conv-41,28,open_domain,What might John's financial status be?,Middle-class or wealthy,"John is experiencing financial difficulties due to his car breaking down, which is putting a strain on his wallet.",29.363,9.491,0,0
+RAG,conv-41,29,open_domain,Would John be considered a patriotic person?,Yes,"Yes, John would be considered a patriotic person.",29.363,5.507,1,1
+RAG,conv-41,30,open_domain,Does John live close to a beach or the mountains?,beach,I don't know.,29.363,4.309,1,1
+RAG,conv-41,31,open_domain,Would John be open to moving to another country?,"No, he has goals specifically in the U.S. like joining the military and running for office.",I don't know.,29.363,3.678,0,1
+RAG,conv-41,32,single_hop,"What exciting news did Maria share on 16 June, 2023?",joined a gym,I don't know.,29.363,4.478,1,1
+RAG,conv-41,33,single_hop,What did Maria do to feel closer to a community and her faith?,joined a nearby church,Maria joined a nearby church to feel closer to a community and her faith.,29.363,4.063,1,1
+RAG,conv-41,34,single_hop,What important values does John want to teach his kids through adopting a rescue dog?,Responsibility and compassion,John wants to teach his kids responsibility and compassion through adopting a rescue dog.,29.363,3.125,1,1
+RAG,conv-41,35,single_hop,Why did John decide to run for office again?,saw the impact he could make in the community through politics,"After his last run, John saw the impact he could make in the community through politics.",29.363,5.403,1,1
+RAG,conv-41,36,single_hop,What areas is John particularly interested in for policymaking?,education and infrastructure,John is particularly interested in improving education and infrastructure for policymaking.,29.363,5.379,1,1
+RAG,conv-41,37,single_hop,What happened to John's job in August 2023?,John lost his job at the mechanical engineering company.,I don't know.,29.363,5.187,0,1
+RAG,conv-41,38,single_hop,What kind of online group did John join?,service-focused online group,John joined a service-focused online group.,29.363,4.174,1,1
+RAG,conv-41,39,single_hop,"What did Maria participate in last weekend before April 10, 2023?",a 5K charity run,I don't know.,29.363,4.189,1,1
+RAG,conv-41,40,single_hop,Which activity has John done apart from yoga at the studio?,weight training,I don't know.,29.363,4.15,0,1
+RAG,conv-41,41,single_hop,What did John host for the veterans in May 2023 as part of the project?,a small party to share their stories,I don't know.,29.363,6.788,0,1
+RAG,conv-41,42,single_hop,What activities does John's family enjoy doing together?,"going for hikes, hanging out at the park, having picnics, playing board games, having movie nights","John's family enjoys going for hikes, hanging out at the park, having picnics, playing",29.363,5.15,1,1
+RAG,conv-41,43,single_hop,What is John's main focus in local politics?,Improving education and infrastructure,John's main focus in local politics is improving education and infrastructure in his community.,29.363,3.503,1,1
+RAG,conv-41,44,multi_hop,What are the names of John's children?,"Kyle, Sara",John's one-year-old child is named Kyle.,29.363,3.901,0,1
+RAG,conv-41,45,single_hop,What was the focus of John's recent research and writing on his blog?,education reform and infrastructure development,John's recent research and writing on his blog has been focused on education reform and infrastructure development.,29.363,4.821,1,1
+RAG,conv-41,46,single_hop,"What did the donations help John's community acquire on 16 August, 2023?",a brand new fire truck,I don't know.,29.363,4.487,1,1
+RAG,conv-41,47,multi_hop,Where has Maria made friends?,"homeless shelter, gym, church",Maria has made friends with a fellow volunteer at the homeless shelter.,29.363,5.382,1,1
+RAG,conv-41,48,single_hop,What emotions did John feel during the small party with the veterans?,heartwarming,"John felt inspired, heartbroken, and filled with",29.363,8.645,0,1
+RAG,conv-41,49,single_hop,What kind of activities did John and his mates from the online group do as part of their service efforts?,"gave out food and supplies at a homeless shelter, organized a toy drive for kids in need","John and his online group went to a homeless shelter to give out food and supplies, and they organized a toy drive for kids in need.",29.363,4.796,1,1
+FullContext,conv-41,0,temporal_reasoning,When did John have his first firefighter call-out?,The sunday before 3` July 2023,John had his first firefighter call-out last Sunday.,0.046,4.453,1,1
+FullContext,conv-41,1,temporal_reasoning,When did Maria join a gym?,The week before 16 June 2023,Maria joined a gym last week.,0.046,3.468,1,1
+FullContext,conv-41,2,temporal_reasoning,When did John start boot camp with his family?,April.2023,John started going to boot camps with his family last month.,0.046,5.073,1,1
+FullContext,conv-41,3,temporal_reasoning,What did John attend with his colleagues in March 2023?,a tech-for-good convention,"John attended a convention with his colleagues last month, which",0.046,5.808,0,1
+FullContext,conv-41,4,temporal_reasoning,When did Maria take up community work with her church friends?,"August 4, 2023",Maria took up community work with her church friends yesterday.,0.046,3.889,1,1
+FullContext,conv-41,5,temporal_reasoning,When did John get his degree?,The week before 2 April 2023,John graduated last week.,0.046,4.917,1,1
+FullContext,conv-41,6,temporal_reasoning,When did Maria's grandmother pass away?,The week before 6 March 2023,Maria's grandmother passed away last week.,0.046,4.223,1,1
+FullContext,conv-41,7,temporal_reasoning,When did John have a party with veterans?,The Friday before 20 May 2023,John had a small party with veterans last Friday.,0.046,6.162,1,1
+FullContext,conv-41,8,temporal_reasoning,When did Maria go hiking with her church friends?,The weekend before 22 July 2023,Maria went hiking with her church friends last weekend.,0.046,4.095,1,1
+FullContext,conv-41,9,temporal_reasoning,When did Maria get Coco?,Two weeks before 11 August 2023,Maria got Coco two weeks ago.,0.046,3.312,1,1
+FullContext,conv-41,10,temporal_reasoning,When did John get his dog Max?,In 2013,I don't know.,0.046,4.119,1,1
+FullContext,conv-41,11,temporal_reasoning,When did John help renovate his hometown community center?,2022,John helped renovate his hometown community center last year.,0.046,3.95,1,1
+FullContext,conv-41,12,multi_hop,What causes does John feel passionate about supporting?,"Veterans, schools, infrastructure","John feels passionate about supporting education, infrastructure, veterans'",0.046,4.24,1,1
+FullContext,conv-41,13,multi_hop,What area was hit by a flood?,West County,"John's old area, West County, was hit by a flood.",0.046,3.606,1,1
+FullContext,conv-41,14,multi_hop,What events is Maria planning for the homeless shelter funraiser?,"Chili cook-off, ring-toss tournament",Maria is planning a ring-toss tournament and a chili cook-off for the homeless shelter fundraiser.,0.046,4.258,1,1
+FullContext,conv-41,15,multi_hop,What desserts has Maria made?,"Banana split sundae, Peach cobbler","Maria has made peach cobbler, homemade desserts including a banana split sundae, and cakes.",0.046,4.782,1,1
+FullContext,conv-41,16,multi_hop,What shelters does Maria volunteer at?,"The homeless shelter, the dog shelter",Maria volunteers at a homeless shelter and a local dog shelter.,0.046,5.217,1,1
+FullContext,conv-41,17,multi_hop,What music events has John attended?,"Live music event, violin concert",John has attended a violin concert and a live music event.,0.046,4.066,1,1
+FullContext,conv-41,18,multi_hop,What outdoor activities has John done with his colleagues?,"Hiking, mountaineering",John has been on a hiking trip and a mountaine,0.046,5.444,1,1
+FullContext,conv-41,19,multi_hop,What writing classes has Maria taken?,"Poetry, creative writing",Maria has taken a creative writing class and a poetry class.,0.046,3.729,1,1
+FullContext,conv-41,20,multi_hop,What food item did Maria drop off at the homeless shelter?,Cakes,Maria dropped off cakes at the homeless shelter.,0.046,4.165,1,1
+FullContext,conv-41,21,multi_hop,What states has Maria vacationed at?,"Oregon, Florida",Maria has vacationed in Oregon and Florida,0.046,4.028,1,1
+FullContext,conv-41,22,multi_hop,What damages have happened to John's car?,"Broken windshield, Car broke down",John's car broke down.,0.046,2.954,1,1
+FullContext,conv-41,23,multi_hop,What European countries has Maria been to?,"Spain, England",Maria has been to England and Spain.,0.046,4.401,1,1
+FullContext,conv-41,24,open_domain,What job might Maria pursue in the future?,"Shelter coordinator, Counselor",I don't know.,0.046,4.955,1,1
+FullContext,conv-41,25,open_domain,Around which US holiday did Maria get into a car accident?,Independence Day,I don't know.,0.046,3.382,1,1
+FullContext,conv-41,26,open_domain,What might John's degree be in?,"Political science, Public administration, Public affairs",John's degree is not explicitly stated,0.046,3.337,1,1
+FullContext,conv-41,27,open_domain,What attributes describe John?,"Selfless, family-oriented, passionate, rational","John is described as family-oriented, community-minded",0.046,3.978,1,1
+FullContext,conv-41,28,open_domain,What might John's financial status be?,Middle-class or wealthy,John's financial status is currently strained due,0.046,4.591,0,1
+FullContext,conv-41,29,open_domain,Would John be considered a patriotic person?,Yes,"Yes, John would be considered a patriotic person as",0.046,4.105,1,1
+FullContext,conv-41,30,open_domain,Does John live close to a beach or the mountains?,beach,I don't know.,0.046,3.955,1,1
+FullContext,conv-41,31,open_domain,Would John be open to moving to another country?,"No, he has goals specifically in the U.S. like joining the military and running for office.",I don't know.,0.046,3.947,0,1
+FullContext,conv-41,32,single_hop,"What exciting news did Maria share on 16 June, 2023?",joined a gym,I don't know.,0.046,3.322,1,1
+FullContext,conv-41,33,single_hop,What did Maria do to feel closer to a community and her faith?,joined a nearby church,Maria joined a nearby church to feel closer to a community and her faith.,0.046,3.348,1,1
+FullContext,conv-41,34,single_hop,What important values does John want to teach his kids through adopting a rescue dog?,Responsibility and compassion,John wants to teach his kids responsibility and compassion through adopting a rescue dog.,0.046,3.464,1,1
+FullContext,conv-41,35,single_hop,Why did John decide to run for office again?,saw the impact he could make in the community through politics,John decided to run for office again because he saw the impact he could make in the community through politics and found it rewarding to work towards positive changes and a better future.,0.046,5.357,1,1
+FullContext,conv-41,36,single_hop,What areas is John particularly interested in for policymaking?,education and infrastructure,John is particularly interested in improving education and infrastructure for policymaking.,0.046,3.206,1,1
+FullContext,conv-41,37,single_hop,What happened to John's job in August 2023?,John lost his job at the mechanical engineering company.,John lost his job at a mechanical engineering company because it,0.046,3.776,1,1
+FullContext,conv-41,38,single_hop,What kind of online group did John join?,service-focused online group,John joined a service-focused online group.,0.046,4.134,1,1
+FullContext,conv-41,39,single_hop,"What did Maria participate in last weekend before April 10, 2023?",a 5K charity run,"Last weekend, Maria participated in a 5K",0.046,4.422,1,1
+FullContext,conv-41,40,single_hop,Which activity has John done apart from yoga at the studio?,weight training,"Apart from yoga, John has done kickboxing, circuit training, and weight training at the studio.",0.046,4.289,1,1
+FullContext,conv-41,41,single_hop,What did John host for the veterans in May 2023 as part of the project?,a small party to share their stories,I don't know.,0.046,4.164,0,1
+FullContext,conv-41,42,single_hop,What activities does John's family enjoy doing together?,"going for hikes, hanging out at the park, having picnics, playing board games, having movie nights","John's family enjoys going on road trips,",0.046,3.708,0,1
+FullContext,conv-41,43,single_hop,What is John's main focus in local politics?,Improving education and infrastructure,John's main focus in local politics is improving education,0.046,4.098,1,1
+FullContext,conv-41,44,multi_hop,What are the names of John's children?,"Kyle, Sara",John's children are named Kyle and Sara.,0.046,3.604,1,1
+FullContext,conv-41,45,single_hop,What was the focus of John's recent research and writing on his blog?,education reform and infrastructure development,John's recent research and writing on his blog has been focused on education reform and infrastructure development.,0.046,3.341,1,1
+FullContext,conv-41,46,single_hop,"What did the donations help John's community acquire on 16 August, 2023?",a brand new fire truck,I don't know.,0.046,4.178,1,1
+FullContext,conv-41,47,multi_hop,Where has Maria made friends?,"homeless shelter, gym, church",Maria has made friends with a fellow volunteer,0.046,4.426,0,1
+FullContext,conv-41,48,single_hop,What emotions did John feel during the small party with the veterans?,heartwarming,John felt it was awesome and heartwarming to,0.046,3.15,1,1
+FullContext,conv-41,49,single_hop,What kind of activities did John and his mates from the online group do as part of their service efforts?,"gave out food and supplies at a homeless shelter, organized a toy drive for kids in need","John and his mates from the online group went to a homeless shelter to give out food and supplies, and they also organized a toy drive for kids in need.",0.046,3.554,1,1
+AMP-Padded2,conv-26,0,temporal_reasoning,"When did Caroline meet up with her friends, family, and mentors?",The week before 9 June 2023,"Caroline met up with her friends, family, and mentors last week.",6.465,21.961,1,1
+AMP-Padded2,conv-26,1,temporal_reasoning,When did Caroline join a new activist group?,The Tuesday before 20 July 2023,Caroline joined a new LGBTQ activist group last Tues.,6.465,18.007,1,1
+AMP-Padded2,conv-26,2,temporal_reasoning,When did Caroline go to the LGBTQ conference?,10 July 2023,Caroline went to an LGBTQ conference two days ago.,6.465,8.559,1,1
+AMP-Padded2,conv-26,3,temporal_reasoning,When is Caroline going to the transgender conference?,July 2023,Caroline is going to a transgender conference this month.,6.465,11.003,1,1
+AMP-Padded2,conv-26,4,temporal_reasoning,When did Caroline attend a pride parade in August?,The Friday before 14 August 2023,I don't know.,6.465,7.177,1,1
+AMP-Padded2,conv-26,5,temporal_reasoning,When did Caroline encounter people on a hike and have a negative experience?,The week before 25 August 2023,Caroline encountered people on a hike and had,6.465,12.959,0,1
+AMP-Padded2,conv-26,6,temporal_reasoning,When did Melanie make a plate in pottery class?,24 August 2023,Melanie made a plate in pottery class yesterday.,6.465,15.033,1,1
+AMP-Padded2,conv-26,7,temporal_reasoning,When did Caroline give a speech at a school?,The week before 9 June 2023,Caroline gave a speech at a school last week.,6.465,15.728,1,1
+AMP-Padded2,conv-26,8,temporal_reasoning,When did Caroline apply to adoption agencies?,The week of 23 August 2023,"Caroline applied to adoption agencies ""this week"" relative to the conversation where she announced it.",6.465,11.214,1,1
+AMP-Padded2,conv-26,9,temporal_reasoning,When is Caroline's youth center putting on a talent show?,September 2023,Caroline's youth center is putting together a talent show for the kids next month.,6.465,23.071,1,1
+AMP-Padded2,conv-26,10,open_domain,Would Melanie go on another roadtrip soon?,Likely no; since this one went badly,I don't know.,6.465,13.559,1,1
+AMP-Padded2,conv-26,11,open_domain,Would Caroline be considered religious?,"Somewhat, but not extremely religious",I don't know.,6.465,7.879,1,1
+AMP-Padded2,conv-26,12,open_domain,What would Caroline's political leaning likely be?,Liberal,Caroline's political leaning would likely be progressive,6.465,5.87,1,1
+AMP-Padded2,conv-26,13,open_domain,Would Melanie be considered a member of the LGBTQ community?,"Likely no, she does not refer to herself as part of it",I don't know.,6.465,6.331,1,1
+AMP-Padded2,conv-26,14,open_domain,What personality traits might Melanie say Caroline has?,"Thoughtful, authentic, driven","Melanie might say Caroline is passionate, hard-working",6.465,20.515,1,1
+AMP-Padded2,conv-26,15,open_domain,Would Caroline want to move back to her home country soon?,No; she's in the process of adopting children.,I don't know.,6.465,12.37,1,1
+AMP-Padded2,conv-26,16,open_domain,What fields would Caroline be likely to pursue in her educaton?,"Psychology, counseling certification",Caroline would likely pursue education in counseling or mental,6.465,19.258,1,1
+AMP-Padded2,conv-26,17,open_domain,Would Melanie be considered an ally to the transgender community?,"Yes, she is supportive","Yes, Melanie would be considered an ally",6.465,9.604,1,1
+AMP-Padded2,conv-26,18,open_domain,"Would Melanie likely enjoy the song ""The Four Seasons"" by Vivaldi?",Yes; it's classical music,I don't know.,6.465,8.972,0,1
+AMP-Padded2,conv-26,19,open_domain,Would Caroline still want to pursue counseling as a career if she hadn't received support growing up?,Likely no,I don't know.,6.465,8.509,1,1
+AMP-Padded2,conv-26,20,multi_hop,What LGBTQ+ events has Caroline participated in?,"Pride parade, school speech, support group","Caroline has participated in a pride parade, an LGBT pride event, an LGBTQ support group, and is putting together an LGBTQ art show.",6.465,13.202,1,1
+AMP-Padded2,conv-26,21,multi_hop,Where did Caroline move from 4 years ago?,Sweden,Caroline moved from her home country 4 years ago.,6.465,15.517,1,1
+AMP-Padded2,conv-26,22,multi_hop,What instruments does Melanie play?,clarinet and violin,Melanie plays the clarinet.,6.465,13.461,1,1
+AMP-Padded2,conv-26,23,multi_hop,What did Caroline research?,Adoption agencies,I don't know.,6.465,9.474,1,1
+AMP-Padded2,conv-26,24,multi_hop,When did Melanie go on a hike after the roadtrip?,19 October 2023,Melanie went on a hike last week when she took,6.465,18.61,0,1
+AMP-Padded2,conv-26,25,multi_hop,In what ways is Caroline participating in the LGBTQ community?,"Joining activist group, going to pride parades, participating in an art show, mentoring program",Caroline is participating in the LGBTQ community by,6.465,7.077,1,1
+AMP-Padded2,conv-26,26,multi_hop,What books has Melanie read?,"""Nothing is Impossible"", ""Charlotte's Web""","Melanie loved reading ""Charlotte's Web"" as a kid and has been reading ""Becoming Nicole"" by Amy Ellis Nutt.",6.465,4.542,0,1
+AMP-Padded2,conv-26,27,multi_hop,What transgender-specific events has Caroline attended?,"Poetry reading, conference",Caroline has attended a transgender poetry reading and a transgender conference,6.465,5.969,1,1
+AMP-Padded2,conv-26,28,multi_hop,What kind of art does Caroline make?,abstract art,"Caroline makes paintings, including abstract art and",6.465,4.887,1,1
+AMP-Padded2,conv-26,29,multi_hop,What activities does Melanie partake in?,"pottery, camping, painting, swimming","Melanie plays games, eats good food, hangs out with family, does pottery, goes on road trips, goes to the beach, goes camping, explores nature, roasts marshmallows, hikes,",6.465,5.313,1,1
+AMP-Padded2,conv-26,30,single_hop,What book did Caroline recommend to Melanie?,"""Becoming Nicole""","Caroline recommended ""Becoming Nicole"" by Amy Ellis Nutt.",6.465,8.889,1,1
+AMP-Padded2,conv-26,31,single_hop,What kind of place does Caroline want to create for people?,a safe and inviting place for people to grow,Caroline wants to create a place where people are,6.465,9.37,1,1
+AMP-Padded2,conv-26,32,single_hop,What country is Caroline's grandma from?,Sweden,Caroline's grandma is from Sweden.,6.465,5.689,1,1
+AMP-Padded2,conv-26,33,single_hop,"What kind of painting did Caroline share with Melanie on October 13, 2023?",An abstract painting with blue streaks on a wall.,I don't know.,6.465,4.586,1,1
+AMP-Padded2,conv-26,34,single_hop,How long has Melanie been creating art?,7 years,Melanie has been creating art for seven years.,6.465,4.072,1,1
+AMP-Padded2,conv-26,35,single_hop,Did Melanie make the black and white bowl in the photo?,Yes,"Yes, Melanie made the black and white bowl in her class.",6.465,3.199,1,1
+AMP-Padded2,conv-26,36,single_hop,What is Caroline excited about in the adoption process?,creating a family for kids who need one,Caroline is thrilled to make a family for kids who need one.,6.465,4.969,1,1
+AMP-Padded2,conv-26,37,single_hop,What did Mel and her kids paint in their latest project in July 2023?,a sunset with a palm tree,I don't know.,6.465,8.955,1,1
+AMP-Padded2,conv-26,38,single_hop,"What did Caroline take away from the book ""Becoming Nicole""?",Lessons on self-acceptance and finding support,"From ""Becoming Nicole,"" Caroline learned self-acceptance, how to find support, and that tough times don't last because hope and love exist.",6.465,6.907,1,1
+AMP-Padded2,conv-26,39,single_hop,What did the charity race raise awareness for?,mental health,The charity race raised awareness for mental health.,6.465,6.014,1,1
+AMP-Padded2,conv-26,40,adversarial,Is Oscar Melanie's pet?,No,"No, Oscar is Caroline's guinea pig.",6.465,5.899,1,1
+AMP-Padded2,conv-26,41,adversarial,Did Caroline make the black and white bowl in the photo?,No,"No, Melanie made the black and white bowl.",6.465,5.005,1,1
+AMP-Padded2,conv-26,42,single_hop,What did Melanie and her family see during their camping trip last year?,Perseid meteor shower,Melanie and her family saw the Perseid meteor shower during their camping trip last year.,6.465,4.723,1,1
+AMP-Padded2,conv-26,43,single_hop,Where did Oliver hide his bone once?,In Melanie's slipper,Oliver hid his bone in Melanie's slipper once.,6.465,5.499,1,1
+AMP-Padded2,conv-26,44,single_hop,Why did Melanie choose to use colors and patterns in her pottery project?,She wanted to catch the eye and make people smile.,Melanie chose to use colors and patterns in her pottery project because she is obsessed with them and wanted to create,6.465,9.854,0,1
+AMP-Padded2,conv-26,45,temporal_reasoning,How long has Caroline had her current group of friends for?,4 years,"Caroline has known her current group of friends for 4 years, since she moved from her home country.",6.465,8.976,1,1
+AMP-Padded2,conv-26,46,single_hop,Whose birthday did Melanie celebrate recently?,Melanie's daughter,Melanie celebrated her daughter's birthday.,6.465,11.24,1,1
+AMP-Padded2,conv-26,47,multi_hop,What are Melanie's pets' names?,"Oliver, Luna, Bailey","Melanie's pets' names are Luna, Oliver, and Bailey.",6.465,6.266,1,1
+AMP-Padded2,conv-26,48,temporal_reasoning,When did Caroline join a mentorship program?,The weekend before 17 July 2023,Caroline joined a mentorship program last weekend.,6.465,11.693,1,1
+AMP-Padded2,conv-26,49,single_hop,How did Melanie feel about her family after the accident?,They are important and mean the world to her,"After the accident, Melanie felt that life",6.465,8.433,0,1
+AMP-Padded2,conv-30,0,temporal_reasoning,When did Jon receive mentorship to promote his venture?,"15 June, 2023",Jon received mentorship from an amazing business dude yesterday,18.495,9.77,1,1
+AMP-Padded2,conv-30,1,temporal_reasoning,When did Gina interview for a design internship?,"10 May, 2023",Gina interviewed for a design internship yesterday.,18.495,15.988,1,1
+AMP-Padded2,conv-30,2,temporal_reasoning,When did Jon start expanding his studio's social media presence?,"April, 2023",Jon started expanding his studio's social media presence after,18.495,6.039,0,1
+AMP-Padded2,conv-30,3,temporal_reasoning,When did Gina go to a dance class with a group of friends?,21 July 2023,I don't know.,18.495,6.208,1,1
+AMP-Padded2,conv-30,4,temporal_reasoning,When did Gina design a limited collection of hoodies?,June 2023,Gina designed a limited edition line of hoodies last week.,18.495,6.01,1,1
+AMP-Padded2,conv-30,5,temporal_reasoning,When did Gina get her tattoo?,A few years ago,Gina got her tattoo a few years ago.,18.495,4.759,1,1
+AMP-Padded2,conv-30,6,temporal_reasoning,When did Gina team up with a local artist for some cool designs?,"February, 2023",Gina teamed up with a local artist for some cool,18.495,4.24,0,1
+AMP-Padded2,conv-30,7,temporal_reasoning,When did Jon host a dance competition?,"May, 2023",Jon's dance studio and some other,18.495,5.433,0,1
+AMP-Padded2,conv-30,8,temporal_reasoning,When did Gina develop a video presentation to teach how to style her fashion pieces? ,"June, 2023",I don't know.,18.495,6.497,1,1
+AMP-Padded2,conv-30,9,temporal_reasoning,When did Jon start learning marketing and analytics tools?,"July, 2023",Jon started to learn marketing and analytics tools after losing his job.,18.495,6.433,0,1
+AMP-Padded2,conv-30,10,temporal_reasoning,When did Jon go to a fair to get more exposure for his dance studio?,"24 April, 2023",I don't know.,18.495,5.325,1,1
+AMP-Padded2,conv-30,11,temporal_reasoning,When Jon is planning to open his dance studio?,"20 June, 2023",The official opening night for Jon's dance studio is tomorrow.,18.495,3.658,1,1
+AMP-Padded2,conv-30,12,temporal_reasoning,When Gina has lost her job at Door Dash?,"January, 2023",Gina lost her job at Door Dash at least twice,18.495,5.234,0,1
+AMP-Padded2,conv-30,13,temporal_reasoning,"When did Jon start reading ""The Lean Startup""?","May, 2023",I don't know.,18.495,8.329,1,1
+AMP-Padded2,conv-30,14,temporal_reasoning,When did Jon and Gina decide to collaborate to create dance content?,21 July 2023,Jon and Gina decided to collaborate to create dance content early,18.495,6.214,1,1
+AMP-Padded2,conv-30,15,temporal_reasoning,When did Gina get accepted for the design internship?,"27 May, 2023",I don't know.,18.495,5.377,1,1
+AMP-Padded2,conv-30,16,single_hop,How does Gina stay confident in her business?,"By reminding herself of her successes and progress, having a support system, and focusing on why she started","Gina stays confident in her business through hard work, effort, and by staying positive while working to create a special shopping experience for her customers.",18.495,5.382,0,1
+AMP-Padded2,conv-30,17,single_hop,What does Gina's tattoo symbolize?,Freedom and expressing herself through dance,"Gina's tattoo symbolizes freedom, dancing without worrying what people think, and a reminder to follow her passions and express herself.",18.495,5.217,1,1
+AMP-Padded2,conv-30,18,single_hop,What did Jon take a trip to Rome for?,To clear his mind,Jon took a short trip to Rome to clear his mind a little.,18.495,8.653,1,1
+AMP-Padded2,conv-30,19,single_hop,Why did Gina combine her clothing business with dance?,she is passionate about dance and fashion,"Gina combined her clothing business with dance because she is passionate about both and wanted to blend her love for them, allowing her to show her creativity, share her love with others, and add dance-inspired items to her store.",18.495,5.362,1,1
+AMP-Padded2,conv-30,20,single_hop,What did Gina make a limited edition line of?,Hoodies,Gina made a limited edition line to show off her style,18.495,10.89,0,1
+AMP-Padded2,conv-30,21,single_hop,What does Gina say about the dancers in the photo?,They look graceful,Gina says the dancers in the photo are so graceful.,18.495,6.711,1,1
+AMP-Padded2,conv-30,22,single_hop,What is Jon working on opening?,a dance studio,Jon is working on opening a dance studio.,18.495,7.205,1,1
+AMP-Padded2,conv-30,23,single_hop,"What kind of professional experience did Gina get accepted for on May 23, 2023?",fashion internship,I don't know.,18.495,6.039,1,1
+AMP-Padded2,conv-30,24,single_hop,What was Gina's favorite dancing memory?,Winning first place at a regionals dance competition,Gina's favorite dancing memory was when her team won first place at a regionals at age fifteen.,18.495,4.319,1,1
+AMP-Padded2,conv-30,25,single_hop,How does Jon feel about the opening night of his dance studio?,excited,"Jon is excited, feeling good, and ready to",18.495,4.441,1,1
+AMP-Padded2,conv-30,26,single_hop,"According to Gina, what makes Jon a perfect mentor and guide?",His positivity and determination,"According to Gina, Jon is the perfect mentor and guide because he loves what he does, brings joy to others, and has positivity and determination.",18.495,4.791,1,1
+AMP-Padded2,conv-30,27,single_hop,What does Jon tell Gina he won't do?,quit,"Jon tells Gina he won't give up, won't quit, and won't let her down.",18.495,4.625,1,1
+AMP-Padded2,conv-30,28,single_hop,What did Jon say about creating a special experience for customers?,It's the key to making them feel welcome and coming back,Jon said that creating a special experience for customers is the key to making them feel welcome and coming back.,18.495,3.831,1,1
+AMP-Padded2,conv-30,29,single_hop,What advice does Gina give to Jon about running a successful business?,"build relationships with customers, create a strong brand image, stay positive","Gina advises Jon to stay passionate, focused",18.495,6.908,0,1
+AMP-Padded2,conv-30,30,single_hop,What did Gina say about creating an experience for her customers?,making them want to come back,"Gina said that making her spot comfortable and inviting for her customers is key, and she wants them to feel like they're in a cool oasis, creating an experience that'll make them want to come back.",18.495,5.593,1,1
+AMP-Padded2,conv-30,31,single_hop,What book is Jon currently reading?,The Lean Startup,"Jon is currently reading ""The Lean Startup"".",18.495,3.357,1,1
+AMP-Padded2,conv-30,32,multi_hop,What does Jon's dance studio offer?,"one-on-one metoring and training to dancers,  workshops and classes to local schools and centers","Jon's dance studio offers dance classes, workshops, one-on-one mentoring, and training to help dancers reach their full potential.",18.495,3.69,1,1
+AMP-Padded2,conv-30,33,multi_hop,Why did Gina decide to start her own clothing store?,She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.,"Gina decided to start her online clothing store because she is passionate about fashion trends and finding unique pieces, and she wanted to blend her love for dance and fashion.",18.495,5.102,1,1
+AMP-Padded2,conv-30,34,multi_hop,Do Jon and Gina start businesses out of what they love?,Yes,"Yes, Jon is starting a dance studio because he is passionate about dancing, and Gina's online clothing store is fueled by her love for fashion and finding new trends.",18.495,6.33,1,1
+AMP-Padded2,conv-30,35,multi_hop,What do Jon and Gina both have in common?,They lost their jobs and decided to start their own businesses.,Jon and Gina both lost their jobs and are,18.495,14.106,1,1
+AMP-Padded2,conv-30,36,multi_hop,Which events has Jon participated in to promote his business venture?,"fair, networking events, dance competition",Jon has participated in networking events to promote his business,18.495,6.533,1,1
+AMP-Padded2,conv-30,37,multi_hop,What Jon thinks the ideal dance studio should look like?,"By the water, with natural light and Marley flooring",Jon thinks the ideal dance studio should be by the water,18.495,5.431,1,1
+AMP-Padded2,conv-30,38,multi_hop,Did Jon and Gina both participate in dance competitions?,Yes,"Yes, both Jon and Gina participated in dance competitions.",18.495,4.081,1,1
+AMP-Padded2,conv-30,39,multi_hop,Which cities has Jon visited?,"Paris, Rome",Jon has visited Paris and Rome.,18.495,4.562,1,1
+AMP-Padded2,conv-30,40,multi_hop,Which city have both Jean and John visited?,Rome,I don't know.,18.495,4.125,1,1
+AMP-Padded2,conv-30,41,multi_hop,How did Gina promote her clothes store?,"worked with an artist to make unique fashion pieces, made limited-edition sweatshirts, got some new offers and promotions for online store, developed a video presentation showing how to style her pieces","Gina promoted her clothes store by planning to work with fashion bloggers and influencers, and by doing more ads.",18.495,4.359,0,1
+AMP-Padded2,conv-30,42,multi_hop,How long did it take for Jon to open his studio?,six months,I don't know.,18.495,4.409,1,0
+AMP-Padded2,conv-30,43,temporal_reasoning,When did Jon visit networking events for his store?,"20 June, 2023",I don't know.,18.495,3.847,1,1
+AMP-Padded2,conv-30,44,temporal_reasoning,When is Jon's group performing at a festival?,"February, 2023",Jon's group is performing at a nearby festival next month.,18.495,3.847,1,1
+AMP-Padded2,conv-30,45,single_hop,What did Gina design for her store?,"the space, furniture, and decor","Gina designed the space of her store, including picking out the furniture and decor.",18.495,4.879,1,1
+AMP-Padded2,conv-30,46,single_hop,What plans does Jon have after receiving advice at the networking event?,"Sprucing up his business plan, tweaking his pitch to investors, and working on an online platform.","After receiving advice at the networking event, Jon plans to spruce up his business plan, tweak his pitch to investors, and work on an online platform to showcase his dance studio's offerings.",18.495,5.457,1,1
+AMP-Padded2,conv-30,47,single_hop,What did Jon and Gina compare their entrepreneurial journeys to?,dancing together and supporting each other,Jon and Gina compared their entrepreneurial journeys to a rollercoaster and,18.495,4.536,0,1
+AMP-Padded2,conv-30,48,single_hop,What kind of flooring is Jon looking for in his dance studio?,Marley flooring,Jon is looking for Marley flooring for his dance studio.,18.495,7.8,1,1
+AMP-Padded2,conv-30,49,temporal_reasoning,When did Jon start to go to the gym?,"March, 2023",Jon started hitting the gym last week.,18.495,6.28,1,1
+AMP-Padded2,conv-41,0,temporal_reasoning,When did John have his first firefighter call-out?,The sunday before 3` July 2023,John had his first firefighter call-out last Sunday.,42.459,8.174,1,1
+AMP-Padded2,conv-41,1,temporal_reasoning,When did Maria join a gym?,The week before 16 June 2023,Maria joined a gym last week.,42.459,9.712,1,1
+AMP-Padded2,conv-41,2,temporal_reasoning,When did John start boot camp with his family?,April.2023,John started going to boot camps with his family last month.,42.459,7.725,1,1
+AMP-Padded2,conv-41,3,temporal_reasoning,What did John attend with his colleagues in March 2023?,a tech-for-good convention,I don't know.,42.459,6.824,1,1
+AMP-Padded2,conv-41,4,temporal_reasoning,When did Maria take up community work with her church friends?,"August 4, 2023",Maria took up community work with her friends from church yesterday.,42.459,6.832,1,1
+AMP-Padded2,conv-41,5,temporal_reasoning,When did John get his degree?,The week before 2 April 2023,John graduated last week.,42.459,5.565,1,1
+AMP-Padded2,conv-41,6,temporal_reasoning,When did Maria's grandmother pass away?,The week before 6 March 2023,Maria's grandmother passed away last week.,42.459,6.523,1,1
+AMP-Padded2,conv-41,7,temporal_reasoning,When did John have a party with veterans?,The Friday before 20 May 2023,John had a party with veterans last Friday.,42.459,7.291,1,1
+AMP-Padded2,conv-41,8,temporal_reasoning,When did Maria go hiking with her church friends?,The weekend before 22 July 2023,Maria went hiking with her church friends last weekend.,42.459,4.232,1,1
+AMP-Padded2,conv-41,9,temporal_reasoning,When did Maria get Coco?,Two weeks before 11 August 2023,Maria got Coco two weeks ago.,42.459,6.151,1,1
+AMP-Padded2,conv-41,10,temporal_reasoning,When did John get his dog Max?,In 2013,I don't know.,42.459,5.808,1,1
+AMP-Padded2,conv-41,11,temporal_reasoning,When did John help renovate his hometown community center?,2022,John helped renovate his hometown community center last year.,42.459,4.098,1,1
+AMP-Padded2,conv-41,12,multi_hop,What causes does John feel passionate about supporting?,"Veterans, schools, infrastructure","John feels passionate about supporting education, infrastructure, his",42.459,6.197,1,1
+AMP-Padded2,conv-41,13,multi_hop,What area was hit by a flood?,West County,John's old area was hit by a nasty flood.,42.459,4.478,0,1
+AMP-Padded2,conv-41,14,multi_hop,What events is Maria planning for the homeless shelter funraiser?,"Chili cook-off, ring-toss tournament",Maria is planning a ring-toss tournament and a chili cook-off for the homeless shelter's fundraiser.,42.459,4.611,1,1
+AMP-Padded2,conv-41,15,multi_hop,What desserts has Maria made?,"Banana split sundae, Peach cobbler","Maria has made peach cobbler, cakes, and homemade desserts including a banana split sundae.",42.459,6.472,1,1
+AMP-Padded2,conv-41,16,multi_hop,What shelters does Maria volunteer at?,"The homeless shelter, the dog shelter",Maria volunteers at a homeless shelter.,42.459,5.414,1,1
+AMP-Padded2,conv-41,17,multi_hop,What music events has John attended?,"Live music event, violin concert",John has attended a violin concert and a live music event.,42.459,4.153,1,1
+AMP-Padded2,conv-41,18,multi_hop,What outdoor activities has John done with his colleagues?,"Hiking, mountaineering",I don't know.,42.459,5.139,1,1
+AMP-Padded2,conv-41,19,multi_hop,What writing classes has Maria taken?,"Poetry, creative writing",Maria has taken a creative writing class and a poetry class.,42.459,3.597,1,1
+AMP-Padded2,conv-41,20,multi_hop,What food item did Maria drop off at the homeless shelter?,Cakes,Maria dropped off some cakes she baked at the homeless shelter.,42.459,3.028,1,1
+AMP-Padded2,conv-41,21,multi_hop,What states has Maria vacationed at?,"Oregon, Florida",Maria has vacationed in Florida.,42.459,3.976,1,1
+AMP-Padded2,conv-41,22,multi_hop,What damages have happened to John's car?,"Broken windshield, Car broke down",John's car broke down.,42.459,4.492,1,1
+AMP-Padded2,conv-41,23,multi_hop,What European countries has Maria been to?,"Spain, England",Maria has been to Spain and England.,42.459,6.183,1,1
+AMP-Padded2,conv-41,24,open_domain,What job might Maria pursue in the future?,"Shelter coordinator, Counselor",I don't know.,42.459,5.031,1,1
+AMP-Padded2,conv-41,25,open_domain,Around which US holiday did Maria get into a car accident?,Independence Day,I don't know.,42.459,4.237,1,1
+AMP-Padded2,conv-41,26,open_domain,What might John's degree be in?,"Political science, Public administration, Public affairs",I don't know.,42.459,3.856,1,1
+AMP-Padded2,conv-41,27,open_domain,What attributes describe John?,"Selfless, family-oriented, passionate, rational","John is supportive, appreciative, reflective, and believes in",42.459,4.149,0,1
+AMP-Padded2,conv-41,28,open_domain,What might John's financial status be?,Middle-class or wealthy,John is experiencing financial strain due to car trouble and,42.459,4.835,0,1
+AMP-Padded2,conv-41,29,open_domain,Would John be considered a patriotic person?,Yes,"Yes, John would be considered a patriotic",42.459,5.037,1,1
+AMP-Padded2,conv-41,30,open_domain,Does John live close to a beach or the mountains?,beach,John sees sunsets from his walks at least once a week,42.459,6.901,0,1
+AMP-Padded2,conv-41,31,open_domain,Would John be open to moving to another country?,"No, he has goals specifically in the U.S. like joining the military and running for office.",I don't know.,42.459,5.495,0,1
+AMP-Padded2,conv-41,32,single_hop,"What exciting news did Maria share on 16 June, 2023?",joined a gym,I don't know.,42.459,3.233,1,1
+AMP-Padded2,conv-41,33,single_hop,What did Maria do to feel closer to a community and her faith?,joined a nearby church,Maria joined a nearby church to feel closer to a community and her faith.,42.459,3.761,1,1
+AMP-Padded2,conv-41,34,single_hop,What important values does John want to teach his kids through adopting a rescue dog?,Responsibility and compassion,John wants to teach his kids responsibility and compassion through adopting a rescue dog.,42.459,4.166,1,1
+AMP-Padded2,conv-41,35,single_hop,Why did John decide to run for office again?,saw the impact he could make in the community through politics,John decided to run for office again because,42.459,4.513,1,1
+AMP-Padded2,conv-41,36,single_hop,What areas is John particularly interested in for policymaking?,education and infrastructure,John is particularly interested in improving education and infrastructure for policymaking.,42.459,4.889,1,1
+AMP-Padded2,conv-41,37,single_hop,What happened to John's job in August 2023?,John lost his job at the mechanical engineering company.,I don't know.,42.459,5.005,0,1
+AMP-Padded2,conv-41,38,single_hop,What kind of online group did John join?,service-focused online group,John joined a service-focused online group.,42.459,4.615,1,1
+AMP-Padded2,conv-41,39,single_hop,"What did Maria participate in last weekend before April 10, 2023?",a 5K charity run,"Last weekend, Maria participated in a picnic",42.459,4.125,0,1
+AMP-Padded2,conv-41,40,single_hop,Which activity has John done apart from yoga at the studio?,weight training,John has done kickboxing and weight training,42.459,3.742,1,1
+AMP-Padded2,conv-41,41,single_hop,What did John host for the veterans in May 2023 as part of the project?,a small party to share their stories,I don't know.,42.459,3.926,0,1
+AMP-Padded2,conv-41,42,single_hop,What activities does John's family enjoy doing together?,"going for hikes, hanging out at the park, having picnics, playing board games, having movie nights","John's family enjoys swinging, walks",42.459,3.974,0,1
+AMP-Padded2,conv-41,43,single_hop,What is John's main focus in local politics?,Improving education and infrastructure,John's main focuses in local politics are improving education and infrastructure in his community.,42.459,3.08,1,1
+AMP-Padded2,conv-41,44,multi_hop,What are the names of John's children?,"Kyle, Sara",John's one-year-old child,42.459,4.893,0,1
+AMP-Padded2,conv-41,45,single_hop,What was the focus of John's recent research and writing on his blog?,education reform and infrastructure development,John's recent research and writing on his blog,42.459,3.983,0,1
+AMP-Padded2,conv-41,46,single_hop,"What did the donations help John's community acquire on 16 August, 2023?",a brand new fire truck,I don't know.,42.459,5.037,1,1
+AMP-Padded2,conv-41,47,multi_hop,Where has Maria made friends?,"homeless shelter, gym, church",Maria has made friends with a fellow volunteer and with her church friends.,42.459,3.28,1,1
+AMP-Padded2,conv-41,48,single_hop,What emotions did John feel during the small party with the veterans?,heartwarming,John felt it was awesome and heartwarming during the small party with the veterans.,42.459,3.17,1,1
+AMP-Padded2,conv-41,49,single_hop,What kind of activities did John and his mates from the online group do as part of their service efforts?,"gave out food and supplies at a homeless shelter, organized a toy drive for kids in need","John and his online group shared stories, advice",42.459,3.981,0,1
+Mem0,conv-26,0,temporal_reasoning,"When did Caroline meet up with her friends, family, and mentors?",The week before 9 June 2023,I don't know.,371.033,25.482,1,1
+Mem0,conv-26,1,temporal_reasoning,When did Caroline join a new activist group?,The Tuesday before 20 July 2023,I don't know.,371.033,4.26,1,1
+Mem0,conv-26,2,temporal_reasoning,When did Caroline go to the LGBTQ conference?,10 July 2023,I don't know.,371.033,23.126,1,1
+Mem0,conv-26,3,temporal_reasoning,When is Caroline going to the transgender conference?,July 2023,I don't know.,371.033,5.611,1,1
+Mem0,conv-26,4,temporal_reasoning,When did Caroline attend a pride parade in August?,The Friday before 14 August 2023,I don't know.,371.033,8.219,1,1
+Mem0,conv-26,5,temporal_reasoning,When did Caroline encounter people on a hike and have a negative experience?,The week before 25 August 2023,"[gemini error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Max retries exceeded with url: /v1beta/models/gemini-2.5-flash:generateContent (Caused by NewConnectionError(""HTTPSConnection(host='generativelanguage.googleapis.com', port=443): Failed to establish a new connection: [Errno 65] No route to host""))]",371.033,3953.837,0,1
+Mem0,conv-26,6,temporal_reasoning,When did Melanie make a plate in pottery class?,24 August 2023,I don't know.,371.033,5394.856,1,1
+Mem0,conv-26,7,temporal_reasoning,When did Caroline give a speech at a school?,The week before 9 June 2023,I don't know.,371.033,9824.314,1,1
+Mem0,conv-26,8,temporal_reasoning,When did Caroline apply to adoption agencies?,The week of 23 August 2023,I don't know.,371.033,3833.804,1,1
+Mem0,conv-26,9,temporal_reasoning,When is Caroline's youth center putting on a talent show?,September 2023,I don't know.,371.033,4936.56,1,1
+Mem0,conv-26,10,open_domain,Would Melanie go on another roadtrip soon?,Likely no; since this one went badly,I don't know.,371.033,3655.313,1,1
+Mem0,conv-26,11,open_domain,Would Caroline be considered religious?,"Somewhat, but not extremely religious","[gemini error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Max retries exceeded with url: /v1beta/models/gemini-2.5-flash:generateContent (Caused by NewConnectionError(""HTTPSConnection(host='generativelanguage.googleapis.com', port=443): Failed to establish a new connection: [Errno 65] No route to host""))]",371.033,1456.629,0,1
+Mem0,conv-26,12,open_domain,What would Caroline's political leaning likely be?,Liberal,I don't know.,371.033,47.25,1,1
+Mem0,conv-26,13,open_domain,Would Melanie be considered a member of the LGBTQ community?,"Likely no, she does not refer to herself as part of it",I don't know.,371.033,8441.868,1,1
+Mem0,conv-26,14,open_domain,What personality traits might Melanie say Caroline has?,"Thoughtful, authentic, driven","[gemini error: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Max retries exceeded with url: /v1beta/models/gemini-2.5-flash:generateContent (Caused by NewConnectionError(""HTTPSConnection(host='generativelanguage.googleapis.com', port=443): Failed to establish a new connection: [Errno 65] No route to host""))]",371.033,66.21,0,1
+Mem0,conv-26,15,open_domain,Would Caroline want to move back to her home country soon?,No; she's in the process of adopting children.,I don't know.,371.033,62.207,1,1
+Mem0,conv-26,16,open_domain,What fields would Caroline be likely to pursue in her educaton?,"Psychology, counseling certification",Caroline would be likely to pursue counseling or work in mental,371.033,27.951,1,1
+Mem0,conv-26,17,open_domain,Would Melanie be considered an ally to the transgender community?,"Yes, she is supportive",I don't know.,371.033,37.464,0,1
+Mem0,conv-26,18,open_domain,"Would Melanie likely enjoy the song ""The Four Seasons"" by Vivaldi?",Yes; it's classical music,I don't know.,371.033,44.634,0,1
+Mem0,conv-26,19,open_domain,Would Caroline still want to pursue counseling as a career if she hadn't received support growing up?,Likely no,I don't know.,371.033,20.59,1,1
+Mem0,conv-26,20,multi_hop,What LGBTQ+ events has Caroline participated in?,"Pride parade, school speech, support group",I don't know.,371.033,11.907,0,1
+Mem0,conv-26,21,multi_hop,Where did Caroline move from 4 years ago?,Sweden,I don't know.,371.033,25.961,1,1
+Mem0,conv-26,22,multi_hop,What instruments does Melanie play?,clarinet and violin,I don't know.,371.033,8.044,1,1
+Mem0,conv-26,23,multi_hop,What did Caroline research?,Adoption agencies,I don't know.,371.033,11.462,1,1
+Mem0,conv-26,24,multi_hop,When did Melanie go on a hike after the roadtrip?,19 October 2023,I don't know.,371.033,29.098,1,1
+Mem0,conv-26,25,multi_hop,In what ways is Caroline participating in the LGBTQ community?,"Joining activist group, going to pride parades, participating in an art show, mentoring program",Caroline is participating in the LGBTQ community by attending,371.033,24.822,0,1
+Mem0,conv-26,26,multi_hop,What books has Melanie read?,"""Nothing is Impossible"", ""Charlotte's Web""",I don't know.,371.033,8.255,1,1
+Mem0,conv-26,27,multi_hop,What transgender-specific events has Caroline attended?,"Poetry reading, conference",I don't know.,371.033,20.728,1,1
+Mem0,conv-26,28,multi_hop,What kind of art does Caroline make?,abstract art,I don't know.,371.033,27.488,1,1
+Mem0,conv-26,29,multi_hop,What activities does Melanie partake in?,"pottery, camping, painting, swimming",I don't know.,371.033,21.034,1,1
+Mem0,conv-26,30,single_hop,What book did Caroline recommend to Melanie?,"""Becoming Nicole""",I don't know.,371.033,14.46,0,1
+Mem0,conv-26,31,single_hop,What kind of place does Caroline want to create for people?,a safe and inviting place for people to grow,Caroline wants to create a place where people with,371.033,22.42,0,1
+Mem0,conv-26,32,single_hop,What country is Caroline's grandma from?,Sweden,I don't know.,371.033,11.247,1,1
+Mem0,conv-26,33,single_hop,"What kind of painting did Caroline share with Melanie on October 13, 2023?",An abstract painting with blue streaks on a wall.,I don't know.,371.033,21.1,1,1
+Mem0,conv-26,34,single_hop,How long has Melanie been creating art?,7 years,I don't know.,371.033,8.38,1,1
+Mem0,conv-26,35,single_hop,Did Melanie make the black and white bowl in the photo?,Yes,I don't know.,371.033,16.41,0,1
+Mem0,conv-26,36,single_hop,What is Caroline excited about in the adoption process?,creating a family for kids who need one,I don't know.,371.033,20.984,0,1
+Mem0,conv-26,37,single_hop,What did Mel and her kids paint in their latest project in July 2023?,a sunset with a palm tree,I don't know.,371.033,14.763,1,1
+Mem0,conv-26,38,single_hop,"What did Caroline take away from the book ""Becoming Nicole""?",Lessons on self-acceptance and finding support,I don't know.,371.033,10.963,1,1
+Mem0,conv-26,39,single_hop,What did the charity race raise awareness for?,mental health,I don't know.,371.033,10.678,1,1
+Mem0,conv-26,40,adversarial,Is Oscar Melanie's pet?,No,I don't know.,371.033,7.675,1,1
+Mem0,conv-26,41,adversarial,Did Caroline make the black and white bowl in the photo?,No,I don't know.,371.033,5.756,1,1
+Mem0,conv-26,42,single_hop,What did Melanie and her family see during their camping trip last year?,Perseid meteor shower,I don't know.,371.033,12.096,1,1
+Mem0,conv-26,43,single_hop,Where did Oliver hide his bone once?,In Melanie's slipper,I don't know.,371.033,25.045,1,1
+Mem0,conv-26,44,single_hop,Why did Melanie choose to use colors and patterns in her pottery project?,She wanted to catch the eye and make people smile.,I don't know.,371.033,11.799,0,0
+Mem0,conv-26,45,temporal_reasoning,How long has Caroline had her current group of friends for?,4 years,I don't know.,371.033,16.698,1,1
+Mem0,conv-26,46,single_hop,Whose birthday did Melanie celebrate recently?,Melanie's daughter,I don't know.,371.033,9.79,1,1
+Mem0,conv-26,47,multi_hop,What are Melanie's pets' names?,"Oliver, Luna, Bailey",I don't know.,371.033,9.553,0,1
+Mem0,conv-26,48,temporal_reasoning,When did Caroline join a mentorship program?,The weekend before 17 July 2023,I don't know.,371.033,11.734,1,1
+Mem0,conv-26,49,single_hop,How did Melanie feel about her family after the accident?,They are important and mean the world to her,I don't know.,371.033,41.748,0,1
+Mem0,conv-30,0,temporal_reasoning,When did Jon receive mentorship to promote his venture?,"15 June, 2023",I don't know.,217.322,1.818,0,0
+Mem0,conv-30,1,temporal_reasoning,When did Gina interview for a design internship?,"10 May, 2023",I don't know.,217.322,2.021,0,0
+Mem0,conv-30,2,temporal_reasoning,When did Jon start expanding his studio's social media presence?,"April, 2023",I don't know.,217.322,1.85,0,0
+Mem0,conv-30,3,temporal_reasoning,When did Gina go to a dance class with a group of friends?,21 July 2023,I don't know.,217.322,1.967,0,0
+Mem0,conv-30,4,temporal_reasoning,When did Gina design a limited collection of hoodies?,June 2023,I don't know.,217.322,1.861,0,0
+Mem0,conv-30,5,temporal_reasoning,When did Gina get her tattoo?,A few years ago,I don't know.,217.322,1.804,0,0
+Mem0,conv-30,6,temporal_reasoning,When did Gina team up with a local artist for some cool designs?,"February, 2023",I don't know.,217.322,2.048,0,0
+Mem0,conv-30,7,temporal_reasoning,When did Jon host a dance competition?,"May, 2023",I don't know.,217.322,2.006,0,0
+Mem0,conv-30,8,temporal_reasoning,When did Gina develop a video presentation to teach how to style her fashion pieces? ,"June, 2023",I don't know.,217.322,2.005,0,0
+Mem0,conv-30,9,temporal_reasoning,When did Jon start learning marketing and analytics tools?,"July, 2023",I don't know.,217.322,2.035,0,0
+Mem0,conv-30,10,temporal_reasoning,When did Jon go to a fair to get more exposure for his dance studio?,"24 April, 2023",I don't know.,217.322,2.05,0,0
+Mem0,conv-30,11,temporal_reasoning,When Jon is planning to open his dance studio?,"20 June, 2023",I don't know.,217.322,1.729,0,0
+Mem0,conv-30,12,temporal_reasoning,When Gina has lost her job at Door Dash?,"January, 2023",Gina lost her job at Door Dash this month.,217.322,26.492,1,1
+Mem0,conv-30,13,temporal_reasoning,"When did Jon start reading ""The Lean Startup""?","May, 2023",I don't know.,217.322,7.949,0,0
+Mem0,conv-30,14,temporal_reasoning,When did Jon and Gina decide to collaborate to create dance content?,21 July 2023,I don't know.,217.322,8.641,0,0
+Mem0,conv-30,15,temporal_reasoning,When did Gina get accepted for the design internship?,"27 May, 2023",I don't know.,217.322,5.5,0,0
+Mem0,conv-30,16,single_hop,How does Gina stay confident in her business?,"By reminding herself of her successes and progress, having a support system, and focusing on why she started",I don't know.,217.322,12.271,0,0
+Mem0,conv-30,17,single_hop,What does Gina's tattoo symbolize?,Freedom and expressing herself through dance,I don't know.,217.322,12.314,0,0
+Mem0,conv-30,18,single_hop,What did Jon take a trip to Rome for?,To clear his mind,I don't know.,217.322,8.108,0,0
+Mem0,conv-30,19,single_hop,Why did Gina combine her clothing business with dance?,she is passionate about dance and fashion,I don't know.,217.322,7.096,0,0
+Mem0,conv-30,20,single_hop,What did Gina make a limited edition line of?,Hoodies,I don't know.,217.322,3.217,0,0
+Mem0,conv-30,21,single_hop,What does Gina say about the dancers in the photo?,They look graceful,I don't know.,217.322,2.391,0,0
+Mem0,conv-30,22,single_hop,What is Jon working on opening?,a dance studio,I don't know.,217.322,2.498,0,0
+Mem0,conv-30,23,single_hop,"What kind of professional experience did Gina get accepted for on May 23, 2023?",fashion internship,I don't know.,217.322,3.008,0,0
+Mem0,conv-30,24,single_hop,What was Gina's favorite dancing memory?,Winning first place at a regionals dance competition,I don't know.,217.322,3.2,0,0
+Mem0,conv-30,25,single_hop,How does Jon feel about the opening night of his dance studio?,excited,I don't know.,217.322,2.949,0,0
+Mem0,conv-30,26,single_hop,"According to Gina, what makes Jon a perfect mentor and guide?",His positivity and determination,I don't know.,217.322,2.578,0,0
+Mem0,conv-30,27,single_hop,What does Jon tell Gina he won't do?,quit,I don't know.,217.322,2.349,0,0
+Mem0,conv-30,28,single_hop,What did Jon say about creating a special experience for customers?,It's the key to making them feel welcome and coming back,I don't know.,217.322,2.443,0,0
+Mem0,conv-30,29,single_hop,What advice does Gina give to Jon about running a successful business?,"build relationships with customers, create a strong brand image, stay positive",I don't know.,217.322,2.398,0,0
+Mem0,conv-30,30,single_hop,What did Gina say about creating an experience for her customers?,making them want to come back,I don't know.,217.322,2.308,0,0
+Mem0,conv-30,31,single_hop,What book is Jon currently reading?,The Lean Startup,I don't know.,217.322,3.148,0,0
+Mem0,conv-30,32,multi_hop,What does Jon's dance studio offer?,"one-on-one metoring and training to dancers,  workshops and classes to local schools and centers",I don't know.,217.322,2.448,0,0
+Mem0,conv-30,33,multi_hop,Why did Gina decide to start her own clothing store?,She always loved fashion trends and finding unique pieces and she lost her job so decided it was time to start her own business.,I don't know.,217.322,3.122,0,0
+Mem0,conv-30,34,multi_hop,Do Jon and Gina start businesses out of what they love?,Yes,I don't know.,217.322,4.798,0,0
+Mem0,conv-30,35,multi_hop,What do Jon and Gina both have in common?,They lost their jobs and decided to start their own businesses.,I don't know.,217.322,3.026,0,0
+Mem0,conv-30,36,multi_hop,Which events has Jon participated in to promote his business venture?,"fair, networking events, dance competition",I don't know.,217.322,2.469,0,0
+Mem0,conv-30,37,multi_hop,What Jon thinks the ideal dance studio should look like?,"By the water, with natural light and Marley flooring",I don't know.,217.322,4.057,0,0
+Mem0,conv-30,38,multi_hop,Did Jon and Gina both participate in dance competitions?,Yes,I don't know.,217.322,4.384,0,0
+Mem0,conv-30,39,multi_hop,Which cities has Jon visited?,"Paris, Rome",I don't know.,217.322,3.388,0,0
+Mem0,conv-30,40,multi_hop,Which city have both Jean and John visited?,Rome,I don't know.,217.322,4.618,0,0
+Mem0,conv-30,41,multi_hop,How did Gina promote her clothes store?,"worked with an artist to make unique fashion pieces, made limited-edition sweatshirts, got some new offers and promotions for online store, developed a video presentation showing how to style her pieces",Gina launched an ad campaign for her clothing,217.322,5.389,0,1
+Mem0,conv-30,42,multi_hop,How long did it take for Jon to open his studio?,six months,I don't know.,217.322,3.539,0,0
+Mem0,conv-30,43,temporal_reasoning,When did Jon visit networking events for his store?,"20 June, 2023",I don't know.,217.322,2.74,0,0
+Mem0,conv-30,44,temporal_reasoning,When is Jon's group performing at a festival?,"February, 2023",I don't know.,217.322,2.538,0,0
+Mem0,conv-30,45,single_hop,What did Gina design for her store?,"the space, furniture, and decor",I don't know.,217.322,2.85,0,0
+Mem0,conv-30,46,single_hop,What plans does Jon have after receiving advice at the networking event?,"Sprucing up his business plan, tweaking his pitch to investors, and working on an online platform.",I don't know.,217.322,2.958,0,0
+Mem0,conv-30,47,single_hop,What did Jon and Gina compare their entrepreneurial journeys to?,dancing together and supporting each other,I don't know.,217.322,4.855,0,0
+Mem0,conv-30,48,single_hop,What kind of flooring is Jon looking for in his dance studio?,Marley flooring,I don't know.,217.322,7.135,0,0
+Mem0,conv-30,49,temporal_reasoning,When did Jon start to go to the gym?,"March, 2023",I don't know.,217.322,4.472,0,0
+Mem0,conv-41,0,temporal_reasoning,When did John have his first firefighter call-out?,The sunday before 3` July 2023,I don't know.,440.369,1.975,0,0
+Mem0,conv-41,1,temporal_reasoning,When did Maria join a gym?,The week before 16 June 2023,I don't know.,440.369,2.067,0,0
+Mem0,conv-41,2,temporal_reasoning,When did John start boot camp with his family?,April.2023,I don't know.,440.369,1.857,0,0
+Mem0,conv-41,3,temporal_reasoning,What did John attend with his colleagues in March 2023?,a tech-for-good convention,I don't know.,440.369,1.87,0,0
+Mem0,conv-41,4,temporal_reasoning,When did Maria take up community work with her church friends?,"August 4, 2023",I don't know.,440.369,1.981,0,0
+Mem0,conv-41,5,temporal_reasoning,When did John get his degree?,The week before 2 April 2023,I don't know.,440.369,1.947,0,0
+Mem0,conv-41,6,temporal_reasoning,When did Maria's grandmother pass away?,The week before 6 March 2023,I don't know.,440.369,1.808,0,0
+Mem0,conv-41,7,temporal_reasoning,When did John have a party with veterans?,The Friday before 20 May 2023,I don't know.,440.369,1.789,0,0
+Mem0,conv-41,8,temporal_reasoning,When did Maria go hiking with her church friends?,The weekend before 22 July 2023,I don't know.,440.369,2.003,0,0
+Mem0,conv-41,9,temporal_reasoning,When did Maria get Coco?,Two weeks before 11 August 2023,Maria got Coco two weeks ago.,440.369,36.176,1,1
+Mem0,conv-41,10,temporal_reasoning,When did John get his dog Max?,In 2013,I don't know.,440.369,3.356,0,0
+Mem0,conv-41,11,temporal_reasoning,When did John help renovate his hometown community center?,2022,I don't know.,440.369,2.822,0,0
+Mem0,conv-41,12,multi_hop,What causes does John feel passionate about supporting?,"Veterans, schools, infrastructure",I don't know.,440.369,2.45,0,0
+Mem0,conv-41,13,multi_hop,What area was hit by a flood?,West County,The old area was hit by a nasty flood last week.,440.369,13.062,1,1
+Mem0,conv-41,14,multi_hop,What events is Maria planning for the homeless shelter funraiser?,"Chili cook-off, ring-toss tournament",I don't know.,440.369,19.126,0,0
+Mem0,conv-41,15,multi_hop,What desserts has Maria made?,"Banana split sundae, Peach cobbler",I don't know.,440.369,6.312,0,0
+Mem0,conv-41,16,multi_hop,What shelters does Maria volunteer at?,"The homeless shelter, the dog shelter",Maria volunteers at a homeless shelter.,440.369,26.175,1,1
+Mem0,conv-41,17,multi_hop,What music events has John attended?,"Live music event, violin concert",I don't know.,440.369,3.982,0,0
+Mem0,conv-41,18,multi_hop,What outdoor activities has John done with his colleagues?,"Hiking, mountaineering",I don't know.,440.369,2.467,0,0
+Mem0,conv-41,19,multi_hop,What writing classes has Maria taken?,"Poetry, creative writing",I don't know.,440.369,3.767,0,0
+Mem0,conv-41,20,multi_hop,What food item did Maria drop off at the homeless shelter?,Cakes,I don't know.,440.369,4.216,0,0
+Mem0,conv-41,21,multi_hop,What states has Maria vacationed at?,"Oregon, Florida",I don't know.,440.369,5.546,0,0
+Mem0,conv-41,22,multi_hop,What damages have happened to John's car?,"Broken windshield, Car broke down",I don't know.,440.369,5.303,0,0
+Mem0,conv-41,23,multi_hop,What European countries has Maria been to?,"Spain, England",I don't know.,440.369,7.462,0,0
+Mem0,conv-41,24,open_domain,What job might Maria pursue in the future?,"Shelter coordinator, Counselor",I don't know.,440.369,3.089,0,0
+Mem0,conv-41,25,open_domain,Around which US holiday did Maria get into a car accident?,Independence Day,I don't know.,440.369,2.898,0,0
+Mem0,conv-41,26,open_domain,What might John's degree be in?,"Political science, Public administration, Public affairs",I don't know.,440.369,4.463,0,0
+Mem0,conv-41,27,open_domain,What attributes describe John?,"Selfless, family-oriented, passionate, rational",I don't know.,440.369,4.418,0,0
+Mem0,conv-41,28,open_domain,What might John's financial status be?,Middle-class or wealthy,Car trouble is causing financial strain.,440.369,11.943,0,1
+Mem0,conv-41,29,open_domain,Would John be considered a patriotic person?,Yes,I don't know.,440.369,2.991,0,0
+Mem0,conv-41,30,open_domain,Does John live close to a beach or the mountains?,beach,I don't know.,440.369,2.57,0,0
+Mem0,conv-41,31,open_domain,Would John be open to moving to another country?,"No, he has goals specifically in the U.S. like joining the military and running for office.",I don't know.,440.369,2.392,0,0
+Mem0,conv-41,32,single_hop,"What exciting news did Maria share on 16 June, 2023?",joined a gym,I don't know.,440.369,2.434,0,0
+Mem0,conv-41,33,single_hop,What did Maria do to feel closer to a community and her faith?,joined a nearby church,I don't know.,440.369,3.718,0,0
+Mem0,conv-41,34,single_hop,What important values does John want to teach his kids through adopting a rescue dog?,Responsibility and compassion,I don't know.,440.369,2.519,0,0
+Mem0,conv-41,35,single_hop,Why did John decide to run for office again?,saw the impact he could make in the community through politics,I don't know.,440.369,2.128,0,0
+Mem0,conv-41,36,single_hop,What areas is John particularly interested in for policymaking?,education and infrastructure,I don't know.,440.369,1.66,0,0
+Mem0,conv-41,37,single_hop,What happened to John's job in August 2023?,John lost his job at the mechanical engineering company.,I don't know.,440.369,2.161,0,0
+Mem0,conv-41,38,single_hop,What kind of online group did John join?,service-focused online group,I don't know.,440.369,2.267,0,0
+Mem0,conv-41,39,single_hop,"What did Maria participate in last weekend before April 10, 2023?",a 5K charity run,I don't know.,440.369,3.51,0,0
+Mem0,conv-41,40,single_hop,Which activity has John done apart from yoga at the studio?,weight training,I don't know.,440.369,3.024,0,0
+Mem0,conv-41,41,single_hop,What did John host for the veterans in May 2023 as part of the project?,a small party to share their stories,I don't know.,440.369,2.017,0,0
+Mem0,conv-41,42,single_hop,What activities does John's family enjoy doing together?,"going for hikes, hanging out at the park, having picnics, playing board games, having movie nights",I don't know.,440.369,2.39,0,0
+Mem0,conv-41,43,single_hop,What is John's main focus in local politics?,Improving education and infrastructure,I don't know.,440.369,3.127,0,0
+Mem0,conv-41,44,multi_hop,What are the names of John's children?,"Kyle, Sara",I don't know.,440.369,3.719,0,0
+Mem0,conv-41,45,single_hop,What was the focus of John's recent research and writing on his blog?,education reform and infrastructure development,I don't know.,440.369,6.787,0,0
+Mem0,conv-41,46,single_hop,"What did the donations help John's community acquire on 16 August, 2023?",a brand new fire truck,I don't know.,440.369,4.188,0,0
+Mem0,conv-41,47,multi_hop,Where has Maria made friends?,"homeless shelter, gym, church",I don't know.,440.369,10.289,0,0
+Mem0,conv-41,48,single_hop,What emotions did John feel during the small party with the veterans?,heartwarming,I don't know.,440.369,2.104,0,0
+Mem0,conv-41,49,single_hop,What kind of activities did John and his mates from the online group do as part of their service efforts?,"gave out food and supplies at a homeless shelter, organized a toy drive for kids in need",I don't know.,440.369,2.16,0,0

@@ -31,5 +31,32 @@ build-backend = "hatchling.build"
 [project.scripts]
 amp = "amp.cli:main"
 
+[tool.hatch.build]
+# Research material and build output are not part of the installable package and
+# must not be republished to PyPI. The paper, its data and any working drafts
+# live in the git repository only.
+exclude = [
+    "/paper",
+    "/benchmarks",
+    "/docs",
+    "/dist",
+]
+
+# The sdist is defined by an explicit allowlist rather than by exclusions alone:
+# hatchling merges the exclude list above with the repository's .gitignore rules,
+# and a `!` negation there (benchmarks/results/locomo_local/*.csv, which is
+# deliberately tracked for the paper) would otherwise win and pull those files
+# back into the distribution.
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/examples",
+    "/assets",
+    "/README.md",
+    "/CHANGELOG.md",
+    "/CONTRIBUTING.md",
+    "/LICENSE",
+]
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/amp"]

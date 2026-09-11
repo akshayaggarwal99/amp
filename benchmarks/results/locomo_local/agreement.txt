@@ -1,0 +1,11 @@
+# Inter-judge agreement, qwen3:8b vs deepseek-r1:8b, LoCoMo, four paper systems (600 rows).
+# Regenerate: python3 benchmarks/analysis/recompute_kappa.py
+# Read the split, not the headline. The refusal rule writes WRONG into both judge
+# columns on 139 rows (T); on those rows the judges agree by construction.
+sample            n    raw_agreement  cohen_kappa
+all_pre_rule      600  0.838          0.0556
+all_post_rule     600  0.878          0.7140
+written_rows_T    139  0.827          0.0297   (pre-rule; post-rule both raters constant, kappa undefined)
+untouched_rows_U  461  0.842          0.0642   (identical before and after the rule)
+marginal_pct_CORRECT_pre  qwen3_8b 83.7  deepseek_r1_8b 98.8
+constant_rater_control    replacing deepseek with always-CORRECT: raw 0.8383 -> 0.8367
